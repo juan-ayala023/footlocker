@@ -123,6 +123,83 @@ const COVERS = {
   "jordan retro 11": 4,
 };
 
+// Portada con el tenis de perfil (vista lateral, punta a la derecha cuando hay foto así), elegida revisando las fotos.
+// Número de foto (desde 1) dentro del orden de arriba; se pasa al primer lugar. Clave = id del producto.
+const PROFILE_COVERS = {
+  "adidas-grand-court-base-00s": 6,
+  "adidas-samba-og": 4,
+  "boss-ttnm-evo": 3,
+  "jordan-air-cadence-blanco-gris": 2,
+  "jordan-air-cadence-negro": 3,
+  "jordan-air-jordan-1-retro-low": 2,
+  "jordan-air-jordan-1-retro-low-paris": 2,
+  "jordan-air-jordan-1-retro-space-jam": 3,
+  "jordan-air-jordan-11-retro-bred": 4,
+  "jordan-air-jordan-11-retro-cool-grey": 2,
+  "jordan-air-jordan-11-retro-low-negro-rojo": 5,
+  "jordan-air-jordan-3-retro-cobalt-bliss": 3,
+  "jordan-air-jordan-3-retro-sail-and-jade-aura": 3,
+  "new-balance-9060-beige-rosa": 2,
+  "new-balance-9060-blanco-gris": 3,
+  "new-balance-9060-negro": 3,
+  "nike-air-force-1-07-blanco-rosa": 2,
+  "nike-air-max-90-blanco-rojo": 3,
+  "nike-air-max-90-negro": 4,
+  "nike-air-max-dn-rojo": 2,
+  "nike-air-max-plus-blanco-naranja": 2,
+  "nike-air-max-plus-blanco-negro": 2,
+  "nike-air-max-plus-negro-naranja": 3,
+  "nike-air-max-portal": 4,
+  "nike-air-max-tn-blanco": 2,
+  "nike-air-max-tn-negro": 2,
+  "nike-cortez-blanco-negro": 5,
+  "nike-mind-001-azul": 3,
+  "nike-sb-dunk-low-x-otomo-katsuhiro": 4,
+  "nike-shox-ride-2-crema-negro": 3,
+  "nike-shox-ride-2-gris": 4,
+  "nike-shox-ride-2-negro": 4,
+  "on-cloud-6-negro": 3,
+  "on-cloudboom-volt-rosa": 2,
+  "on-cloudnova": 3,
+  "on-cloudsurfer-2": 2,
+  "puma-club-ii-era": 2,
+  "puma-indoor-og": 3,
+  "puma-suede-blanco": 5,
+  "puma-suede-crema-negro": 4,
+  "puma-suede-negro": 4,
+  "timberland-bota": 3,
+};
+
+// Portadas que solo existen con la punta a la izquierda: se voltean en espejo para que todas miren a la derecha.
+// Se omiten los modelos con letras grandes de la marca (se leerían al revés). Solo afecta la portada.
+const MIRROR_COVERS = new Set([
+  "adidas-samba-og",
+  "jordan-air-jordan-1-retro-high-og-chicago",
+  "jordan-air-jordan-1-retro-low",
+  "jordan-air-jordan-11-retro-bred",
+  "jordan-air-jordan-4-retro",
+  "new-balance-9060-cafe",
+  "new-balance-9060-gris",
+  "new-balance-9060-negro",
+  "nike-air-max-90-blanco-rojo",
+  "nike-air-max-95-big-bubble-verde",
+  "nike-air-max-plus-blanco-naranja",
+  "nike-air-max-plus-negro-naranja",
+  "nike-air-max-tn-blanco",
+  "nike-nocta-hot-step-2-blanco",
+  "nike-nocta-hot-step-2-negro",
+  "nike-sb-dunk-low-x-otomo-katsuhiro",
+  "nike-shox-r4-blanco",
+  "nike-shox-ride-2-gris",
+  "nike-shox-ride-2-negro",
+  "on-cloud-6-negro",
+  "puma-suede-blanco",
+  "puma-suede-crema-negro",
+  "puma-suede-negro",
+  "puma-suede-xl-negro",
+  "puma-suede-xl-negro-blanco",
+]);
+
 // Carpetas que mezclan colores → un producto por color. `files` son índices de foto dentro de la carpeta
 // (desde 0, sin repetidas); el primero es la portada. Clasificado revisando las fotos una por una.
 const SPLITS = {
@@ -343,7 +420,9 @@ async function prepare(source) {
 
     for (const variant of variants) {
       const id = slugify(`${brand} ${variant.name}`);
-      const ordered = variant.files.slice(0, MAX_PHOTOS);
+      const base = variant.files.slice(0, MAX_PHOTOS);
+      const cover = (PROFILE_COVERS[id] ?? 1) - 1;
+      const ordered = [base[cover] ?? base[0], ...base.filter((_, i) => i !== (base[cover] ? cover : 0))];
       const crop = CROP_SIDES[m.key] ?? 0;
 
       const outDir = path.join(IMG_DIR, id);
@@ -351,6 +430,7 @@ async function prepare(source) {
       await Promise.all(
         ordered.map(async (file, i) => {
           let img = sharp(file).rotate();
+          if (i === 0 && MIRROR_COVERS.has(id)) img = img.flop();
           if (crop) {
             const { width = 0, height = 0 } = await sharp(file).rotate().metadata();
             const dx = Math.round(width * crop);
