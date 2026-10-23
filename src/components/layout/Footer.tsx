@@ -1,6 +1,7 @@
 import { TransitionLink as Link } from "@/components/motion/TransitionLink";
 import { Logo, Wordmark } from "@/components/brand/Logo";
 import { MountainRange } from "@/components/brand/MountainRange";
+import { FooterGroup } from "@/components/layout/FooterGroup";
 import { NewsletterForm } from "@/components/layout/NewsletterForm";
 import { footerNav, site } from "@/config/site";
 
@@ -16,39 +17,23 @@ export function Footer() {
           <NewsletterForm />
         </div>
 
-        {footerNav.map((group) => (
-          <div key={group.title} className="md:col-span-2 md:col-start-auto">
-            <p className="eyebrow mb-6 text-stone">{group.title}</p>
-            <ul className="space-y-3">
-              {group.links.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-mist transition-colors duration-500 hover:text-sand"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-
-        <div className="md:col-span-3">
-          <p className="eyebrow mb-6 text-stone">Síguenos</p>
-          <ul className="space-y-3">
-            <li>
-              <a href={site.social.instagram} target="_blank" rel="noreferrer" className="text-sm text-mist transition-colors duration-500 hover:text-sand">
-                Instagram
-              </a>
-            </li>
-            <li>
-              <a href={site.social.tiktok} target="_blank" rel="noreferrer" className="text-sm text-mist transition-colors duration-500 hover:text-sand">
-                TikTok
-              </a>
-            </li>
-          </ul>
+        <div className="-mt-6 grid md:col-span-7 md:mt-0 md:grid-cols-3 md:gap-8">
+          {footerNav.map((group) => (
+            <FooterGroup key={group.title} title={group.title} links={group.links} />
+          ))}
         </div>
+      </div>
+
+      <div className="container-page flex flex-wrap items-center gap-x-6 gap-y-2 pb-12 text-sm text-stone">
+        <a href={site.social.instagram} target="_blank" rel="noreferrer" className="hover:text-bone">
+          Instagram @{site.instagramHandle}
+        </a>
+        <a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noreferrer" className="hover:text-bone">
+          WhatsApp
+        </a>
+        <Link href="/ayuda#contacto" className="hover:text-bone">
+          Contáctanos
+        </Link>
       </div>
 
       {/* Cierre editorial: logo enorme sobre la cordillera */}

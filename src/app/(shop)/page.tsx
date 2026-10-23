@@ -1,9 +1,10 @@
-import { BrandMarquee } from "@/components/home/BrandMarquee";
-import { Collections } from "@/components/home/Collections";
+import { CommunityGallery } from "@/components/community/CommunityGallery";
 import { Drop } from "@/components/home/Drop";
 import { Hero } from "@/components/home/Hero";
-import { Story } from "@/components/home/Story";
+import { SportStack } from "@/components/home/SportStack";
+import { drop } from "@/data/home";
 import { getCatalog } from "@/lib/catalog";
+import { getCommunityPhotos } from "@/lib/community";
 import { baseOpenGraph } from "@/lib/seo";
 
 export const revalidate = 60;
@@ -11,19 +12,14 @@ export const revalidate = 60;
 export const metadata = { alternates: { canonical: "/" }, openGraph: { ...baseOpenGraph, url: "/" } };
 
 export default async function HomePage() {
-  const { products, collections } = await getCatalog();
-  const withCount = collections.map((c) => ({
-    ...c,
-    count: products.filter((p) => p.collection?.slug === c.slug).length,
-  }));
+  const [{ products }, community] = await Promise.all([getCatalog(), getCommunityPhotos()]);
 
   return (
     <>
       <Hero />
-      <BrandMarquee />
-      <Collections collections={withCount} />
-      <Drop />
-      <Story />
+      <SportStack />
+      <Drop product={products.find((p) => p.slug === drop.slug)} />
+      <CommunityGallery photos={community} />
     </>
   );
 }

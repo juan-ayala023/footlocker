@@ -138,7 +138,7 @@ function ZoomSlide({
         priority={priority}
         fetchPriority={priority ? "high" : undefined}
         sizes="(min-width: 1024px) 55vw, 100vw"
-        className="object-cover transition-transform duration-500 ease-out-soft"
+        className="object-contain transition-transform duration-500 ease-out-soft"
         style={{ transform: origin ? "scale(1.9)" : "scale(1)", transformOrigin: origin ?? "50% 50%" }}
       />
     </button>

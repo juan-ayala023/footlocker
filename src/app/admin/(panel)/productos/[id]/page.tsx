@@ -14,7 +14,7 @@ export default async function EditProductPage({ params }: { params: Promise<{ id
   const [{ data: product }, { data: collections }, { data: brandRows }] = await Promise.all([
     supabase
       .from("products")
-      .select("id, slug, name, brand, description, price, compare_at_price, gender, collection_id, images, featured, active, variants:product_variants ( id, size, stock, sku )")
+      .select("id, slug, name, brand, description, price, compare_at_price, gender, collection_id, images, featured, best_seller, active, variants:product_variants ( id, size, stock, sku )")
       .eq("id", id)
       .maybeSingle(),
     supabase.from("collections").select("id, name").order("sort_order"),

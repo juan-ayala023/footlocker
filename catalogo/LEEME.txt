@@ -1,0 +1,31 @@
+CÓMO LLENAR catalogo.csv (ábrelo con Excel)
+============================================
+
+Cada fila es un modelo. Las fotos ya están cargadas (columna "fotos" = cuántas).
+Solo los modelos CON PRECIO se publican en la tienda.
+
+Columnas que debes llenar:
+  precio         Precio de venta en pesos. Ej: 549900  (también vale $549.900)
+  t36 … t44      Stock por talla europea (EU). Ej: t40 = 3 significa 3 pares en talla 40.
+                 Ya vienen prellenadas con 5 en el rango de cada modelo
+                 (mujer 36–39, hombre 40–44, unisex 36–44): cámbialas por el stock real.
+                 Deja VACÍA la talla que el modelo no maneja; pon 0 si la maneja pero está agotada.
+
+Columnas opcionales:
+  precio_antes   Precio anterior (para mostrar descuento). Debe ser mayor que "precio".
+  mas_vendido    Escribe "si" para mostrar la etiqueta naranja "Más vendido".
+  destacado      Escribe "si" para que salga primero en el catálogo.
+  descripcion    Texto que aparece en la página del producto.
+
+Columnas que ya vienen llenas (puedes corregirlas):
+  nombre, marca, genero (hombre / mujer / unisex), coleccion (street, clasicos, running, retro, futbol, basket)
+
+NO cambies la columna "id" ni "carpeta".
+
+Al guardar en Excel elige "CSV UTF-8 (delimitado por comas)" o "CSV (delimitado por punto y coma)".
+Luego, en la carpeta del proyecto:
+  npm run catalog:build      → publica los modelos con precio
+  npm run db:seed:generate   → actualiza supabase/seed.sql
+
+Si agregas fotos o modelos nuevos a las carpetas de Descargas:
+  npm run catalog:prepare    → vuelve a procesar fotos (conserva lo que ya llenaste)

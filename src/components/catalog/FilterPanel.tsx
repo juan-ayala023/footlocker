@@ -17,6 +17,16 @@ const toggle = <T,>(list: T[], value: T) => (list.includes(value) ? list.filter(
 export function FilterPanel({ filters, facets, collections, onChange }: Props) {
   return (
     <div className="divide-y divide-line">
+      <Group title="Ofertas">
+        <Pill
+          active={filters.oferta}
+          disabled={!facets.onSale && !filters.oferta}
+          onClick={() => onChange({ oferta: !filters.oferta })}
+        >
+          Solo en oferta{facets.onSale > 0 && !filters.oferta ? ` (${facets.onSale})` : ""}
+        </Pill>
+      </Group>
+
       <Group title="Colección">
         <div className="flex flex-wrap gap-2">
           {collections.map((c) => (
@@ -87,7 +97,7 @@ export function FilterPanel({ filters, facets, collections, onChange }: Props) {
         </ul>
       </Group>
 
-      <Group title="Talla (CO)">
+      <Group title="Talla (EU)">
         <div className="grid grid-cols-5 gap-1.5">
           {facets.sizes.map(({ size, available }) => {
             const active = filters.talla.includes(size);

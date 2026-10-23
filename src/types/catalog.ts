@@ -28,6 +28,8 @@ export type Product = {
   collection: Pick<Collection, "slug" | "name"> | null;
   images: string[];
   featured: boolean;
+  /** Etiqueta "Más vendido" (se marca desde el admin). */
+  best_seller: boolean;
   created_at: string;
   variants: Variant[];
 };

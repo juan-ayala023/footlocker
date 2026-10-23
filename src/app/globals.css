@@ -10,6 +10,7 @@
   --stone: #8a8a87;
   --sand: #e0e0dc; /* gris principal: acento de CTAs, hovers y detalles */
   --line: rgb(255 255 255 / 0.12);
+  --hot: #ff6a2b; /* naranja "Más vendido" (contraste AA sobre negro) */
 
   --ease-premium: cubic-bezier(0.76, 0, 0.24, 1);
   --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
@@ -17,7 +18,9 @@
   --dur-md: 0.9s;
   --dur-lg: 1.2s;
 
-  --nav-h: 4.5rem;
+  --bar-h: 2.25rem; /* franja de anuncios */
+  --nav-row-h: 4.5rem; /* fila del logo e iconos */
+  --nav-h: calc(var(--bar-h) + var(--nav-row-h)); /* alto total del encabezado fijo */
   --gutter: clamp(1rem, 4vw, 3rem);
 }
 
@@ -29,6 +32,7 @@
   --color-stone: var(--stone);
   --color-sand: var(--sand);
   --color-line: var(--line);
+  --color-hot: var(--hot);
 
   --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
@@ -51,6 +55,19 @@
   --text-h3--letter-spacing: -0.015em;
   --text-lead: clamp(1.0625rem, 1.4vw, 1.25rem);
   --text-lead--line-height: 1.55;
+}
+
+/* Zona clara (catálogo estilo editorial): invierte los tokens para que los componentes se adapten solos. */
+.theme-light {
+  --ink: #ffffff;
+  --ink-raised: #f3f3f1;
+  --bone: #000000;
+  --mist: #3d3d3b;
+  --stone: #6f6f6c;
+  --sand: #000000;
+  --line: rgb(0 0 0 / 0.1);
+  --hot: #d33918; /* naranja con contraste AA sobre blanco */
+  color-scheme: light;
 }
 
 /* ───────────── Base ───────────── */
@@ -156,6 +173,25 @@ html.has-custom-cursor label {
 }
 .price-range:focus-visible::-webkit-slider-thumb {
   box-shadow: 0 0 0 2px var(--sand);
+}
+
+/* Cinta de promociones (AnnouncementBar) */
+.announce-track {
+  animation: announce 60s linear infinite;
+}
+.announce:hover .announce-track,
+.announce:focus-within .announce-track {
+  animation-play-state: paused;
+}
+@keyframes announce {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .announce-track {
+    animation: none;
+  }
 }
 
 @keyframes scroll-cue {

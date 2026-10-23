@@ -32,6 +32,7 @@ export default async function NewProductPage() {
           collection_id: null,
           images: [],
           featured: false,
+          best_seller: false,
           active: true,
           variants: [],
         }}

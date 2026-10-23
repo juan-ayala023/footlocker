@@ -1,14 +1,15 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, m, useAnimate } from "framer-motion";
 import { Magnetic } from "@/components/motion/Magnetic";
 import { TextReveal } from "@/components/motion/TextReveal";
 import { TransitionLink } from "@/components/motion/TransitionLink";
 import { Accordion } from "@/components/product/Accordion";
-import { Button } from "@/components/ui/Button";
+import dynamic from "next/dynamic";
 import { site } from "@/config/site";
-import { inStock } from "@/lib/catalog-filters";
+import { helpSections, type HelpQuestion } from "@/data/help";
+import { inStock, isNew } from "@/lib/catalog-filters";
 import { ease } from "@/lib/motion";
 import { cn, formatCOP, productTitle } from "@/lib/utils";
 import { trackAddToCart, trackViewContent } from "@/lib/analytics";
@@ -16,11 +17,17 @@ import { useCart } from "@/store/cart";
 import { useUi } from "@/store/ui";
 import type { Product, Variant } from "@/types/catalog";
 
+// La guía solo se descarga cuando se abre.
+const SizeGuide = dynamic(() => import("@/components/product/SizeGuide").then((mod) => mod.SizeGuide), { ssr: false });
+
 const LOW_STOCK = 3;
 
 export function ProductInfo({ product }: { product: Product }) {
   const [selected, setSelected] = useState<Variant | null>(null);
   const [error, setError] = useState(false);
+  const [guideOpen, setGuideOpen] = useState(false);
+  const [guideUsed, setGuideUsed] = useState(false);
+  const closeGuide = useCallback(() => setGuideOpen(false), []);
   const [sizesScope, animateSizes] = useAnimate<HTMLDivElement>();
   const addRef = useRef<HTMLDivElement>(null);
   const [addVisible, setAddVisible] = useState(true);
@@ -89,7 +96,13 @@ export function ProductInfo({ product }: { product: Product }) {
         )}
       </nav>
 
-      <p className="eyebrow text-sand">{product.brand}</p>
+      <div className="flex flex-wrap items-center gap-3">
+        <p className="eyebrow text-sand">{product.brand}</p>
+        {product.best_seller && <span className="text-sm font-medium text-hot">Más vendido</span>}
+        {isNew(product) && (
+          <span className="bg-bone px-1.5 py-0.5 text-[0.6875rem] font-semibold tracking-wide text-ink uppercase">Nuevo</span>
+        )}
+      </div>
       <TextReveal as="h1" text={product.name} play delay={0.2} className="text-h2 mt-3 uppercase" />
 
       <div className="mt-6 flex items-baseline gap-3">
@@ -105,16 +118,24 @@ export function ProductInfo({ product }: { product: Product }) {
 
       {/* Tallas */}
       <div className="mt-10">
-        <div className="mb-4 flex items-center justify-between">
-          <p id="tallas-label" className="eyebrow">
-            Talla (CO){selected && <span className="text-sand"> · {selected.size}</span>}
+        <div className="mb-4 flex items-baseline justify-between">
+          <p id="tallas-label" className="font-sans text-base font-medium">
+            Selecciona la talla <span className="text-sm font-normal text-stone">(EU)</span>
           </p>
-          <TransitionLink href="/ayuda/tallas" className="eyebrow text-stone underline-offset-4 hover:text-bone hover:underline">
+          <button
+            type="button"
+            onClick={() => {
+              setGuideUsed(true);
+              setGuideOpen(true);
+            }}
+            aria-haspopup="dialog"
+            className="text-base text-stone transition-colors hover:text-bone"
+          >
             Guía de tallas
-          </TransitionLink>
+          </button>
         </div>
 
-        <div ref={sizesScope} role="radiogroup" aria-labelledby="tallas-label" className="grid grid-cols-5 gap-2">
+        <div ref={sizesScope} role="radiogroup" aria-labelledby="tallas-label" className="grid grid-cols-5 gap-2 sm:gap-2.5">
           {product.variants.map((v) => {
             const soldOut = v.stock <= 0;
             const active = selected?.id === v.id;
@@ -131,10 +152,10 @@ export function ProductInfo({ product }: { product: Product }) {
                   setError(false);
                 }}
                 className={cn(
-                  "relative h-12 border text-sm tabular-nums transition-colors duration-300",
-                  active ? "border-sand bg-sand text-ink" : "border-line text-bone hover:border-bone",
-                  soldOut && "cursor-not-allowed border-line/50 text-stone/40 line-through hover:border-line/50",
-                  error && !active && !soldOut && "border-sand/60",
+                  "relative h-12 rounded-md border text-base tabular-nums transition-colors duration-200",
+                  active ? "border-bone ring-1 ring-bone" : "border-line hover:border-bone",
+                  soldOut && "cursor-not-allowed border-transparent bg-ink-raised text-stone/60 line-through hover:border-transparent",
+                  error && !active && !soldOut && "border-hot",
                 )}
               >
                 {v.size}
@@ -149,7 +170,7 @@ export function ProductInfo({ product }: { product: Product }) {
         <div className="mt-3 min-h-5 text-xs" aria-live="polite">
           <AnimatePresence mode="wait">
             {error ? (
-              <m.p key="err" role="alert" className="text-sand" initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
+              <m.p key="err" role="alert" className="text-hot" initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
                 Elige tu talla para continuar.
               </m.p>
             ) : selected && selected.stock <= LOW_STOCK ? (
@@ -168,24 +189,28 @@ export function ProductInfo({ product }: { product: Product }) {
       {/* Agregar */}
       <div ref={addRef} className="mt-8">
         {available ? (
-          <Magnetic strength={0.15} className="w-full">
-            <Button size="lg" onClick={addToCart} className="w-full">
-              Agregar al carrito
-            </Button>
+          <Magnetic strength={0.1} className="w-full">
+            <button
+              type="button"
+              onClick={addToCart}
+              className="h-16 w-full rounded-full bg-bone text-lg font-medium text-ink transition-opacity duration-300 hover:opacity-80 active:opacity-70"
+            >
+              Agregar a la bolsa de compras
+            </button>
           </Magnetic>
         ) : (
-          <Button size="lg" disabled className="w-full">
+          <button type="button" disabled className="h-16 w-full cursor-not-allowed rounded-full bg-ink-raised text-lg font-medium text-stone">
             Agotado
-          </Button>
+          </button>
         )}
       </div>
 
       <ul className="mt-8 grid gap-3 text-sm text-mist">
         <li className="flex gap-3">
-          <Dot /> Envío gratis desde {formatCOP(site.shipping.freeFrom)}. Entrega en 2–5 días hábiles.
+          <Dot /> Envío gratis en compras superiores a {formatCOP(site.shipping.freeFrom)}. Entrega en {site.shipping.eta}.
         </li>
         <li className="flex gap-3">
-          <Dot /> Cambios de talla sin costo durante 30 días.
+          <Dot /> Garantía legal de 15 días por defectos de fábrica.
         </li>
         <li className="flex gap-3">
           <Dot /> Paga con tarjeta, PSE o Nequi a través de Wompi.
@@ -196,15 +221,9 @@ export function ProductInfo({ product }: { product: Product }) {
         <Accordion
           items={[
             { title: "Descripción", content: product.description ?? "Pronto agregaremos más detalles de este par." },
-            {
-              title: "Envíos y entregas",
-              content: `Despachamos a toda Colombia. Bogotá y principales ciudades: 2–3 días hábiles; resto del país: 3–5 días hábiles. Envío de ${formatCOP(site.shipping.flat)}, gratis en pedidos desde ${formatCOP(site.shipping.freeFrom)}.`,
-            },
-            {
-              title: "Cambios y devoluciones",
-              content:
-                "Tienes 30 días para cambiar de talla sin costo, siempre que el par esté sin uso y en su caja original. Escríbenos por WhatsApp y coordinamos la recogida.",
-            },
+            { title: "Talla y ajuste", content: <HelpAnswers questions={help("producto", 0, 1)} single /> },
+            { title: "Envíos y entregas", content: <HelpAnswers questions={[...help("envios"), ...help("pedidos")]} /> },
+            { title: "Garantía y devoluciones", content: <HelpAnswers questions={help("devoluciones")} /> },
           ]}
         />
       </div>
@@ -232,6 +251,32 @@ export function ProductInfo({ product }: { product: Product }) {
           </m.div>
         )}
       </AnimatePresence>
+
+      {guideUsed && (
+        <SizeGuide
+          open={guideOpen}
+          onClose={closeGuide}
+          available={product.variants.filter((v) => v.stock > 0).map((v) => v.size)}
+          selected={selected?.size}
+        />
+      )}
+    </div>
+  );
+}
+
+// Mismos textos del centro de ayuda (src/data/help.tsx), para no tener dos versiones de las políticas.
+const help = (slug: string, from?: number, to?: number) =>
+  (helpSections.find((s) => s.slug === slug)?.questions ?? []).slice(from, to);
+
+function HelpAnswers({ questions, single }: { questions: HelpQuestion[]; single?: boolean }) {
+  return (
+    <div className="space-y-6 [&_a]:underline [&_a]:underline-offset-2 [&_ol]:mt-2 [&_ol+*]:mt-3 [&_p+p]:mt-3 [&_ul+*]:mt-3 [&_table]:mt-3 [&_ul]:mt-2">
+      {questions.map((item) => (
+        <section key={item.q}>
+          {!single && <h3 className="mb-2 font-sans text-sm font-medium text-bone">{item.q}</h3>}
+          {item.a}
+        </section>
+      ))}
     </div>
   );
 }

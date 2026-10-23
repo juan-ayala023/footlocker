@@ -1,0 +1,4314 @@
+[
+  {
+    "slug": "adidas-adizero-evo-sl-negro",
+    "name": "Adizero EVO SL Negro",
+    "brand": "Adidas",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "running",
+    "images": [
+      "/catalog/adidas-adizero-evo-sl-negro/01.webp",
+      "/catalog/adidas-adizero-evo-sl-negro/02.webp",
+      "/catalog/adidas-adizero-evo-sl-negro/03.webp",
+      "/catalog/adidas-adizero-evo-sl-negro/04.webp",
+      "/catalog/adidas-adizero-evo-sl-negro/05.webp",
+      "/catalog/adidas-adizero-evo-sl-negro/06.webp",
+      "/catalog/adidas-adizero-evo-sl-negro/07.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "adidas-adizero-evo-sl-blanco",
+    "name": "Adizero EVO SL Blanco",
+    "brand": "Adidas",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "running",
+    "images": [
+      "/catalog/adidas-adizero-evo-sl-blanco/01.webp",
+      "/catalog/adidas-adizero-evo-sl-blanco/02.webp",
+      "/catalog/adidas-adizero-evo-sl-blanco/03.webp",
+      "/catalog/adidas-adizero-evo-sl-blanco/04.webp",
+      "/catalog/adidas-adizero-evo-sl-blanco/05.webp",
+      "/catalog/adidas-adizero-evo-sl-blanco/06.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "adidas-grand-court-base-00s",
+    "name": "Grand Court Base 00s",
+    "brand": "Adidas",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "mujer",
+    "collection": "clasicos",
+    "images": [
+      "/catalog/adidas-grand-court-base-00s/01.webp",
+      "/catalog/adidas-grand-court-base-00s/02.webp",
+      "/catalog/adidas-grand-court-base-00s/03.webp",
+      "/catalog/adidas-grand-court-base-00s/04.webp",
+      "/catalog/adidas-grand-court-base-00s/05.webp",
+      "/catalog/adidas-grand-court-base-00s/06.webp",
+      "/catalog/adidas-grand-court-base-00s/07.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "adidas-superstar-classic-blanco",
+    "name": "Superstar Classic Blanco",
+    "brand": "Adidas",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "clasicos",
+    "images": [
+      "/catalog/adidas-superstar-classic-blanco/01.webp",
+      "/catalog/adidas-superstar-classic-blanco/02.webp",
+      "/catalog/adidas-superstar-classic-blanco/03.webp",
+      "/catalog/adidas-superstar-classic-blanco/04.webp",
+      "/catalog/adidas-superstar-classic-blanco/05.webp",
+      "/catalog/adidas-superstar-classic-blanco/06.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "adidas-superstar-classic-negro",
+    "name": "Superstar Classic Negro",
+    "brand": "Adidas",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "clasicos",
+    "images": [
+      "/catalog/adidas-superstar-classic-negro/01.webp",
+      "/catalog/adidas-superstar-classic-negro/02.webp",
+      "/catalog/adidas-superstar-classic-negro/03.webp",
+      "/catalog/adidas-superstar-classic-negro/04.webp",
+      "/catalog/adidas-superstar-classic-negro/05.webp",
+      "/catalog/adidas-superstar-classic-negro/06.webp",
+      "/catalog/adidas-superstar-classic-negro/07.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "nike-air-force-1-07-blanco-rosa",
+    "name": "Air Force 1 '07 Blanco/Rosa",
+    "brand": "Nike",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "mujer",
+    "collection": "clasicos",
+    "images": [
+      "/catalog/nike-air-force-1-07-blanco-rosa/01.webp",
+      "/catalog/nike-air-force-1-07-blanco-rosa/02.webp",
+      "/catalog/nike-air-force-1-07-blanco-rosa/03.webp",
+      "/catalog/nike-air-force-1-07-blanco-rosa/04.webp",
+      "/catalog/nike-air-force-1-07-blanco-rosa/05.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "nike-air-force-1-07-blanco",
+    "name": "Air Force 1 '07 Blanco",
+    "brand": "Nike",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "clasicos",
+    "images": [
+      "/catalog/nike-air-force-1-07-blanco/01.webp",
+      "/catalog/nike-air-force-1-07-blanco/02.webp",
+      "/catalog/nike-air-force-1-07-blanco/03.webp",
+      "/catalog/nike-air-force-1-07-blanco/04.webp",
+      "/catalog/nike-air-force-1-07-blanco/05.webp",
+      "/catalog/nike-air-force-1-07-blanco/06.webp",
+      "/catalog/nike-air-force-1-07-blanco/07.webp",
+      "/catalog/nike-air-force-1-07-blanco/08.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "nike-air-force-1-07-negro",
+    "name": "Air Force 1 '07 Negro",
+    "brand": "Nike",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "clasicos",
+    "images": [
+      "/catalog/nike-air-force-1-07-negro/01.webp",
+      "/catalog/nike-air-force-1-07-negro/02.webp",
+      "/catalog/nike-air-force-1-07-negro/03.webp",
+      "/catalog/nike-air-force-1-07-negro/04.webp",
+      "/catalog/nike-air-force-1-07-negro/05.webp",
+      "/catalog/nike-air-force-1-07-negro/06.webp",
+      "/catalog/nike-air-force-1-07-negro/07.webp",
+      "/catalog/nike-air-force-1-07-negro/08.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "nike-air-force-1-07-rojo",
+    "name": "Air Force 1 '07 Rojo",
+    "brand": "Nike",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "clasicos",
+    "images": [
+      "/catalog/nike-air-force-1-07-rojo/01.webp",
+      "/catalog/nike-air-force-1-07-rojo/02.webp",
+      "/catalog/nike-air-force-1-07-rojo/03.webp",
+      "/catalog/nike-air-force-1-07-rojo/04.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "nike-air-force-1-mid-07-blanco",
+    "name": "Air Force 1 Mid '07 Blanco",
+    "brand": "Nike",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "clasicos",
+    "images": [
+      "/catalog/nike-air-force-1-mid-07-blanco/01.webp",
+      "/catalog/nike-air-force-1-mid-07-blanco/02.webp",
+      "/catalog/nike-air-force-1-mid-07-blanco/03.webp",
+      "/catalog/nike-air-force-1-mid-07-blanco/04.webp",
+      "/catalog/nike-air-force-1-mid-07-blanco/05.webp",
+      "/catalog/nike-air-force-1-mid-07-blanco/06.webp",
+      "/catalog/nike-air-force-1-mid-07-blanco/07.webp",
+      "/catalog/nike-air-force-1-mid-07-blanco/08.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "nike-air-force-1-mid-07-negro",
+    "name": "Air Force 1 Mid '07 Negro",
+    "brand": "Nike",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "clasicos",
+    "images": [
+      "/catalog/nike-air-force-1-mid-07-negro/01.webp",
+      "/catalog/nike-air-force-1-mid-07-negro/02.webp",
+      "/catalog/nike-air-force-1-mid-07-negro/03.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "jordan-air-jordan-3-og-spring-is-in-the-air",
+    "name": "Air Jordan 3 OG 'Spring Is in the Air'",
+    "brand": "Jordan",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "basket",
+    "images": [
+      "/catalog/jordan-air-jordan-3-og-spring-is-in-the-air/01.webp",
+      "/catalog/jordan-air-jordan-3-og-spring-is-in-the-air/02.webp",
+      "/catalog/jordan-air-jordan-3-og-spring-is-in-the-air/03.webp",
+      "/catalog/jordan-air-jordan-3-og-spring-is-in-the-air/04.webp",
+      "/catalog/jordan-air-jordan-3-og-spring-is-in-the-air/05.webp",
+      "/catalog/jordan-air-jordan-3-og-spring-is-in-the-air/06.webp",
+      "/catalog/jordan-air-jordan-3-og-spring-is-in-the-air/07.webp",
+      "/catalog/jordan-air-jordan-3-og-spring-is-in-the-air/08.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "jordan-air-jordan-3-retro-cobalt-bliss",
+    "name": "Air Jordan 3 Retro 'Cobalt Bliss'",
+    "brand": "Jordan",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "basket",
+    "images": [
+      "/catalog/jordan-air-jordan-3-retro-cobalt-bliss/01.webp",
+      "/catalog/jordan-air-jordan-3-retro-cobalt-bliss/02.webp",
+      "/catalog/jordan-air-jordan-3-retro-cobalt-bliss/03.webp",
+      "/catalog/jordan-air-jordan-3-retro-cobalt-bliss/04.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "jordan-air-jordan-3-retro-sail-and-jade-aura",
+    "name": "Air Jordan 3 Retro 'Sail and Jade Aura'",
+    "brand": "Jordan",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "hombre",
+    "collection": "basket",
+    "images": [
+      "/catalog/jordan-air-jordan-3-retro-sail-and-jade-aura/01.webp",
+      "/catalog/jordan-air-jordan-3-retro-sail-and-jade-aura/02.webp",
+      "/catalog/jordan-air-jordan-3-retro-sail-and-jade-aura/03.webp",
+      "/catalog/jordan-air-jordan-3-retro-sail-and-jade-aura/04.webp",
+      "/catalog/jordan-air-jordan-3-retro-sail-and-jade-aura/05.webp",
+      "/catalog/jordan-air-jordan-3-retro-sail-and-jade-aura/06.webp",
+      "/catalog/jordan-air-jordan-3-retro-sail-and-jade-aura/07.webp",
+      "/catalog/jordan-air-jordan-3-retro-sail-and-jade-aura/08.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "jordan-air-jordan-4-retro-tour-yellow",
+    "name": "Air Jordan 4 Retro 'Tour Yellow'",
+    "brand": "Jordan",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "hombre",
+    "collection": "basket",
+    "images": [
+      "/catalog/jordan-air-jordan-4-retro-tour-yellow/01.webp",
+      "/catalog/jordan-air-jordan-4-retro-tour-yellow/02.webp",
+      "/catalog/jordan-air-jordan-4-retro-tour-yellow/03.webp",
+      "/catalog/jordan-air-jordan-4-retro-tour-yellow/04.webp",
+      "/catalog/jordan-air-jordan-4-retro-tour-yellow/05.webp",
+      "/catalog/jordan-air-jordan-4-retro-tour-yellow/06.webp",
+      "/catalog/jordan-air-jordan-4-retro-tour-yellow/07.webp",
+      "/catalog/jordan-air-jordan-4-retro-tour-yellow/08.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "nike-air-max-90-blanco",
+    "name": "Air Max 90 Blanco",
+    "brand": "Nike",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "retro",
+    "images": [
+      "/catalog/nike-air-max-90-blanco/01.webp",
+      "/catalog/nike-air-max-90-blanco/02.webp",
+      "/catalog/nike-air-max-90-blanco/03.webp",
+      "/catalog/nike-air-max-90-blanco/04.webp",
+      "/catalog/nike-air-max-90-blanco/05.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "nike-air-max-90-blanco-rojo",
+    "name": "Air Max 90 Blanco/Rojo",
+    "brand": "Nike",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "hombre",
+    "collection": "retro",
+    "images": [
+      "/catalog/nike-air-max-90-blanco-rojo/01.webp",
+      "/catalog/nike-air-max-90-blanco-rojo/02.webp",
+      "/catalog/nike-air-max-90-blanco-rojo/03.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "nike-air-max-90-negro",
+    "name": "Air Max 90 Negro",
+    "brand": "Nike",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "retro",
+    "images": [
+      "/catalog/nike-air-max-90-negro/01.webp",
+      "/catalog/nike-air-max-90-negro/02.webp",
+      "/catalog/nike-air-max-90-negro/03.webp",
+      "/catalog/nike-air-max-90-negro/04.webp",
+      "/catalog/nike-air-max-90-negro/05.webp",
+      "/catalog/nike-air-max-90-negro/06.webp",
+      "/catalog/nike-air-max-90-negro/07.webp",
+      "/catalog/nike-air-max-90-negro/08.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "nike-air-max-95-big-bubble-verde",
+    "name": "Air Max 95 'Big Bubble' Verde",
+    "brand": "Nike",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "hombre",
+    "collection": "retro",
+    "images": [
+      "/catalog/nike-air-max-95-big-bubble-verde/01.webp",
+      "/catalog/nike-air-max-95-big-bubble-verde/02.webp",
+      "/catalog/nike-air-max-95-big-bubble-verde/03.webp",
+      "/catalog/nike-air-max-95-big-bubble-verde/04.webp",
+      "/catalog/nike-air-max-95-big-bubble-verde/05.webp",
+      "/catalog/nike-air-max-95-big-bubble-verde/06.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "nike-air-max-95-big-bubble-gris-negro",
+    "name": "Air Max 95 'Big Bubble' Gris/Negro",
+    "brand": "Nike",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "hombre",
+    "collection": "retro",
+    "images": [
+      "/catalog/nike-air-max-95-big-bubble-gris-negro/01.webp",
+      "/catalog/nike-air-max-95-big-bubble-gris-negro/02.webp",
+      "/catalog/nike-air-max-95-big-bubble-gris-negro/03.webp",
+      "/catalog/nike-air-max-95-big-bubble-gris-negro/04.webp",
+      "/catalog/nike-air-max-95-big-bubble-gris-negro/05.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "nike-air-max-dn-blanco-negro",
+    "name": "Air Max Dn Blanco/Negro",
+    "brand": "Nike",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "hombre",
+    "collection": "street",
+    "images": [
+      "/catalog/nike-air-max-dn-blanco-negro/01.webp",
+      "/catalog/nike-air-max-dn-blanco-negro/02.webp",
+      "/catalog/nike-air-max-dn-blanco-negro/03.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "nike-air-max-dn-rojo",
+    "name": "Air Max Dn Rojo",
+    "brand": "Nike",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "hombre",
+    "collection": "street",
+    "images": [
+      "/catalog/nike-air-max-dn-rojo/01.webp",
+      "/catalog/nike-air-max-dn-rojo/02.webp",
+      "/catalog/nike-air-max-dn-rojo/03.webp",
+      "/catalog/nike-air-max-dn-rojo/04.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "nike-air-max-plus-blanco-naranja",
+    "name": "Air Max Plus Blanco/Naranja",
+    "brand": "Nike",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "hombre",
+    "collection": "retro",
+    "images": [
+      "/catalog/nike-air-max-plus-blanco-naranja/01.webp",
+      "/catalog/nike-air-max-plus-blanco-naranja/02.webp",
+      "/catalog/nike-air-max-plus-blanco-naranja/03.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "nike-air-max-plus-blanco-negro",
+    "name": "Air Max Plus Blanco/Negro",
+    "brand": "Nike",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "hombre",
+    "collection": "retro",
+    "images": [
+      "/catalog/nike-air-max-plus-blanco-negro/01.webp",
+      "/catalog/nike-air-max-plus-blanco-negro/02.webp",
+      "/catalog/nike-air-max-plus-blanco-negro/03.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "nike-air-max-plus-negro-naranja",
+    "name": "Air Max Plus Negro/Naranja",
+    "brand": "Nike",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "hombre",
+    "collection": "retro",
+    "images": [
+      "/catalog/nike-air-max-plus-negro-naranja/01.webp",
+      "/catalog/nike-air-max-plus-negro-naranja/02.webp",
+      "/catalog/nike-air-max-plus-negro-naranja/03.webp",
+      "/catalog/nike-air-max-plus-negro-naranja/04.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "nike-air-max-plus-verde",
+    "name": "Air Max Plus Verde",
+    "brand": "Nike",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "hombre",
+    "collection": "retro",
+    "images": [
+      "/catalog/nike-air-max-plus-verde/01.webp",
+      "/catalog/nike-air-max-plus-verde/02.webp",
+      "/catalog/nike-air-max-plus-verde/03.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "nike-air-max-tn-blanco",
+    "name": "Air Max TN Blanco",
+    "brand": "Nike",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "retro",
+    "images": [
+      "/catalog/nike-air-max-tn-blanco/01.webp",
+      "/catalog/nike-air-max-tn-blanco/02.webp",
+      "/catalog/nike-air-max-tn-blanco/03.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "nike-air-max-tn-negro",
+    "name": "Air Max TN Negro",
+    "brand": "Nike",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "retro",
+    "images": [
+      "/catalog/nike-air-max-tn-negro/01.webp",
+      "/catalog/nike-air-max-tn-negro/02.webp",
+      "/catalog/nike-air-max-tn-negro/03.webp",
+      "/catalog/nike-air-max-tn-negro/04.webp",
+      "/catalog/nike-air-max-tn-negro/05.webp",
+      "/catalog/nike-air-max-tn-negro/06.webp",
+      "/catalog/nike-air-max-tn-negro/07.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "boss-ttnm-evo",
+    "name": "TTNM EVO",
+    "brand": "BOSS",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "hombre",
+    "collection": "street",
+    "images": [
+      "/catalog/boss-ttnm-evo/01.webp",
+      "/catalog/boss-ttnm-evo/02.webp",
+      "/catalog/boss-ttnm-evo/03.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "jordan-air-jordan-1-retro-low",
+    "name": "Air Jordan 1 Retro Low",
+    "brand": "Jordan",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "basket",
+    "images": [
+      "/catalog/jordan-air-jordan-1-retro-low/01.webp",
+      "/catalog/jordan-air-jordan-1-retro-low/02.webp",
+      "/catalog/jordan-air-jordan-1-retro-low/03.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "jordan-air-jordan-1-retro-low-paris",
+    "name": "Air Jordan 1 Retro Low 'Paris'",
+    "brand": "Jordan",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "basket",
+    "images": [
+      "/catalog/jordan-air-jordan-1-retro-low-paris/01.webp",
+      "/catalog/jordan-air-jordan-1-retro-low-paris/02.webp",
+      "/catalog/jordan-air-jordan-1-retro-low-paris/03.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "jordan-air-jordan-1-retro-space-jam",
+    "name": "Air Jordan 1 Retro 'Space Jam'",
+    "brand": "Jordan",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "basket",
+    "images": [
+      "/catalog/jordan-air-jordan-1-retro-space-jam/01.webp",
+      "/catalog/jordan-air-jordan-1-retro-space-jam/02.webp",
+      "/catalog/jordan-air-jordan-1-retro-space-jam/03.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "jordan-air-jordan-11-retro-low-azul",
+    "name": "Air Jordan 11 Retro Low Azul",
+    "brand": "Jordan",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "hombre",
+    "collection": "basket",
+    "images": [
+      "/catalog/jordan-air-jordan-11-retro-low-azul/01.webp",
+      "/catalog/jordan-air-jordan-11-retro-low-azul/02.webp",
+      "/catalog/jordan-air-jordan-11-retro-low-azul/03.webp",
+      "/catalog/jordan-air-jordan-11-retro-low-azul/04.webp",
+      "/catalog/jordan-air-jordan-11-retro-low-azul/05.webp",
+      "/catalog/jordan-air-jordan-11-retro-low-azul/06.webp",
+      "/catalog/jordan-air-jordan-11-retro-low-azul/07.webp",
+      "/catalog/jordan-air-jordan-11-retro-low-azul/08.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "jordan-air-jordan-4-retro",
+    "name": "Air Jordan 4 Retro",
+    "brand": "Jordan",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "hombre",
+    "collection": "basket",
+    "images": [
+      "/catalog/jordan-air-jordan-4-retro/01.webp",
+      "/catalog/jordan-air-jordan-4-retro/02.webp",
+      "/catalog/jordan-air-jordan-4-retro/03.webp",
+      "/catalog/jordan-air-jordan-4-retro/04.webp",
+      "/catalog/jordan-air-jordan-4-retro/05.webp",
+      "/catalog/jordan-air-jordan-4-retro/06.webp",
+      "/catalog/jordan-air-jordan-4-retro/07.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "jordan-air-cadence-blanco-gris",
+    "name": "Air Cadence Blanco/Gris",
+    "brand": "Jordan",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "hombre",
+    "collection": "street",
+    "images": [
+      "/catalog/jordan-air-cadence-blanco-gris/01.webp",
+      "/catalog/jordan-air-cadence-blanco-gris/02.webp",
+      "/catalog/jordan-air-cadence-blanco-gris/03.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "jordan-air-cadence-negro",
+    "name": "Air Cadence Negro",
+    "brand": "Jordan",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "hombre",
+    "collection": "street",
+    "images": [
+      "/catalog/jordan-air-cadence-negro/01.webp",
+      "/catalog/jordan-air-cadence-negro/02.webp",
+      "/catalog/jordan-air-cadence-negro/03.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "jordan-air-jordan-1-retro-high-og-bred",
+    "name": "Air Jordan 1 Retro High OG 'Bred'",
+    "brand": "Jordan",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "basket",
+    "images": [
+      "/catalog/jordan-air-jordan-1-retro-high-og-bred/01.webp",
+      "/catalog/jordan-air-jordan-1-retro-high-og-bred/02.webp",
+      "/catalog/jordan-air-jordan-1-retro-high-og-bred/03.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "jordan-air-jordan-1-retro-high-og-chicago",
+    "name": "Air Jordan 1 Retro High OG 'Chicago'",
+    "brand": "Jordan",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "basket",
+    "images": [
+      "/catalog/jordan-air-jordan-1-retro-high-og-chicago/01.webp",
+      "/catalog/jordan-air-jordan-1-retro-high-og-chicago/02.webp",
+      "/catalog/jordan-air-jordan-1-retro-high-og-chicago/03.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "jordan-air-jordan-11-retro-bred",
+    "name": "Air Jordan 11 Retro 'Bred'",
+    "brand": "Jordan",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "basket",
+    "images": [
+      "/catalog/jordan-air-jordan-11-retro-bred/01.webp",
+      "/catalog/jordan-air-jordan-11-retro-bred/02.webp",
+      "/catalog/jordan-air-jordan-11-retro-bred/03.webp",
+      "/catalog/jordan-air-jordan-11-retro-bred/04.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "jordan-air-jordan-11-retro-cool-grey",
+    "name": "Air Jordan 11 Retro 'Cool Grey'",
+    "brand": "Jordan",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "basket",
+    "images": [
+      "/catalog/jordan-air-jordan-11-retro-cool-grey/01.webp",
+      "/catalog/jordan-air-jordan-11-retro-cool-grey/02.webp",
+      "/catalog/jordan-air-jordan-11-retro-cool-grey/03.webp",
+      "/catalog/jordan-air-jordan-11-retro-cool-grey/04.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "jordan-air-jordan-11-retro-low-negro-rojo",
+    "name": "Air Jordan 11 Retro Low Negro/Rojo",
+    "brand": "Jordan",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "basket",
+    "images": [
+      "/catalog/jordan-air-jordan-11-retro-low-negro-rojo/01.webp",
+      "/catalog/jordan-air-jordan-11-retro-low-negro-rojo/02.webp",
+      "/catalog/jordan-air-jordan-11-retro-low-negro-rojo/03.webp",
+      "/catalog/jordan-air-jordan-11-retro-low-negro-rojo/04.webp",
+      "/catalog/jordan-air-jordan-11-retro-low-negro-rojo/05.webp",
+      "/catalog/jordan-air-jordan-11-retro-low-negro-rojo/06.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "new-balance-9060-gris",
+    "name": "9060 Gris",
+    "brand": "New Balance",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "street",
+    "images": [
+      "/catalog/new-balance-9060-gris/01.webp",
+      "/catalog/new-balance-9060-gris/02.webp",
+      "/catalog/new-balance-9060-gris/03.webp",
+      "/catalog/new-balance-9060-gris/04.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "new-balance-9060-negro",
+    "name": "9060 Negro",
+    "brand": "New Balance",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "street",
+    "images": [
+      "/catalog/new-balance-9060-negro/01.webp",
+      "/catalog/new-balance-9060-negro/02.webp",
+      "/catalog/new-balance-9060-negro/03.webp",
+      "/catalog/new-balance-9060-negro/04.webp",
+      "/catalog/new-balance-9060-negro/05.webp",
+      "/catalog/new-balance-9060-negro/06.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "new-balance-9060-cafe",
+    "name": "9060 Café",
+    "brand": "New Balance",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "street",
+    "images": [
+      "/catalog/new-balance-9060-cafe/01.webp",
+      "/catalog/new-balance-9060-cafe/02.webp",
+      "/catalog/new-balance-9060-cafe/03.webp",
+      "/catalog/new-balance-9060-cafe/04.webp",
+      "/catalog/new-balance-9060-cafe/05.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "new-balance-9060-blanco",
+    "name": "9060 Blanco",
+    "brand": "New Balance",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "street",
+    "images": [
+      "/catalog/new-balance-9060-blanco/01.webp",
+      "/catalog/new-balance-9060-blanco/02.webp",
+      "/catalog/new-balance-9060-blanco/03.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "new-balance-9060-beige-rosa",
+    "name": "9060 Beige/Rosa",
+    "brand": "New Balance",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "street",
+    "images": [
+      "/catalog/new-balance-9060-beige-rosa/01.webp",
+      "/catalog/new-balance-9060-beige-rosa/02.webp",
+      "/catalog/new-balance-9060-beige-rosa/03.webp",
+      "/catalog/new-balance-9060-beige-rosa/04.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "new-balance-9060-blanco-gris",
+    "name": "9060 Blanco/Gris",
+    "brand": "New Balance",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "street",
+    "images": [
+      "/catalog/new-balance-9060-blanco-gris/01.webp",
+      "/catalog/new-balance-9060-blanco-gris/02.webp",
+      "/catalog/new-balance-9060-blanco-gris/03.webp",
+      "/catalog/new-balance-9060-blanco-gris/04.webp",
+      "/catalog/new-balance-9060-blanco-gris/05.webp",
+      "/catalog/new-balance-9060-blanco-gris/06.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "nike-air-max-portal",
+    "name": "Air Max Portal",
+    "brand": "Nike",
+    "description": "Silueta femenina de líneas suaves en tono crema y beige. Capellada en malla con ondas en relieve, cordones tipo cinta satinada con detalle de perlas y unidad Air visible en el talón para una pisada amortiguada. Suela robusta y esculpida, y tirador en el talón para calzarlos fácilmente.",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "mujer",
+    "collection": "street",
+    "images": [
+      "/catalog/nike-air-max-portal/01.webp",
+      "/catalog/nike-air-max-portal/02.webp",
+      "/catalog/nike-air-max-portal/03.webp",
+      "/catalog/nike-air-max-portal/04.webp",
+      "/catalog/nike-air-max-portal/05.webp",
+      "/catalog/nike-air-max-portal/06.webp",
+      "/catalog/nike-air-max-portal/07.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "nike-cortez-blanco-rojo",
+    "name": "Cortez Blanco/Rojo",
+    "brand": "Nike",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "clasicos",
+    "images": [
+      "/catalog/nike-cortez-blanco-rojo/01.webp",
+      "/catalog/nike-cortez-blanco-rojo/02.webp",
+      "/catalog/nike-cortez-blanco-rojo/03.webp",
+      "/catalog/nike-cortez-blanco-rojo/04.webp",
+      "/catalog/nike-cortez-blanco-rojo/05.webp",
+      "/catalog/nike-cortez-blanco-rojo/06.webp",
+      "/catalog/nike-cortez-blanco-rojo/07.webp",
+      "/catalog/nike-cortez-blanco-rojo/08.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "nike-cortez-blanco-negro",
+    "name": "Cortez Blanco/Negro",
+    "brand": "Nike",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "clasicos",
+    "images": [
+      "/catalog/nike-cortez-blanco-negro/01.webp",
+      "/catalog/nike-cortez-blanco-negro/02.webp",
+      "/catalog/nike-cortez-blanco-negro/03.webp",
+      "/catalog/nike-cortez-blanco-negro/04.webp",
+      "/catalog/nike-cortez-blanco-negro/05.webp",
+      "/catalog/nike-cortez-blanco-negro/06.webp",
+      "/catalog/nike-cortez-blanco-negro/07.webp",
+      "/catalog/nike-cortez-blanco-negro/08.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "nike-initiator",
+    "name": "Initiator",
+    "brand": "Nike",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "retro",
+    "images": [
+      "/catalog/nike-initiator/01.webp",
+      "/catalog/nike-initiator/02.webp",
+      "/catalog/nike-initiator/03.webp",
+      "/catalog/nike-initiator/04.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "nike-mind-001-rojo",
+    "name": "Mind 001 Rojo",
+    "brand": "Nike",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "street",
+    "images": [
+      "/catalog/nike-mind-001-rojo/01.webp",
+      "/catalog/nike-mind-001-rojo/02.webp",
+      "/catalog/nike-mind-001-rojo/03.webp",
+      "/catalog/nike-mind-001-rojo/04.webp",
+      "/catalog/nike-mind-001-rojo/05.webp",
+      "/catalog/nike-mind-001-rojo/06.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "nike-mind-001-verde",
+    "name": "Mind 001 Verde",
+    "brand": "Nike",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "street",
+    "images": [
+      "/catalog/nike-mind-001-verde/01.webp",
+      "/catalog/nike-mind-001-verde/02.webp",
+      "/catalog/nike-mind-001-verde/03.webp",
+      "/catalog/nike-mind-001-verde/04.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "nike-mind-001-azul",
+    "name": "Mind 001 Azul",
+    "brand": "Nike",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "street",
+    "images": [
+      "/catalog/nike-mind-001-azul/01.webp",
+      "/catalog/nike-mind-001-azul/02.webp",
+      "/catalog/nike-mind-001-azul/03.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "nike-mind-001-blanco",
+    "name": "Mind 001 Blanco",
+    "brand": "Nike",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "street",
+    "images": [
+      "/catalog/nike-mind-001-blanco/01.webp",
+      "/catalog/nike-mind-001-blanco/02.webp",
+      "/catalog/nike-mind-001-blanco/03.webp",
+      "/catalog/nike-mind-001-blanco/04.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "nike-mind-001-crema",
+    "name": "Mind 001 Crema",
+    "brand": "Nike",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "street",
+    "images": [
+      "/catalog/nike-mind-001-crema/01.webp",
+      "/catalog/nike-mind-001-crema/02.webp",
+      "/catalog/nike-mind-001-crema/03.webp",
+      "/catalog/nike-mind-001-crema/04.webp",
+      "/catalog/nike-mind-001-crema/05.webp",
+      "/catalog/nike-mind-001-crema/06.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "nike-mind-001-negro",
+    "name": "Mind 001 Negro",
+    "brand": "Nike",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "street",
+    "images": [
+      "/catalog/nike-mind-001-negro/01.webp",
+      "/catalog/nike-mind-001-negro/02.webp",
+      "/catalog/nike-mind-001-negro/03.webp",
+      "/catalog/nike-mind-001-negro/04.webp",
+      "/catalog/nike-mind-001-negro/05.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "nike-nocta-hot-step-2-negro",
+    "name": "NOCTA Hot Step 2 Negro",
+    "brand": "Nike",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "hombre",
+    "collection": "street",
+    "images": [
+      "/catalog/nike-nocta-hot-step-2-negro/01.webp",
+      "/catalog/nike-nocta-hot-step-2-negro/02.webp",
+      "/catalog/nike-nocta-hot-step-2-negro/03.webp",
+      "/catalog/nike-nocta-hot-step-2-negro/04.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "nike-nocta-hot-step-2-blanco",
+    "name": "NOCTA Hot Step 2 Blanco",
+    "brand": "Nike",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "hombre",
+    "collection": "street",
+    "images": [
+      "/catalog/nike-nocta-hot-step-2-blanco/01.webp",
+      "/catalog/nike-nocta-hot-step-2-blanco/02.webp",
+      "/catalog/nike-nocta-hot-step-2-blanco/03.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "nike-shox-r4-blanco",
+    "name": "Shox R4 Blanco",
+    "brand": "Nike",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "hombre",
+    "collection": "retro",
+    "images": [
+      "/catalog/nike-shox-r4-blanco/01.webp",
+      "/catalog/nike-shox-r4-blanco/02.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "nike-shox-r4-dorado",
+    "name": "Shox R4 Dorado",
+    "brand": "Nike",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "hombre",
+    "collection": "retro",
+    "images": [
+      "/catalog/nike-shox-r4-dorado/01.webp",
+      "/catalog/nike-shox-r4-dorado/02.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "nike-shox-r4-rojo",
+    "name": "Shox R4 Rojo",
+    "brand": "Nike",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "hombre",
+    "collection": "retro",
+    "images": [
+      "/catalog/nike-shox-r4-rojo/01.webp",
+      "/catalog/nike-shox-r4-rojo/02.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "nike-shox-ride-2-negro",
+    "name": "Shox Ride 2 Negro",
+    "brand": "Nike",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "hombre",
+    "collection": "retro",
+    "images": [
+      "/catalog/nike-shox-ride-2-negro/01.webp",
+      "/catalog/nike-shox-ride-2-negro/02.webp",
+      "/catalog/nike-shox-ride-2-negro/03.webp",
+      "/catalog/nike-shox-ride-2-negro/04.webp",
+      "/catalog/nike-shox-ride-2-negro/05.webp",
+      "/catalog/nike-shox-ride-2-negro/06.webp",
+      "/catalog/nike-shox-ride-2-negro/07.webp",
+      "/catalog/nike-shox-ride-2-negro/08.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "nike-shox-ride-2-x-supreme-plata",
+    "name": "Shox Ride 2 x Supreme Plata",
+    "brand": "Nike",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "hombre",
+    "collection": "street",
+    "images": [
+      "/catalog/nike-shox-ride-2-x-supreme-plata/01.webp",
+      "/catalog/nike-shox-ride-2-x-supreme-plata/02.webp",
+      "/catalog/nike-shox-ride-2-x-supreme-plata/03.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "nike-shox-ride-2-x-supreme-negro",
+    "name": "Shox Ride 2 x Supreme Negro",
+    "brand": "Nike",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "hombre",
+    "collection": "street",
+    "images": [
+      "/catalog/nike-shox-ride-2-x-supreme-negro/01.webp",
+      "/catalog/nike-shox-ride-2-x-supreme-negro/02.webp",
+      "/catalog/nike-shox-ride-2-x-supreme-negro/03.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "nike-shox-ride-2-gris",
+    "name": "Shox Ride 2 Gris",
+    "brand": "Nike",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "hombre",
+    "collection": "retro",
+    "images": [
+      "/catalog/nike-shox-ride-2-gris/01.webp",
+      "/catalog/nike-shox-ride-2-gris/02.webp",
+      "/catalog/nike-shox-ride-2-gris/03.webp",
+      "/catalog/nike-shox-ride-2-gris/04.webp",
+      "/catalog/nike-shox-ride-2-gris/05.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "nike-shox-ride-2-crema-negro",
+    "name": "Shox Ride 2 Crema/Negro",
+    "brand": "Nike",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "hombre",
+    "collection": "retro",
+    "images": [
+      "/catalog/nike-shox-ride-2-crema-negro/01.webp",
+      "/catalog/nike-shox-ride-2-crema-negro/02.webp",
+      "/catalog/nike-shox-ride-2-crema-negro/03.webp",
+      "/catalog/nike-shox-ride-2-crema-negro/04.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "nike-shox-tl-negro",
+    "name": "Shox TL Negro",
+    "brand": "Nike",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "hombre",
+    "collection": "retro",
+    "images": [
+      "/catalog/nike-shox-tl-negro/01.webp",
+      "/catalog/nike-shox-tl-negro/02.webp",
+      "/catalog/nike-shox-tl-negro/03.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "nike-shox-tl-blanco",
+    "name": "Shox TL Blanco",
+    "brand": "Nike",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "hombre",
+    "collection": "retro",
+    "images": [
+      "/catalog/nike-shox-tl-blanco/01.webp",
+      "/catalog/nike-shox-tl-blanco/02.webp",
+      "/catalog/nike-shox-tl-blanco/03.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "on-cloud-6-negro",
+    "name": "Cloud 6 Negro",
+    "brand": "On",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "running",
+    "images": [
+      "/catalog/on-cloud-6-negro/01.webp",
+      "/catalog/on-cloud-6-negro/02.webp",
+      "/catalog/on-cloud-6-negro/03.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "on-cloud-6-morado",
+    "name": "Cloud 6 Morado",
+    "brand": "On",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "running",
+    "images": [
+      "/catalog/on-cloud-6-morado/01.webp",
+      "/catalog/on-cloud-6-morado/02.webp",
+      "/catalog/on-cloud-6-morado/03.webp",
+      "/catalog/on-cloud-6-morado/04.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "on-cloudboom-volt-negro",
+    "name": "Cloudboom Volt Negro",
+    "brand": "On",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "running",
+    "images": [
+      "/catalog/on-cloudboom-volt-negro/01.webp",
+      "/catalog/on-cloudboom-volt-negro/02.webp",
+      "/catalog/on-cloudboom-volt-negro/03.webp",
+      "/catalog/on-cloudboom-volt-negro/04.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "on-cloudboom-volt-rosa",
+    "name": "Cloudboom Volt Rosa",
+    "brand": "On",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "running",
+    "images": [
+      "/catalog/on-cloudboom-volt-rosa/01.webp",
+      "/catalog/on-cloudboom-volt-rosa/02.webp",
+      "/catalog/on-cloudboom-volt-rosa/03.webp",
+      "/catalog/on-cloudboom-volt-rosa/04.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "on-cloudboom-volt-morado",
+    "name": "Cloudboom Volt Morado",
+    "brand": "On",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "running",
+    "images": [
+      "/catalog/on-cloudboom-volt-morado/01.webp",
+      "/catalog/on-cloudboom-volt-morado/02.webp",
+      "/catalog/on-cloudboom-volt-morado/03.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "on-cloudsurfer-2",
+    "name": "Cloudsurfer 2",
+    "brand": "On",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "mujer",
+    "collection": "running",
+    "images": [
+      "/catalog/on-cloudsurfer-2/01.webp",
+      "/catalog/on-cloudsurfer-2/02.webp",
+      "/catalog/on-cloudsurfer-2/03.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "on-cloudnova",
+    "name": "Cloudnova",
+    "brand": "On",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "mujer",
+    "collection": "running",
+    "images": [
+      "/catalog/on-cloudnova/01.webp",
+      "/catalog/on-cloudnova/02.webp",
+      "/catalog/on-cloudnova/03.webp",
+      "/catalog/on-cloudnova/04.webp",
+      "/catalog/on-cloudnova/05.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "puma-indoor-og",
+    "name": "Indoor OG",
+    "brand": "Puma",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "hombre",
+    "collection": "clasicos",
+    "images": [
+      "/catalog/puma-indoor-og/01.webp",
+      "/catalog/puma-indoor-og/02.webp",
+      "/catalog/puma-indoor-og/03.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "puma-club-ii-era",
+    "name": "Club II Era",
+    "brand": "Puma",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "mujer",
+    "collection": "clasicos",
+    "images": [
+      "/catalog/puma-club-ii-era/01.webp",
+      "/catalog/puma-club-ii-era/02.webp",
+      "/catalog/puma-club-ii-era/03.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "puma-suede-blanco",
+    "name": "Suede Blanco",
+    "brand": "Puma",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "clasicos",
+    "images": [
+      "/catalog/puma-suede-blanco/01.webp",
+      "/catalog/puma-suede-blanco/02.webp",
+      "/catalog/puma-suede-blanco/03.webp",
+      "/catalog/puma-suede-blanco/04.webp",
+      "/catalog/puma-suede-blanco/05.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "puma-suede-negro",
+    "name": "Suede Negro",
+    "brand": "Puma",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "clasicos",
+    "images": [
+      "/catalog/puma-suede-negro/01.webp",
+      "/catalog/puma-suede-negro/02.webp",
+      "/catalog/puma-suede-negro/03.webp",
+      "/catalog/puma-suede-negro/04.webp",
+      "/catalog/puma-suede-negro/05.webp",
+      "/catalog/puma-suede-negro/06.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "puma-suede-crema-negro",
+    "name": "Suede Crema/Negro",
+    "brand": "Puma",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "clasicos",
+    "images": [
+      "/catalog/puma-suede-crema-negro/01.webp",
+      "/catalog/puma-suede-crema-negro/02.webp",
+      "/catalog/puma-suede-crema-negro/03.webp",
+      "/catalog/puma-suede-crema-negro/04.webp",
+      "/catalog/puma-suede-crema-negro/05.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "puma-suede-xl-negro-blanco",
+    "name": "Suede XL Negro/Blanco",
+    "brand": "Puma",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "clasicos",
+    "images": [
+      "/catalog/puma-suede-xl-negro-blanco/01.webp",
+      "/catalog/puma-suede-xl-negro-blanco/02.webp",
+      "/catalog/puma-suede-xl-negro-blanco/03.webp",
+      "/catalog/puma-suede-xl-negro-blanco/04.webp",
+      "/catalog/puma-suede-xl-negro-blanco/05.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "puma-suede-xl-negro",
+    "name": "Suede XL Negro",
+    "brand": "Puma",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "clasicos",
+    "images": [
+      "/catalog/puma-suede-xl-negro/01.webp",
+      "/catalog/puma-suede-xl-negro/02.webp",
+      "/catalog/puma-suede-xl-negro/03.webp",
+      "/catalog/puma-suede-xl-negro/04.webp",
+      "/catalog/puma-suede-xl-negro/05.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "adidas-samba-og",
+    "name": "Samba OG",
+    "brand": "Adidas",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "clasicos",
+    "images": [
+      "/catalog/adidas-samba-og/01.webp",
+      "/catalog/adidas-samba-og/02.webp",
+      "/catalog/adidas-samba-og/03.webp",
+      "/catalog/adidas-samba-og/04.webp",
+      "/catalog/adidas-samba-og/05.webp",
+      "/catalog/adidas-samba-og/06.webp",
+      "/catalog/adidas-samba-og/07.webp",
+      "/catalog/adidas-samba-og/08.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "calvin-klein-sandalia",
+    "name": "Sandalia",
+    "brand": "Calvin Klein",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "mujer",
+    "collection": "street",
+    "images": [
+      "/catalog/calvin-klein-sandalia/01.webp",
+      "/catalog/calvin-klein-sandalia/02.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "nike-sb-dunk-low-x-otomo-katsuhiro",
+    "name": "SB Dunk Low x Otomo Katsuhiro",
+    "brand": "Nike",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "hombre",
+    "collection": "street",
+    "images": [
+      "/catalog/nike-sb-dunk-low-x-otomo-katsuhiro/01.webp",
+      "/catalog/nike-sb-dunk-low-x-otomo-katsuhiro/02.webp",
+      "/catalog/nike-sb-dunk-low-x-otomo-katsuhiro/03.webp",
+      "/catalog/nike-sb-dunk-low-x-otomo-katsuhiro/04.webp",
+      "/catalog/nike-sb-dunk-low-x-otomo-katsuhiro/05.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  },
+  {
+    "slug": "timberland-bota",
+    "name": "Bota",
+    "brand": "Timberland",
+    "description": "",
+    "price": 175000,
+    "compare_at_price": 200000,
+    "gender": "unisex",
+    "collection": "street",
+    "images": [
+      "/catalog/timberland-bota/01.webp",
+      "/catalog/timberland-bota/02.webp",
+      "/catalog/timberland-bota/03.webp"
+    ],
+    "featured": false,
+    "best_seller": false,
+    "sizes": [
+      [
+        36,
+        5
+      ],
+      [
+        37,
+        5
+      ],
+      [
+        38,
+        5
+      ],
+      [
+        39,
+        5
+      ],
+      [
+        40,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        42,
+        5
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        44,
+        5
+      ]
+    ]
+  }
+]

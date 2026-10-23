@@ -1,27 +1,49 @@
-// Contenido de prueba de la Home. En la fase 3 colecciones y destacados vendrán de Supabase.
-const unsplash = (id: string) => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&q=80&w=1600`;
+// Contenido editorial de la home.
 
+// Banner de entrada entregado por la tienda (public/brand/banner-believe.webp, 1280×640).
 export const hero = {
-  eyebrow: "Temporada 01 · Drop limitado",
-  title: ["Eleva", "tu paso"],
-  lead: "Tenis seleccionados para quienes suben. Streetwear relajado, con el silencio del buen gusto.",
-  image: unsplash("1518002171953-a080ee817e1f"),
-  imageAlt: "Par de tenis grises sobre fondo negro iluminado",
+  title: "footlocker · Believe in yourself",
+  image: "/brand/banner-believe.webp",
+  imageAlt: "Logo de footlocker, una montaña con las letras FL, y el lema Believe in yourself",
 };
 
-export const drop = {
-  name: "Summit Low",
-  colorway: "Bone / Ink",
-  description:
-    "Cuero premium, suela de goma natural y una silueta limpia pensada para durar. Solo 120 pares numerados.",
-  releaseAt: "2026-11-07T19:00:00-05:00",
-  image: unsplash("1608231387042-66d1773070a5"),
-  imageAlt: "Tenis blanco de cuero sobre fondo negro",
-};
+// Producto de la sección "Edición limitada" de la home (slug del catálogo).
+export const drop = { slug: "nike-air-max-portal" };
 
-export const story = {
-  eyebrow: "Nuestra historia",
-  text:
-    "Cada par que elegimos es un paso hacia arriba. Creemos en el ascenso silencioso: en la constancia que no necesita gritar y en el estilo que se nota sin explicarse. La montaña nos recuerda que la cima se construye paso a paso. Este es el tuyo.",
-  summit: 4800,
-};
+// Fotos de deporte después del banner (public/home). `position` = encuadre en pantallas anchas y `mobilePosition` en celular (pantalla vertical).
+// `whole`: en pantallas anchas se muestra la foto completa (útil en fotos verticales) sobre un fondo difuminado.
+export const sportPanels = [
+  {
+    eyebrow: "Entrena hoy",
+    title: "Equípate para darlo todo.",
+    cta: "Comprar ahora",
+    href: "/catalogo",
+    image: "/home/entrena.webp",
+    imageAlt: "Personas entrenando con mancuernas en el gimnasio con tenis On y Nike",
+    position: "50% 75%",
+    mobilePosition: "44% 50%",
+    whole: false,
+  },
+  {
+    eyebrow: "Fútbol",
+    title: "Domina la cancha.",
+    cta: "Comprar Adidas",
+    href: "/catalogo?marca=adidas",
+    image: "/home/futbol.webp",
+    imageAlt: "Tacos Adidas rojos sobre un balón en una cancha sintética",
+    position: "50% 55%",
+    mobilePosition: "50% 50%",
+    whole: true,
+  },
+  {
+    eyebrow: "Running",
+    title: "Cada kilómetro cuenta.",
+    cta: "Comprar running",
+    href: "/catalogo?coleccion=running",
+    image: "/home/running.webp",
+    imageAlt: "Corredores en una pista atlética al atardecer",
+    position: "50% 50%",
+    mobilePosition: "35% 50%",
+    whole: true,
+  },
+];

@@ -5,9 +5,12 @@
 1. Crea un proyecto en [supabase.com](https://supabase.com) (región recomendada: `us-east-1` o `sa-east-1`).
 2. En **SQL Editor**, ejecuta en orden:
    1. `migrations/0001_schema.sql`: tablas, RLS y bucket `products`.
-   2. `seed.sql`: 4 colecciones y 12 productos de ejemplo con tallas y stock.
-   3. `migrations/0002_checkout.sql`: funciones de pedido y pago (`create_order`, `confirm_order_payment`, `mark_order_failed`).
-   4. `migrations/0003_admin.sql`: guardado atómico de productos y cambios de estado del panel (`admin_save_product`, `admin_set_order_status`).
+   2. `migrations/0002_checkout.sql`: funciones de pedido y pago (`create_order`, `confirm_order_payment`, `mark_order_failed`).
+   3. `migrations/0003_admin.sql`: guardado atómico de productos y cambios de estado del panel (`admin_save_product`, `admin_set_order_status`).
+   4. `migrations/0004_best_seller.sql`: etiqueta "Más vendido" en productos.
+   5. `migrations/0005_community.sql`: fotos de clientes ("El estilo de otras personas").
+   6. `migrations/0006_community_submissions.sql`: los clientes suben su foto desde la web y queda pendiente (bucket privado `community-pending`) hasta que el admin la acepta o rechaza en **Comunidad**.
+   7. `seed.sql`: 6 colecciones, 87 productos con tallas y stock y 4 fotos de comunidad de ejemplo (va al final porque usa las tablas de las migraciones).
 3. Copia las credenciales (**Project Settings → API**) a `.env.local`:
 
    ```env

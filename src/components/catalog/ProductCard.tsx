@@ -7,13 +7,24 @@ import { Magnetic } from "@/components/motion/Magnetic";
 import { usePageTransition } from "@/components/motion/PageTransition";
 import { TransitionLink } from "@/components/motion/TransitionLink";
 import { useFinePointer } from "@/hooks/useMediaQuery";
-import { inStock, totalStock } from "@/lib/catalog-filters";
-import { cn, formatCOP } from "@/lib/utils";
+import { inStock, isNew, totalStock } from "@/lib/catalog-filters";
+import { cn, formatCOP, productTitle } from "@/lib/utils";
 import { rectOf, useUi } from "@/store/ui";
-import type { Product } from "@/types/catalog";
+import type { Gender, Product } from "@/types/catalog";
 
 const tiltSpring = { stiffness: 150, damping: 18, mass: 0.5 };
 
+const GENDER_LABEL: Record<Gender, string> = {
+  hombre: "Calzado para hombre",
+  mujer: "Calzado para mujer",
+  unisex: "Calzado unisex",
+};
+
+/**
+ * Card estilo editorial: imagen cuadrada sobre fondo neutro y debajo
+ * etiqueta (Más vendido / Agotado), nombre, tipo, tallas y precio con "Nuevo".
+ * Usa tokens de color, así que funciona en zona oscura y en .theme-light.
+ */
 export function ProductCard({ product, priority = false }: { product: Product; priority?: boolean }) {
   const media = useRef<HTMLDivElement>(null);
   const fine = useFinePointer();
@@ -25,13 +36,22 @@ export function ProductCard({ product, priority = false }: { product: Product; p
   const rotateY = useSpring(0, tiltSpring);
 
   const href = `/producto/${product.slug}`;
+  const title = productTitle(product.brand, product.name);
   const available = inStock(product);
   const lowStock = available && totalStock(product) <= 4;
   const sizesLeft = product.variants.filter((v) => v.stock > 0).length;
-  const discount = product.compare_at_price
-    ? Math.round((1 - product.price / product.compare_at_price) * 100)
-    : 0;
+  const discount = product.compare_at_price ? Math.round((1 - product.price / product.compare_at_price) * 100) : 0;
+  const fresh = isNew(product);
   const [primary, secondary] = product.images;
+
+  // Etiqueta superior: una sola, por prioridad.
+  const label = !available
+    ? { text: "Agotado", className: "text-stone" }
+    : product.best_seller
+      ? { text: "Más vendido", className: "text-hot" }
+      : lowStock
+        ? { text: "Últimas tallas", className: "text-stone" }
+        : null;
 
   // Click normal: la imagen viaja hasta la galería en lugar de usar la cortina.
   const onClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -54,27 +74,27 @@ export function ProductCard({ product, priority = false }: { product: Product; p
             onPointerMove={(e) => {
               if (!tiltEnabled || !media.current) return;
               const r = media.current.getBoundingClientRect();
-              rotateY.set(((e.clientX - r.left) / r.width - 0.5) * 10);
-              rotateX.set(((e.clientY - r.top) / r.height - 0.5) * -10);
+              rotateY.set(((e.clientX - r.left) / r.width - 0.5) * 8);
+              rotateX.set(((e.clientY - r.top) / r.height - 0.5) * -8);
             }}
             onPointerLeave={() => {
               rotateX.set(0);
               rotateY.set(0);
             }}
-            className="relative aspect-[4/5] overflow-hidden bg-ink-raised will-change-transform"
+            className="relative aspect-square overflow-hidden bg-ink-raised will-change-transform"
           >
             {primary && (
               <Image
                 src={primary}
-                alt={`${product.brand} ${product.name}`}
+                alt={title}
                 fill
                 priority={priority}
                 fetchPriority={priority ? "high" : undefined}
-                sizes="(min-width: 1024px) 25vw, 50vw"
+                sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, 50vw"
                 className={cn(
-                  "object-cover transition-[opacity,scale] duration-700 ease-premium group-hover:scale-[1.04]",
+                  "object-cover transition-[opacity,scale] duration-700 ease-premium group-hover:scale-[1.03]",
                   secondary && "group-hover:opacity-0",
-                  !available && "opacity-50 grayscale",
+                  !available && "opacity-60 grayscale",
                 )}
               />
             )}
@@ -84,17 +104,10 @@ export function ProductCard({ product, priority = false }: { product: Product; p
                 alt=""
                 aria-hidden
                 fill
-                sizes="(min-width: 1024px) 25vw, 50vw"
-                className="scale-[1.08] object-cover opacity-0 transition-[opacity,scale] duration-700 ease-premium group-hover:scale-100 group-hover:opacity-100"
+                sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, 50vw"
+                className="scale-[1.06] object-cover opacity-0 transition-[opacity,scale] duration-700 ease-premium group-hover:scale-100 group-hover:opacity-100"
               />
             )}
-
-            {/* Etiquetas */}
-            <div className="absolute top-3 left-3 flex flex-col items-start gap-2">
-              {!available && <Badge tone="muted">Agotado</Badge>}
-              {lowStock && <Badge>Últimas tallas</Badge>}
-              {discount > 0 && available && <Badge tone="sand">-{discount}%</Badge>}
-            </div>
 
             {/* CTA "Ver" magnético (solo desktop) */}
             {fine && (
@@ -109,39 +122,26 @@ export function ProductCard({ product, priority = false }: { product: Product; p
           </m.div>
         </div>
 
-        <div className="mt-4 flex flex-col gap-1.5 md:flex-row md:items-start md:justify-between md:gap-3">
-          <div className="min-w-0">
-            <p className="eyebrow text-stone">{product.brand}</p>
-            <h3 className="mt-1.5 truncate font-sans text-sm font-medium text-bone transition-colors duration-500 group-hover:text-sand md:text-base">
-              {product.name}
-            </h3>
-          </div>
-          <div className="flex shrink-0 items-baseline gap-2 md:block md:text-right">
-            <p className="text-sm font-medium tabular-nums md:text-base">{formatCOP(product.price)}</p>
+        <div className="px-2 pt-3 pb-1 text-[0.9375rem] leading-snug sm:px-0">
+          {label && <p className={cn("mb-0.5 font-medium", label.className)}>{label.text}</p>}
+          <h3 className="font-sans text-[0.9375rem] font-medium text-bone">{title}</h3>
+          <p className="text-stone">{GENDER_LABEL[product.gender]}</p>
+          <p className="text-stone">
+            {available ? `${sizesLeft} ${sizesLeft === 1 ? "talla" : "tallas"}` : "Sin tallas disponibles"}
+          </p>
+
+          <div className="mt-2.5 flex flex-wrap items-center gap-x-2 gap-y-1">
+            <span className="font-medium text-bone tabular-nums">{formatCOP(product.price)}</span>
             {product.compare_at_price && (
-              <p className="text-xs text-stone tabular-nums line-through">{formatCOP(product.compare_at_price)}</p>
+              <span className="text-sm text-stone tabular-nums line-through">{formatCOP(product.compare_at_price)}</span>
+            )}
+            {fresh && (
+              <span className="bg-bone px-1.5 py-0.5 text-[0.6875rem] font-semibold tracking-wide text-ink uppercase">Nuevo</span>
             )}
           </div>
+          {discount > 0 && available && <p className="mt-0.5 text-sm font-medium text-bone">{discount}% de descuento</p>}
         </div>
-        <p className="mt-1 text-xs text-stone">
-          {available ? `${sizesLeft} ${sizesLeft === 1 ? "talla disponible" : "tallas disponibles"}` : "Sin stock por ahora"}
-        </p>
       </TransitionLink>
     </article>
-  );
-}
-
-function Badge({ children, tone = "default" }: { children: React.ReactNode; tone?: "default" | "sand" | "muted" }) {
-  return (
-    <span
-      className={cn(
-        "eyebrow rounded-full px-3 py-1.5 text-[0.625rem] backdrop-blur",
-        tone === "default" && "bg-ink/70 text-bone",
-        tone === "sand" && "bg-sand text-ink",
-        tone === "muted" && "bg-ink/80 text-stone",
-      )}
-    >
-      {children}
-    </span>
   );
 }

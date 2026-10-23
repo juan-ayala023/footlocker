@@ -44,13 +44,14 @@ export function SharedImageLayer() {
       {shared && box && (
         <m.div key="shared" className="pointer-events-none fixed inset-0 z-70" exit={{ opacity: 0, transition: { duration: 0.25 } }}>
           <m.div
-            className="absolute inset-0 bg-ink"
+            // Blanco: las cards de producto viven en zonas claras (catálogo y relacionados) y el destino también.
+            className="absolute inset-0 bg-white"
             initial={{ opacity: 0 }}
             animate={{ opacity: shared.to ? 0 : 1 }}
             transition={{ duration: shared.to ? 0.9 : 0.35, ease: ease.premium }}
           />
           <m.div
-            className="absolute overflow-hidden bg-ink-raised"
+            className="absolute overflow-hidden bg-[#f3f3f1]"
             initial={shared.from}
             animate={box}
             transition={{ duration: 0.9, ease: ease.premium }}

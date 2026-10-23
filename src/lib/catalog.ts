@@ -1,13 +1,14 @@
 import "server-only";
 import { unstable_cache } from "next/cache";
-import { seedCollections, seedProducts } from "@/data/catalog-seed";
+import imported from "@/data/catalog-import.json";
+import { SEED_DAYS_APART, seedCollections, seedProducts, type SeedProduct } from "@/data/catalog-seed";
 import { createPublicClient, isSupabaseConfigured } from "@/lib/supabase/public";
 import type { Collection, Product } from "@/types/catalog";
 
 export type Catalog = { products: Product[]; collections: Collection[] };
 
 const PRODUCT_SELECT = `
-  id, slug, name, brand, description, price, compare_at_price, gender, images, featured, created_at,
+  id, slug, name, brand, description, price, compare_at_price, gender, images, featured, best_seller, created_at,
   collection:collections ( slug, name ),
   variants:product_variants ( id, size, stock, sku )
 `;
@@ -31,17 +32,26 @@ async function fetchFromSupabase(): Promise<Catalog> {
   };
 }
 
+// Catálogo real importado (npm run catalog:build); si está vacío, se usan los productos de ejemplo.
+const sourceProducts: SeedProduct[] = (imported as SeedProduct[]).length > 0 ? (imported as SeedProduct[]) : seedProducts;
+
+const collectionCover = (slug: string) =>
+  (imported as SeedProduct[]).length > 0
+    ? (sourceProducts.find((p) => p.collection === slug && p.featured) ?? sourceProducts.find((p) => p.collection === slug))?.images[0]
+    : undefined;
+
 /** Respaldo local con los mismos datos del seed, para trabajar sin Supabase. */
 function fromSeed(): Catalog {
-  const collections: Collection[] = seedCollections.map((c) => ({ id: c.slug, ...c }));
+  // Con catálogo importado, la foto de cada colección es la portada de uno de sus modelos.
+  const collections: Collection[] = seedCollections.map((c) => ({ id: c.slug, ...c, image: collectionCover(c.slug) ?? c.image }));
   const now = Date.now();
-  const products: Product[] = seedProducts.map(({ sizes, collection, ...p }, i) => {
+  const products: Product[] = sourceProducts.map(({ sizes, collection, ...p }, i) => {
     const col = collections.find((c) => c.slug === collection) ?? null;
     return {
       ...p,
       id: p.slug,
       collection: col && { slug: col.slug, name: col.name },
-      created_at: new Date(now - i * 86_400_000).toISOString(),
+      created_at: new Date(now - i * SEED_DAYS_APART * 86_400_000).toISOString(),
       variants: sizes.map(([size, stock]) => ({
         id: `${p.slug}-${size}`,
         size,

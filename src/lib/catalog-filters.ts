@@ -16,6 +16,10 @@ export type Filters = {
   talla: number[];
   genero: Gender[];
   coleccion: string[];
+  /** Solo productos con precio rebajado (compare_at_price). */
+  oferta: boolean;
+  /** Búsqueda de texto (nombre, marca, colección). */
+  q: string;
   min: number | null;
   max: number | null;
   orden: Sort;
@@ -32,6 +36,8 @@ export const emptyFilters: Filters = {
   talla: [],
   genero: [],
   coleccion: [],
+  q: "",
+  oferta: false,
   min: null,
   max: null,
   orden: "relevancia",
@@ -57,6 +63,8 @@ export function parseFilters(sp: ParamSource): Filters {
     talla: list(read(sp, "talla")).map(Number).filter((n) => !Number.isNaN(n)),
     genero: list(read(sp, "genero")).filter((g): g is Gender => GENDERS.some((x) => x.value === g)),
     coleccion: list(read(sp, "coleccion")),
+    q: (read(sp, "q") ?? "").trim().slice(0, 60),
+    oferta: read(sp, "oferta") === "1",
     min: int(read(sp, "precio_min")),
     max: int(read(sp, "precio_max")),
     orden: SORTS.some((s) => s.value === orden) ? (orden as Sort) : "relevancia",
@@ -65,6 +73,8 @@ export function parseFilters(sp: ParamSource): Filters {
 
 export function serializeFilters(f: Filters): string {
   const sp = new URLSearchParams();
+  if (f.q) sp.set("q", f.q);
+  if (f.oferta) sp.set("oferta", "1");
   if (f.coleccion.length) sp.set("coleccion", f.coleccion.join(","));
   if (f.genero.length) sp.set("genero", f.genero.join(","));
   if (f.marca.length) sp.set("marca", f.marca.join(","));
@@ -76,13 +86,25 @@ export function serializeFilters(f: Filters): string {
   return qs ? `?${qs}` : "";
 }
 
+/** Días durante los que un producto se muestra como "Nuevo". */
+export const NEW_DAYS = 30;
+export const isNew = (p: Product, now = Date.now()) => now - new Date(p.created_at).getTime() < NEW_DAYS * 86_400_000;
+
 export const inStock = (p: Product) => p.variants.some((v) => v.stock > 0);
 export const totalStock = (p: Product) => p.variants.reduce((n, v) => n + v.stock, 0);
 
 type Key = "marca" | "talla" | "genero" | "coleccion" | "precio";
 
+// Sin tildes ni mayúsculas: "clasicos" encuentra "Clásicos".
+const normalize = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+
 /** Aplica los filtros; `except` ignora uno (para calcular cuántos resultados daría cada opción). */
 export function matches(p: Product, f: Filters, except?: Key) {
+  if (f.oferta && !(p.compare_at_price && p.compare_at_price > p.price)) return false;
+  if (f.q) {
+    const haystack = normalize(`${p.brand} ${p.name} ${p.collection?.name ?? ""}`);
+    if (!normalize(f.q).split(/\s+/).every((word) => haystack.includes(word))) return false;
+  }
   if (except !== "marca" && f.marca.length && !f.marca.includes(brandKey(p.brand))) return false;
   if (except !== "coleccion" && f.coleccion.length && !(p.collection && f.coleccion.includes(p.collection.slug))) return false;
   // "Hombre" y "Mujer" incluyen los unisex.
@@ -105,10 +127,13 @@ export function applyFilters(products: Product[], f: Filters): Product[] {
     case "nuevos":
       return result.sort(byDate);
     default:
-      // Destacados primero, agotados al final.
+      // Destacados y más vendidos primero, agotados al final.
       return result.sort(
         (a, b) =>
-          Number(inStock(b)) - Number(inStock(a)) || Number(b.featured) - Number(a.featured) || byDate(a, b),
+          Number(inStock(b)) - Number(inStock(a)) ||
+          Number(b.featured) - Number(a.featured) ||
+          Number(b.best_seller) - Number(a.best_seller) ||
+          byDate(a, b),
       );
   }
 }
@@ -118,6 +143,8 @@ export type Facets = {
   sizes: { size: number; available: boolean }[];
   genders: { value: Gender; label: string; count: number }[];
   collections: Record<string, number>;
+  /** Cuántos resultados daría "Solo en oferta" con el resto de filtros. */
+  onSale: number;
   price: { min: number; max: number };
 };
 
@@ -152,6 +179,7 @@ export function getFacets(products: Product[], f: Filters): Facets {
       count: products.filter((p) => matches(p, { ...f, genero: [g.value] })).length,
     })),
     collections,
+    onSale: products.filter((p) => matches(p, { ...f, oferta: true })).length,
     price: {
       // Redondeado a decenas de mil para que el slider tenga pasos limpios.
       min: prices.length ? Math.floor(Math.min(...prices) / 10_000) * 10_000 : 0,
@@ -173,5 +201,5 @@ export function getRelated(products: Product[], product: Product, limit = 4): Pr
 }
 
 export function activeFilterCount(f: Filters) {
-  return f.marca.length + f.talla.length + f.genero.length + f.coleccion.length + (f.min !== null || f.max !== null ? 1 : 0);
+  return (f.q ? 1 : 0) + (f.oferta ? 1 : 0) + f.marca.length + f.talla.length + f.genero.length + f.coleccion.length + (f.min !== null || f.max !== null ? 1 : 0);
 }

@@ -24,13 +24,14 @@ export type ProductFormValue = {
   collection_id: string | null;
   images: string[];
   featured: boolean;
+  best_seller: boolean;
   active: boolean;
   variants: { id?: string; size: number; stock: number; sku: string }[];
 };
 
 const PRESETS = [
-  { label: "Hombre 38–44", sizes: [38, 39, 40, 41, 42, 43, 44] },
-  { label: "Mujer 35–40", sizes: [35, 36, 37, 38, 39, 40] },
+  { label: "Hombre 40–44", sizes: [40, 41, 42, 43, 44] },
+  { label: "Mujer 36–39", sizes: [36, 37, 38, 39] },
   { label: "Unisex 36–44", sizes: [36, 37, 38, 39, 40, 41, 42, 43, 44] },
 ];
 
@@ -87,6 +88,7 @@ export function ProductForm({
       collection_id: v.collection_id || null,
       images: v.images,
       featured: v.featured,
+      best_seller: v.best_seller,
       active: v.active,
       variants: rows
         .filter((r) => r.size.trim() !== "")
@@ -245,6 +247,13 @@ export function ProductForm({
               <span>Destacado</span>
               <Switch label="Destacado" checked={v.featured} onChange={() => set("featured", !v.featured)} />
             </div>
+            <div className="flex items-center justify-between text-sm">
+              <span>
+                Más vendido <span className="text-xs text-stone">· etiqueta naranja en el catálogo</span>
+              </span>
+              <Switch label="Más vendido" checked={v.best_seller} onChange={() => set("best_seller", !v.best_seller)} />
+            </div>
+            <p className="text-xs text-stone">“Nuevo” se muestra solo durante los primeros 30 días desde que se crea el producto.</p>
           </div>
         </Panel>
 

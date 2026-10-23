@@ -11,6 +11,7 @@ const links = [
   { href: "/admin/pedidos", label: "Pedidos" },
   { href: "/admin/productos", label: "Productos" },
   { href: "/admin/colecciones", label: "Colecciones" },
+  { href: "/admin/comunidad", label: "Comunidad" },
 ];
 
 export function AdminNav({ email }: { email: string }) {

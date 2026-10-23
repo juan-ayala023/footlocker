@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ProductCard } from "@/components/catalog/ProductCard";
+import { CommunityGallery } from "@/components/community/CommunityGallery";
 import { TextReveal } from "@/components/motion/TextReveal";
 import { ProductGallery } from "@/components/product/ProductGallery";
 import { ProductInfo } from "@/components/product/ProductInfo";
 import { site } from "@/config/site";
 import { getCatalog } from "@/lib/catalog";
 import { getRelated, inStock } from "@/lib/catalog-filters";
+import { getCommunityPhotos } from "@/lib/community";
 import { baseOpenGraph } from "@/lib/seo";
 import { productTitle } from "@/lib/utils";
 
@@ -44,6 +46,7 @@ export default async function ProductPage({ params }: Params) {
   if (!product) notFound();
 
   const related = getRelated(products, product);
+  const community = await getCommunityPhotos(product.id);
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -63,7 +66,8 @@ export default async function ProductPage({ params }: Params) {
   };
 
   return (
-    <>
+    // Ficha de producto en zona clara, como el catálogo (estilo editorial).
+    <div className="theme-light bg-ink text-bone">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
 
       <div className="container-page grid gap-10 pt-[calc(var(--nav-h)+1rem)] pb-24 lg:grid-cols-12 lg:gap-16 lg:pt-[calc(var(--nav-h)+3rem)]">
@@ -76,6 +80,8 @@ export default async function ProductPage({ params }: Params) {
           </div>
         </div>
       </div>
+
+      <CommunityGallery photos={community} className="border-t border-line" />
 
       {related.length > 0 && (
         <section aria-labelledby="relacionados-title" className="container-page border-t border-line pt-20 pb-8 md:pt-28">
@@ -92,6 +98,6 @@ export default async function ProductPage({ params }: Params) {
           </ul>
         </section>
       )}
-    </>
+    </div>
   );
 }

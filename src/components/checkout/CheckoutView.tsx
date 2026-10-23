@@ -309,7 +309,7 @@ export function CheckoutView() {
                 </Button>
               </Magnetic>
               <p className="mt-4 text-center text-xs text-stone">
-                Al pagar aceptas nuestras condiciones de compra. Cambios de talla sin costo durante 30 días.
+                Al pagar aceptas nuestras condiciones de compra. Garantía legal de 15 días por defectos de fábrica.
               </p>
             </div>
           </fieldset>

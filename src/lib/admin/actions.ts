@@ -4,6 +4,7 @@ import { revalidatePath, revalidateTag } from "next/cache";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 import { requireAdmin } from "@/lib/admin/auth";
+import { COMMUNITY_PENDING_BUCKET } from "@/lib/community-upload";
 import type { OrderStatus } from "@/lib/orders-types";
 import { slugify } from "@/lib/slug";
 import { createSessionClient } from "@/lib/supabase/server";
@@ -49,6 +50,7 @@ const productSchema = z
     collection_id: z.uuid().nullable(),
     images: z.array(z.url()).max(12),
     featured: z.boolean(),
+    best_seller: z.boolean(),
     active: z.boolean(),
     variants: z
       .array(
@@ -154,5 +156,109 @@ export async function deleteCollection(id: string): Promise<ActionResult> {
   if (error) return { ok: false, error: error.message };
   revalidateTag("catalog");
   revalidatePath("/admin/colecciones");
+  return { ok: true };
+}
+
+// ───────────── Comunidad ("El estilo de otras personas") ─────────────
+
+const communitySchema = z.object({
+  image: z.url("Sube una foto"),
+  handle: z
+    .string()
+    .trim()
+    .transform((v) => v.replace(/^@/, ""))
+    .pipe(z.string().regex(/^[\w.]{0,30}$/, "Usuario de Instagram inválido")),
+  product_id: z.uuid().nullable(),
+});
+
+export type CommunityInput = z.input<typeof communitySchema>;
+
+export async function saveCommunityPhoto(input: CommunityInput): Promise<ActionResult> {
+  const { supabase } = await requireAdmin();
+  const parsed = communitySchema.safeParse(input);
+  if (!parsed.success) return { ok: false, error: parsed.error.issues[0]?.message ?? "Datos inválidos" };
+
+  const { handle, ...rest } = parsed.data;
+  const { error } = await supabase.from("community_photos").insert({ ...rest, handle: handle || null });
+  if (error) return { ok: false, error: error.message };
+  revalidateTag("community");
+  revalidatePath("/admin/comunidad");
+  return { ok: true };
+}
+
+export async function toggleCommunityPhoto(id: string, active: boolean): Promise<ActionResult> {
+  const { supabase } = await requireAdmin();
+  if (!z.tuple([z.uuid(), z.boolean()]).safeParse([id, active]).success) return { ok: false, error: "Datos inválidos" };
+  const { error } = await supabase.from("community_photos").update({ active }).eq("id", id);
+  if (error) return { ok: false, error: error.message };
+  revalidateTag("community");
+  revalidatePath("/admin/comunidad");
+  return { ok: true };
+}
+
+/**
+ * Acepta una foto enviada por un cliente: la copia del bucket privado al público
+ * (products/comunidad/) y la deja visible. Opcionalmente le asigna el producto que aparece.
+ */
+export async function approveCommunityPhoto(id: string, productId: string | null): Promise<ActionResult> {
+  const { supabase } = await requireAdmin();
+  if (!z.tuple([z.uuid(), z.uuid().nullable()]).safeParse([id, productId]).success) return { ok: false, error: "Datos inválidos" };
+
+  const { data: row, error: readError } = await supabase
+    .from("community_photos")
+    .select("image, status")
+    .eq("id", id)
+    .single();
+  if (readError || !row) return { ok: false, error: "La foto ya no existe." };
+  if (row.status !== "pending") return { ok: false, error: "Esta foto ya fue revisada." };
+
+  const pending = supabase.storage.from(COMMUNITY_PENDING_BUCKET);
+  const { data: file, error: downloadError } = await pending.download(row.image);
+  if (downloadError || !file) return { ok: false, error: "No se pudo leer la foto." };
+
+  const ext = row.image.split(".").pop() ?? "jpg";
+  const publicPath = `comunidad/${id}.${ext}`;
+  const publicBucket = supabase.storage.from("products");
+  const { error: uploadError } = await publicBucket.upload(publicPath, file, {
+    cacheControl: "31536000",
+    contentType: file.type || undefined,
+    upsert: true,
+  });
+  if (uploadError) return { ok: false, error: uploadError.message };
+
+  const { error } = await supabase
+    .from("community_photos")
+    .update({ image: publicBucket.getPublicUrl(publicPath).data.publicUrl, status: "approved", active: true, product_id: productId })
+    .eq("id", id);
+  if (error) return { ok: false, error: error.message };
+
+  await pending.remove([row.image]);
+  revalidateTag("community");
+  revalidatePath("/admin/comunidad");
+  return { ok: true };
+}
+
+/** Rechaza una foto enviada por un cliente: borra el archivo privado y la fila. */
+export async function rejectCommunityPhoto(id: string): Promise<ActionResult> {
+  const { supabase } = await requireAdmin();
+  if (!z.uuid().safeParse(id).success) return { ok: false, error: "Datos inválidos" };
+
+  const { data: row } = await supabase.from("community_photos").select("image, status").eq("id", id).single();
+  if (row?.status !== "pending") return { ok: false, error: "Esta foto ya fue revisada." };
+
+  await supabase.storage.from(COMMUNITY_PENDING_BUCKET).remove([row.image]);
+  const { error } = await supabase.from("community_photos").delete().eq("id", id);
+  if (error) return { ok: false, error: error.message };
+  revalidatePath("/admin/comunidad");
+  return { ok: true };
+}
+
+export async function deleteCommunityPhoto(id: string): Promise<ActionResult> {
+  const { supabase } = await requireAdmin();
+  if (!z.uuid().safeParse(id).success) return { ok: false, error: "Datos inválidos" };
+  const { error } = await supabase.from("community_photos").delete().eq("id", id);
+  if (error) return { ok: false, error: error.message };
+  revalidateTag("community");
+  revalidatePath("/admin/comunidad");
   return { ok: true };
 }

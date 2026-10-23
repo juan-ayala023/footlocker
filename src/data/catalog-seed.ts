@@ -5,6 +5,9 @@
 
 import type { Gender } from "../types/catalog";
 
+/** Días entre la fecha de alta de cada producto de ejemplo (los primeros quedan como "Nuevo"). */
+export const SEED_DAYS_APART = 6;
+
 const unsplash = (id: string) =>
   `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=1200&h=1500&q=80`;
 
@@ -16,7 +19,7 @@ export type SeedCollection = {
   slug: string;
   name: string;
   description: string;
-  image: string;
+  image: string | null;
   sort_order: number;
 };
 
@@ -31,6 +34,7 @@ export type SeedProduct = {
   collection: string;
   images: string[];
   featured: boolean;
+  best_seller: boolean;
   /** [talla, stock] */
   sizes: [number, number][];
 };
@@ -40,6 +44,9 @@ export const seedCollections: SeedCollection[] = [
   { slug: "clasicos", name: "Clásicos", description: "Siluetas que no pasan de moda", image: unsplash("1600269452121-4f2416e55c28"), sort_order: 2 },
   { slug: "running", name: "Running", description: "Ligereza para cada kilómetro", image: unsplash("1562183241-b937e95585b6"), sort_order: 3 },
   { slug: "retro", name: "Retro", description: "Iconos de otra década", image: unsplash("1552346154-21d32810aba3"), sort_order: 4 },
+  // Deporte (menú → Deporte): se llenan desde el admin asignando productos a estas colecciones.
+  { slug: "futbol", name: "Fútbol", description: "Para la cancha y la calle", image: null, sort_order: 5 },
+  { slug: "basket", name: "Basket", description: "Siluetas nacidas en la duela", image: unsplash("1597045566677-8cf032ed6634"), sort_order: 6 },
 ];
 
 // Stock determinístico por talla (0–6) para que seed y respaldo coincidan.
@@ -53,8 +60,9 @@ function stockFor(slug: string, size: number) {
 }
 
 const RANGES: Record<Gender, number[]> = {
-  hombre: [38, 39, 40, 41, 42, 43, 44],
-  mujer: [35, 36, 37, 38, 39, 40],
+  // Tallas europeas (EU)
+  hombre: [40, 41, 42, 43, 44],
+  mujer: [36, 37, 38, 39],
   unisex: [36, 37, 38, 39, 40, 41, 42, 43, 44],
 };
 
@@ -76,6 +84,7 @@ const base: Base[] = [
     collection: "clasicos",
     images: [unsplash("1600269452121-4f2416e55c28"), detail("1600269452121-4f2416e55c28", 0.6, 0.55)],
     featured: true,
+    best_seller: true,
   },
   {
     slug: "nike-air-force-1-carhartt-wip",
@@ -88,6 +97,7 @@ const base: Base[] = [
     collection: "street",
     images: [unsplash("1549298916-b41d501d3772"), detail("1549298916-b41d501d3772", 0.5, 0.5)],
     featured: true,
+    best_seller: false,
     scarcity: 0.5,
   },
   {
@@ -98,9 +108,10 @@ const base: Base[] = [
     price: 1099900,
     compare_at_price: 1249900,
     gender: "hombre",
-    collection: "retro",
+    collection: "basket",
     images: [unsplash("1552346154-21d32810aba3"), unsplash("1597045566677-8cf032ed6634")],
     featured: true,
+    best_seller: true,
     scarcity: 0.4,
   },
   {
@@ -114,6 +125,7 @@ const base: Base[] = [
     collection: "retro",
     images: [unsplash("1514989940723-e8e51635b782"), detail("1514989940723-e8e51635b782", 0.55, 0.6)],
     featured: false,
+    best_seller: true,
   },
   {
     slug: "nike-air-max-1-sport-red",
@@ -126,6 +138,7 @@ const base: Base[] = [
     collection: "retro",
     images: [unsplash("1600185365483-26d7a4cc7519"), detail("1600185365483-26d7a4cc7519", 0.5, 0.5)],
     featured: false,
+    best_seller: false,
   },
   {
     slug: "nike-air-force-1-shadow-pastel",
@@ -138,6 +151,7 @@ const base: Base[] = [
     collection: "clasicos",
     images: [unsplash("1595950653106-6c9ebd614d3a"), detail("1595950653106-6c9ebd614d3a", 0.45, 0.5)],
     featured: true,
+    best_seller: false,
   },
   {
     slug: "adidas-eqt-support-adv",
@@ -150,6 +164,7 @@ const base: Base[] = [
     collection: "running",
     images: [unsplash("1518002171953-a080ee817e1f"), detail("1518002171953-a080ee817e1f", 0.6, 0.65)],
     featured: false,
+    best_seller: false,
   },
   {
     slug: "adidas-deerupt-runner",
@@ -162,6 +177,7 @@ const base: Base[] = [
     collection: "running",
     images: [unsplash("1562183241-b937e95585b6"), detail("1562183241-b937e95585b6", 0.55, 0.45)],
     featured: false,
+    best_seller: false,
   },
   {
     slug: "nike-free-rn-flyknit",
@@ -174,6 +190,7 @@ const base: Base[] = [
     collection: "running",
     images: [unsplash("1542291026-7eec264c27ff"), detail("1542291026-7eec264c27ff", 0.45, 0.5)],
     featured: false,
+    best_seller: false,
   },
   {
     slug: "nike-air-zoom-pegasus-volt",
@@ -186,6 +203,7 @@ const base: Base[] = [
     collection: "running",
     images: [unsplash("1606107557195-0e29a4b5b4aa"), detail("1606107557195-0e29a4b5b4aa", 0.5, 0.75)],
     featured: false,
+    best_seller: false,
   },
   {
     slug: "vans-old-skool-burgundy",
@@ -198,6 +216,7 @@ const base: Base[] = [
     collection: "street",
     images: [unsplash("1525966222134-fcfa99b8ae77"), detail("1525966222134-fcfa99b8ae77", 0.55, 0.5)],
     featured: false,
+    best_seller: true,
   },
   {
     slug: "puma-smash-v2-leather",
@@ -210,6 +229,7 @@ const base: Base[] = [
     collection: "clasicos",
     images: [unsplash("1608231387042-66d1773070a5"), detail("1608231387042-66d1773070a5", 0.6, 0.5)],
     featured: false,
+    best_seller: false,
   },
 ];
 
@@ -217,3 +237,18 @@ export const seedProducts: SeedProduct[] = base.map(({ scarcity, ...p }) => ({
   ...p,
   sizes: sizes(p.slug, p.gender, scarcity),
 }));
+
+export type SeedCommunityPhoto = {
+  image: string;
+  handle: string | null;
+  /** slug del producto que aparece en la foto */
+  product: string | null;
+};
+
+/** Fotos de ejemplo para "El estilo de otras personas" (reemplazar por fotos reales de clientes). */
+export const seedCommunity: SeedCommunityPhoto[] = [
+  { image: unsplash("1514989940723-e8e51635b782"), handle: null, product: "nike-air-max-90-orange" },
+  { image: unsplash("1597045566677-8cf032ed6634"), handle: null, product: "jordan-1-retro-high-bred-toe" },
+  { image: unsplash("1460353581641-37baddab0fa2"), handle: null, product: null },
+  { image: unsplash("1556906781-9a412961c28c"), handle: null, product: null },
+];
