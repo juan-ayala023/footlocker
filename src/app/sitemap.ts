@@ -11,7 +11,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [
     { url: site.url, lastModified: now, changeFrequency: "daily", priority: 1 },
     { url: `${site.url}/catalogo`, lastModified: now, changeFrequency: "daily", priority: 0.9 },
-    ...["ayuda", "proposito"].map((s) => ({
+    ...["ayuda", "proposito", "terminos"].map((s) => ({
       url: `${site.url}/${s}`,
       lastModified: now,
       changeFrequency: "monthly" as const,

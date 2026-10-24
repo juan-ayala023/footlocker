@@ -104,7 +104,10 @@ export const footerNav = [
   },
   {
     title: `Acerca de ${site.name}`,
-    links: [{ label: "Propósito y quiénes somos", href: "/proposito" }],
+    links: [
+      { label: "Propósito y quiénes somos", href: "/proposito" },
+      { label: "Términos y condiciones", href: "/terminos" },
+    ],
   },
   {
     title: "Tienda",
