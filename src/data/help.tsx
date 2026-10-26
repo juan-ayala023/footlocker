@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { SIZE_CHART } from "@/data/sizes";
 import { site } from "@/config/site";
-import { formatCOP } from "@/lib/utils";
 
 export type HelpQuestion = { q: string; a: React.ReactNode };
 export type HelpSection = { slug: string; title: string; questions: HelpQuestion[] };
@@ -34,14 +33,9 @@ export const helpSections: HelpSection[] = [
         q: `¿Cómo puedo obtener envío gratis en los pedidos de ${site.name}?`,
         a: (
           <>
-            <p>Ofrecemos envío gratis para compras superiores a {formatCOP(site.shipping.freeFrom)}.</p>
-            <p>
-              Para acceder a este beneficio, el total de los productos comprados en la página web debe ser mínimo de{" "}
-              {formatCOP(site.shipping.freeFrom)} (pesos colombianos). El beneficio se aplica automáticamente en el carrito de compras.
-            </p>
-            <p className="text-sm text-stone">
-              El monto mínimo para la exención del valor del envío está sujeto a cambios. En cualquier caso, te avisaremos si cambia.
-            </p>
+            <p>El envío es gratis a toda Colombia en todos los pedidos: el precio de cada par ya lo incluye.</p>
+            <p>No necesitas un monto mínimo ni un código; el beneficio se aplica automáticamente en el carrito de compras.</p>
+            <p className="text-sm text-stone">Esta condición está sujeta a cambios. En cualquier caso, te avisaremos si cambia.</p>
           </>
         ),
       },

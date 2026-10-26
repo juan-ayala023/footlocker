@@ -11,8 +11,8 @@ export const site = {
   shipping: {
     /** Tarifa fija nacional en COP */
     flat: 15000,
-    /** Envío gratis para compras superiores a este subtotal (política de la tienda) */
-    freeFrom: 299900,
+    /** Envío gratis para compras desde este subtotal (0 = envío incluido en todos los pedidos) */
+    freeFrom: 0,
     /** Tiempo estimado de entrega tras confirmar el pago y preparar el pedido */
     eta: "1 a 5 días hábiles",
   },
@@ -33,7 +33,7 @@ export const site = {
  * Edita aquí los mensajes; usa solo promociones reales.
  */
 export const announcements = [
-  { text: "Envío gratis sobre $299.900", href: "/ayuda?seccion=envios", cta: "Ver detalles" },
+  { text: "Envío gratis a toda Colombia", href: "/ayuda?seccion=envios", cta: "Ver detalles" },
   { text: "13% de descuento en referencias seleccionadas", href: "/catalogo?oferta=1", cta: "Comprar ofertas" },
 ] as const;
 

@@ -207,7 +207,7 @@ export function ProductInfo({ product }: { product: Product }) {
 
       <ul className="mt-8 grid gap-3 text-sm text-mist">
         <li className="flex gap-3">
-          <Dot /> Envío gratis en compras superiores a {formatCOP(site.shipping.freeFrom)}. Entrega en {site.shipping.eta}.
+          <Dot /> Envío gratis a toda Colombia. Entrega en {site.shipping.eta}.
         </li>
         <li className="flex gap-3">
           <Dot /> Garantía legal de 15 días por defectos de fábrica.

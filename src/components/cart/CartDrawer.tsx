@@ -47,7 +47,7 @@ export function CartDrawer() {
   }, [isOpen, lenis, close]);
 
   const remaining = Math.max(site.shipping.freeFrom - subtotal, 0);
-  const progress = Math.min(subtotal / site.shipping.freeFrom, 1);
+  const progress = site.shipping.freeFrom ? Math.min(subtotal / site.shipping.freeFrom, 1) : 1;
 
   return (
     <AnimatePresence>
