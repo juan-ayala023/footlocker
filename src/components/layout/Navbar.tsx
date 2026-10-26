@@ -32,7 +32,9 @@ export function Navbar() {
 
   const light = LIGHT_ROUTES.some((r) => pathname.startsWith(r)) && !menuOpen;
   // En la home, mientras está sobre el banner blanco, la barra va clara con logo e iconos negros.
-  const overHero = pathname === "/" && !pastHero && !menuOpen;
+  // Vercel regenera la home (ISR) como "/index", y esa ruta queda en la página servida.
+  const isHome = pathname === "/" || pathname === "/index";
+  const overHero = isHome && !pastHero && !menuOpen;
 
   // La barra siempre queda fija y sin fondo; solo cambia el color del texto según lo que haya detrás.
   useMotionValueEvent(scrollY, "change", (y) => setPastHero(y > window.innerHeight * 0.8));
