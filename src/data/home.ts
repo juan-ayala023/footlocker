@@ -1,10 +1,10 @@
 // Contenido editorial de la home.
 
-// Banner de entrada entregado por la tienda (public/brand/banner-believe.webp, 1280×640).
+// Banner de entrada entregado por la tienda (public/brand/banner-make-it-work.webp, 1280×640).
 export const hero = {
-  title: "footlocker · Believe in yourself",
-  image: "/brand/banner-believe.webp",
-  imageAlt: "Logo de footlocker, una montaña con las letras FL, y el lema Believe in yourself",
+  title: "footlocker · Make it work",
+  image: "/brand/banner-make-it-work.webp",
+  imageAlt: "Logo de footlocker, una montaña con las letras FL, y el lema Make it work",
 };
 
 // Producto de la sección "Edición limitada" de la home (slug del catálogo).
