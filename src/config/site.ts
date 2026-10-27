@@ -21,9 +21,9 @@ export const site = {
   /** Horario de atención */
   hours: ["Lunes a viernes: 9:00 - 20:00", "Sábado: 9:00 - 18:00"],
   /** Usuario de Instagram de la tienda (sin @). Se usa en "El estilo de otras personas". */
-  instagramHandle: "footlocker.col",
+  instagramHandle: "footlockercol_",
   social: {
-    instagram: "https://instagram.com/footlocker.col",
+    instagram: "https://www.instagram.com/footlockercol_",
     tiktok: "https://tiktok.com/",
   },
 } as const;

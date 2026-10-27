@@ -88,6 +88,16 @@ export function Navbar() {
               <SearchIcon />
             </IconButton>
 
+            <a
+              href={site.social.instagram}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`Instagram @${site.instagramHandle}`}
+              className="flex size-11 items-center justify-center rounded-full transition-colors duration-300 hover:bg-bone/8"
+            >
+              <InstagramIcon />
+            </a>
+
             <IconButton label={`Abrir carrito, ${count} ${count === 1 ? "producto" : "productos"}`} onClick={openCart}>
               <span className="relative flex">
                 <BagIcon />
@@ -248,6 +258,16 @@ function SearchIcon({ className = "size-6" }: { className?: string }) {
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" aria-hidden className={className}>
       <circle cx="10.5" cy="10.5" r="6.5" />
       <path d="m15.5 15.5 5 5" />
+    </svg>
+  );
+}
+
+function InstagramIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} aria-hidden className="size-6">
+      <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.25" cy="6.75" r="0.75" fill="currentColor" stroke="none" />
     </svg>
   );
 }

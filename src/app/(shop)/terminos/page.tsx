@@ -19,8 +19,8 @@ const SECTIONS: Section[] = [
       "Dirección para notificaciones: Rionegro, Antioquia, Colombia",
       "Ciudad: Rionegro, Antioquia, Colombia",
       "Teléfono y WhatsApp: 311-333-7845",
-      "Instagram: @footlockercol",
-      "Canales oficiales de atención: Instagram @footlockercol, WhatsApp 311-333-7845",
+      "Instagram: @footlockercol_",
+      "Canales oficiales de atención: Instagram @footlockercol_, WhatsApp 311-333-7845",
     ],
   },
   {
@@ -109,7 +109,7 @@ const SECTIONS: Section[] = [
     paragraphs: ["Los clientes podrán presentar consultas, solicitudes y reclamaciones mediante los canales oficiales publicados por la tienda:"],
     list: [
       "Teléfono y WhatsApp: 311-333-7845",
-      "Instagram: @footlockercol",
+      "Instagram: @footlockercol_",
       "Dirección para notificaciones: Rionegro, Antioquia, Colombia",
     ],
     after: [
