@@ -2,9 +2,9 @@
 export const site = {
   name: "footlocker",
   legalName: "footlocker",
-  tagline: "Eleva tu paso",
+  tagline: "Make it work",
   description:
-    "Tenis seleccionados para quienes suben. Streetwear con prestigio, drops limitados y envíos a toda Colombia.",
+    "Sneakers y calzado urbano. Envío gratis a toda Colombia.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   locale: "es-CO",
   currency: "COP",
