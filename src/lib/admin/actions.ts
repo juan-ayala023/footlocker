@@ -104,6 +104,48 @@ export async function toggleProduct(id: string, field: "active" | "featured", va
   return { ok: true };
 }
 
+const priceSchema = z.number().int().min(1000, "Precio inválido").max(100_000_000, "Precio inválido");
+
+/**
+ * Cambia el precio de uno o de todos los productos (id = null).
+ * compareAt: undefined deja el "precio antes" como está, null lo quita, un número lo fija.
+ * Si el "precio antes" que queda no es mayor que el nuevo precio, se quita (si no, no sería un descuento).
+ */
+export async function setProductPrice(
+  id: string | null,
+  price: number,
+  compareAt?: number | null,
+): Promise<ActionResult<{ updated: number; clearedCompare: number }>> {
+  const { supabase } = await requireAdmin();
+  const args = z
+    .tuple([z.uuid().nullable(), priceSchema, z.number().int().positive().nullable().optional()])
+    .safeParse([id, price, compareAt]);
+  if (!args.success) return { ok: false, error: args.error.issues[0]?.message ?? "Datos inválidos" };
+  if (typeof compareAt === "number" && compareAt <= price) {
+    return { ok: false, error: "El precio antes debe ser mayor que el precio nuevo" };
+  }
+
+  let clearedCompare = 0;
+  if (compareAt === undefined) {
+    // Primero se quitan los "precio antes" que dejarían de ser mayores, para no violar el check de la tabla.
+    let clear = supabase.from("products").update({ compare_at_price: null }).lte("compare_at_price", price);
+    // supabase-js exige un filtro en update: "todos" = id no nulo.
+    clear = id ? clear.eq("id", id) : clear.not("id", "is", null);
+    const { data, error } = await clear.select("id");
+    if (error) return { ok: false, error: error.message };
+    clearedCompare = data.length;
+  }
+
+  let update = supabase.from("products").update(compareAt === undefined ? { price } : { price, compare_at_price: compareAt });
+  update = id ? update.eq("id", id) : update.not("id", "is", null);
+  const { data, error } = await update.select("id");
+  if (error) return { ok: false, error: error.message };
+
+  revalidateTag("catalog");
+  revalidatePath("/admin/productos");
+  return { ok: true, data: { updated: data.length, clearedCompare } };
+}
+
 export async function deleteProduct(id: string): Promise<ActionResult> {
   const { supabase } = await requireAdmin();
   if (!z.uuid().safeParse(id).success) return { ok: false, error: "Datos inválidos" };

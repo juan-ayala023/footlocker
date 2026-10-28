@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
+import { BulkPrice, InlinePrice } from "@/components/admin/PriceEditor";
 import { ProductToggles } from "@/components/admin/ProductToggles";
 import { Empty, PageHeader, Panel } from "@/components/admin/ui";
 import { requireAdmin } from "@/lib/admin/auth";
-import { cn, formatCOP } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 
 export const metadata = { title: "Productos" };
 
@@ -32,7 +33,10 @@ export default async function ProductsPage({ searchParams }: { searchParams: Pro
     .order("created_at", { ascending: false });
   if (q) query = query.or(`name.ilike.%${q}%,brand.ilike.%${q}%,slug.ilike.%${q}%`);
   if (estado) query = query.eq("active", estado === "activos");
-  const { data, error } = await query;
+  const [{ data, error }, { count: total }] = await Promise.all([
+    query,
+    supabase.from("products").select("id", { count: "exact", head: true }),
+  ]);
   const products = (data ?? []) as unknown as Row[];
 
   return (
@@ -71,6 +75,12 @@ export default async function ProductsPage({ searchParams }: { searchParams: Pro
         </form>
       </div>
 
+      {!!total && (
+        <Panel title="Precio para todos" className="mb-6">
+          <BulkPrice count={total} />
+        </Panel>
+      )}
+
       <Panel>
         {error ? (
           <Empty>No se pudieron cargar los productos: {error.message}</Empty>
@@ -87,11 +97,9 @@ export default async function ProductsPage({ searchParams }: { searchParams: Pro
                   <Link href={`/admin/productos/${p.id}`} className="min-w-0 flex-1">
                     <p className="eyebrow text-stone">{p.brand}</p>
                     <p className="truncate text-sm hover:text-sand">{p.name}</p>
-                    <p className="text-xs text-stone">
-                      {formatCOP(p.price)}
-                      {p.collection && ` · ${p.collection.name}`}
-                    </p>
+                    {p.collection && <p className="text-xs text-stone">{p.collection.name}</p>}
                   </Link>
+                  <InlinePrice key={p.price} id={p.id} price={p.price} />
                   <div className="hidden w-28 text-right text-sm sm:block">
                     <p className={cn("tabular-nums", stock === 0 && "text-sand")}>{stock === 0 ? "Sin stock" : `${stock} pares`}</p>
                     <p className="text-xs text-stone">
