@@ -92,7 +92,7 @@ export function ProductCard({ product, priority = false }: { product: Product; p
                 fetchPriority={priority ? "high" : undefined}
                 sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, 50vw"
                 className={cn(
-                  "object-cover transition-[opacity,scale] duration-700 ease-premium group-hover:scale-[1.03]",
+                  "object-contain transition-[opacity,scale] duration-700 ease-premium group-hover:scale-[1.03]",
                   secondary && "group-hover:opacity-0",
                   !available && "opacity-60 grayscale",
                 )}
@@ -105,7 +105,7 @@ export function ProductCard({ product, priority = false }: { product: Product; p
                 aria-hidden
                 fill
                 sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, 50vw"
-                className="scale-[1.06] object-cover opacity-0 transition-[opacity,scale] duration-700 ease-premium group-hover:scale-100 group-hover:opacity-100"
+                className="scale-[1.06] object-contain opacity-0 transition-[opacity,scale] duration-700 ease-premium group-hover:scale-100 group-hover:opacity-100"
               />
             )}
 
