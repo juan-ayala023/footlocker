@@ -28,7 +28,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(p.created_at),
       changeFrequency: "weekly" as const,
       priority: 0.8,
-      images: p.images.slice(0, 2),
+      // Google exige URLs absolutas en las imágenes del sitemap (las del catálogo son rutas locales).
+      images: p.images.slice(0, 2).map((src) => new URL(src, site.url).href),
     })),
   ];
 }
