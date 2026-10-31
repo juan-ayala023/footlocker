@@ -8,6 +8,9 @@ const nextConfig: NextConfig = {
     inlineCss: true,
   },
   images: {
+    // Sin el optimizador de Vercel: el cupo del plan se agotó y las fotos nuevas salían rotas (402).
+    // Las imágenes ya se sirven livianas: el catálogo en webp y el admin comprime antes de subir.
+    unoptimized: true,
     formats: ["image/avif", "image/webp"],
     remotePatterns: [
       // Imágenes de prueba hasta conectar Supabase Storage (fase 3)

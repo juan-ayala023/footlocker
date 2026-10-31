@@ -5,8 +5,27 @@ import { useRef, useState } from "react";
 import { getBrowserClient } from "@/lib/supabase/browser";
 import { cn } from "@/lib/utils";
 
-const MAX_MB = 5;
+const MAX_MB = 15;
 const BUCKET = "products";
+/** Lado mayor de las fotos subidas (como las del catálogo, 1200 px). */
+const MAX_SIDE = 1600;
+
+/**
+ * Reduce y convierte a webp en el navegador antes de subir: la tienda sirve las fotos tal cual
+ * (sin optimizador), así que una foto de 2 MB se descargaría completa en cada tarjeta.
+ */
+async function compress(file: File): Promise<Blob> {
+  const bitmap = await createImageBitmap(file);
+  const scale = Math.min(1, MAX_SIDE / Math.max(bitmap.width, bitmap.height));
+  const canvas = document.createElement("canvas");
+  canvas.width = Math.round(bitmap.width * scale);
+  canvas.height = Math.round(bitmap.height * scale);
+  canvas.getContext("2d")!.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+  bitmap.close();
+  return new Promise((resolve, reject) =>
+    canvas.toBlob((b) => (b ? resolve(b) : reject(new Error("No se pudo procesar la imagen"))), "image/webp", 0.85),
+  );
+}
 
 /** Sube imágenes al bucket "products" de Supabase Storage (sesión del admin) y gestiona su orden. */
 export function ImageManager({
@@ -38,9 +57,15 @@ export function ImageManager({
     const supabase = getBrowserClient();
     const urls: string[] = [];
     for (const file of list) {
-      const ext = file.name.split(".").pop()?.toLowerCase().replace(/[^a-z0-9]/g, "") || "jpg";
-      const path = `${folder}/${crypto.randomUUID()}.${ext}`;
-      const { error: upError } = await supabase.storage.from(BUCKET).upload(path, file, { cacheControl: "31536000", contentType: file.type });
+      let body: Blob;
+      try {
+        body = await compress(file);
+      } catch {
+        setError(`No se pudo procesar "${file.name}". Prueba con una foto JPG o PNG.`);
+        break;
+      }
+      const path = `${folder}/${crypto.randomUUID()}.webp`;
+      const { error: upError } = await supabase.storage.from(BUCKET).upload(path, body, { cacheControl: "31536000", contentType: "image/webp" });
       if (upError) {
         setError(`No se pudo subir "${file.name}": ${upError.message}`);
         break;
