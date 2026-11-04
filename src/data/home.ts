@@ -2,9 +2,9 @@
 
 // Banner de entrada entregado por la tienda (public/brand/banner-make-it-work.webp, 1280×640).
 export const hero = {
-  title: "footlocker · Make it work",
+  title: "Make it work",
   image: "/brand/banner-make-it-work.webp",
-  imageAlt: "Logo de footlocker, una montaña con las letras FL, y el lema Make it work",
+  imageAlt: "Logo de Make it work, una montaña geométrica, y el lema Make it work",
 };
 
 // Producto de la sección "Edición limitada" de la home (slug del catálogo).

@@ -1,10 +1,10 @@
 // Fuente única de verdad para datos de marca. Cambia aquí el nombre definitivo.
 export const site = {
-  name: "footlocker",
-  legalName: "footlocker",
-  tagline: "Make it work",
+  name: "Make it work",
+  legalName: "Make it work Tienda",
+  tagline: "Sneakers y calzado urbano",
   description:
-    "Sneakers y calzado urbano. Envío gratis a toda Colombia.",
+    "Make it work: sneakers y calzado urbano. Envío gratis a toda Colombia.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   locale: "es-CO",
   currency: "COP",

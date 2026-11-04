@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import { site } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "Términos y condiciones",
-  description: "Términos y condiciones de compra de FootLockerCol: productos, precios, envíos, cambios, garantía, retracto y datos personales.",
+  description: `Términos y condiciones de compra de ${site.legalName}: productos, precios, envíos, cambios, garantía, retracto y datos personales.`,
   alternates: { canonical: "/terminos" },
 };
 
@@ -15,12 +16,12 @@ const SECTIONS: Section[] = [
   {
     title: "Información de la tienda",
     list: [
-      "Nombre comercial: FootLockerCol",
+      `Nombre comercial: ${site.legalName}`,
       "Dirección para notificaciones: Rionegro, Antioquia, Colombia",
       "Ciudad: Rionegro, Antioquia, Colombia",
       "Teléfono y WhatsApp: 311-333-7845",
-      "Instagram: @footlockercol_",
-      "Canales oficiales de atención: Instagram @footlockercol_, WhatsApp 311-333-7845",
+      `Instagram: @${site.instagramHandle}`,
+      `Canales oficiales de atención: Instagram @${site.instagramHandle}, WhatsApp 311-333-7845`,
     ],
   },
   {
@@ -109,7 +110,7 @@ const SECTIONS: Section[] = [
     paragraphs: ["Los clientes podrán presentar consultas, solicitudes y reclamaciones mediante los canales oficiales publicados por la tienda:"],
     list: [
       "Teléfono y WhatsApp: 311-333-7845",
-      "Instagram: @footlockercol_",
+      `Instagram: @${site.instagramHandle}`,
       "Dirección para notificaciones: Rionegro, Antioquia, Colombia",
     ],
     after: [
@@ -170,7 +171,7 @@ export default function TermsPage() {
           ))}
         </ol>
 
-        <p className="mt-16 font-display text-2xl font-bold">FOOTLOCKER — Believe in yourself.</p>
+        <p className="mt-16 font-display text-2xl font-bold">{site.name} — Believe in yourself.</p>
       </div>
     </div>
   );
