@@ -20,11 +20,15 @@ export const site = {
   whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "573113337845",
   /** Horario de atención */
   hours: ["Lunes a viernes: 9:00 - 20:00", "Sábado: 9:00 - 18:00"],
-  /** Usuario de Instagram de la tienda (sin @). Se usa en la barra, el footer, los términos y la galería de clientes. */
-  instagramHandle: "footlockercol_",
+  /**
+   * Usuario de Instagram de la tienda (sin @). Se usa en la barra, el footer, los términos y la galería de clientes.
+   * Vacío = la tienda aún no tiene cuenta y no se muestra en ningún lado.
+   */
+  instagramHandle: "" as string,
+  /** Redes sociales; las vacías no se muestran. */
   social: {
-    instagram: "https://www.instagram.com/footlockercol_",
-    tiktok: "https://tiktok.com/",
+    instagram: "" as string,
+    tiktok: "" as string,
   },
 } as const;
 

@@ -24,9 +24,11 @@ export function Footer() {
       </div>
 
       <div className="container-page flex flex-wrap items-center gap-x-6 gap-y-2 pb-12 text-sm text-stone">
-        <a href={site.social.instagram} target="_blank" rel="noreferrer" className="hover:text-bone">
-          Instagram @{site.instagramHandle}
-        </a>
+        {site.social.instagram && (
+          <a href={site.social.instagram} target="_blank" rel="noreferrer" className="hover:text-bone">
+            Instagram @{site.instagramHandle}
+          </a>
+        )}
         <a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noreferrer" className="hover:text-bone">
           WhatsApp
         </a>

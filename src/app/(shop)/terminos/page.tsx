@@ -20,8 +20,10 @@ const SECTIONS: Section[] = [
       "Dirección para notificaciones: Rionegro, Antioquia, Colombia",
       "Ciudad: Rionegro, Antioquia, Colombia",
       "Teléfono y WhatsApp: 311-333-7845",
-      `Instagram: @${site.instagramHandle}`,
-      `Canales oficiales de atención: Instagram @${site.instagramHandle}, WhatsApp 311-333-7845`,
+      ...(site.instagramHandle ? [`Instagram: @${site.instagramHandle}`] : []),
+      site.instagramHandle
+        ? `Canales oficiales de atención: Instagram @${site.instagramHandle}, WhatsApp 311-333-7845`
+        : "Canal oficial de atención: WhatsApp 311-333-7845",
     ],
   },
   {
@@ -109,7 +111,7 @@ const SECTIONS: Section[] = [
     paragraphs: ["Los clientes podrán presentar consultas, solicitudes y reclamaciones mediante los canales oficiales publicados por la tienda:"],
     list: [
       "Teléfono y WhatsApp: 311-333-7845",
-      `Instagram: @${site.instagramHandle}`,
+      ...(site.instagramHandle ? [`Instagram: @${site.instagramHandle}`] : []),
       "Dirección para notificaciones: Rionegro, Antioquia, Colombia",
     ],
     after: [

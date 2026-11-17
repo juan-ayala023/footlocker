@@ -124,14 +124,20 @@ export function MobileMenu({ open, onClose, onSearch }: { open: boolean; onClose
                 <Link href="/ayuda" onClick={onClose} className="block">
                   Ayuda
                 </Link>
-                <div className="flex gap-6 pt-2 text-sm text-stone">
-                  <a href={site.social.instagram} target="_blank" rel="noreferrer">
-                    Instagram
-                  </a>
-                  <a href={site.social.tiktok} target="_blank" rel="noreferrer">
-                    TikTok
-                  </a>
-                </div>
+                {(site.social.instagram || site.social.tiktok) && (
+                  <div className="flex gap-6 pt-2 text-sm text-stone">
+                    {site.social.instagram && (
+                      <a href={site.social.instagram} target="_blank" rel="noreferrer">
+                        Instagram
+                      </a>
+                    )}
+                    {site.social.tiktok && (
+                      <a href={site.social.tiktok} target="_blank" rel="noreferrer">
+                        TikTok
+                      </a>
+                    )}
+                  </div>
+                )}
               </div>
             </m.nav>
 

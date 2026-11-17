@@ -32,7 +32,7 @@ const MAX_PENDING = 200;
  */
 export async function POST(request: Request) {
   if (!isAdminClientConfigured) {
-    return reply({ ok: false, message: "La subida de fotos aún no está disponible. Etiquétanos en Instagram mientras tanto." }, 503);
+    return reply({ ok: false, message: "La subida de fotos aún no está disponible. Escríbenos por WhatsApp mientras tanto." }, 503);
   }
 
   const form = await request.formData().catch(() => null);

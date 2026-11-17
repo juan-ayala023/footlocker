@@ -88,15 +88,17 @@ export function Navbar() {
               <SearchIcon />
             </IconButton>
 
-            <a
-              href={site.social.instagram}
-              target="_blank"
-              rel="noreferrer"
-              aria-label={`Instagram @${site.instagramHandle}`}
-              className="flex size-11 items-center justify-center rounded-full transition-colors duration-300 hover:bg-bone/8"
-            >
-              <InstagramIcon />
-            </a>
+            {site.social.instagram && (
+              <a
+                href={site.social.instagram}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`Instagram @${site.instagramHandle}`}
+                className="flex size-11 items-center justify-center rounded-full transition-colors duration-300 hover:bg-bone/8"
+              >
+                <InstagramIcon />
+              </a>
+            )}
 
             <IconButton label={`Abrir carrito, ${count} ${count === 1 ? "producto" : "productos"}`} onClick={openCart}>
               <span className="relative flex">

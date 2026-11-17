@@ -11,7 +11,7 @@ import { useUi } from "@/store/ui";
 import logoColor from "../../../public/brand/logo-full-color.webp";
 
 /**
- * Portada como la foto del logo: papel blanco con hojas en relieve (public/brand/hero-relieve.webp,
+ * Portada como la foto del logo: papel blanco con hojas en relieve (public/brand/hero-relieve-blanco.webp,
  * sacado de la foto original sin el logo) y encima el logo a color con su tapón plateado.
  * Entra con un leve zoom tras el preloader y se aleja suavemente al hacer scroll.
  */
@@ -51,7 +51,7 @@ export function Hero() {
       ref={section}
       className="theme-light relative flex flex-col overflow-hidden bg-white pt-(--nav-h) text-bone md:min-h-svh"
     >
-      <Image src="/brand/hero-relieve.webp" alt="" fill priority sizes="100vw" className="object-cover" />
+      <Image src="/brand/hero-relieve-blanco.webp" alt="" fill priority sizes="100vw" className="object-cover" />
 
       <h1 className="sr-only">{hero.title}</h1>
 

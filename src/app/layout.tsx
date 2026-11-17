@@ -43,7 +43,7 @@ const orgJsonLd = {
       name: site.legalName,
       url: site.url,
       logo: `${site.url}/brand/icon-512.png`,
-      sameAs: Object.values(site.social),
+      sameAs: Object.values(site.social).filter(Boolean),
     },
     { "@type": "WebSite", name: site.legalName, url: site.url, inLanguage: "es-CO", publisher: { "@id": `${site.url}/#org` } },
   ],

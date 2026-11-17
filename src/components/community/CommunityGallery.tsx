@@ -31,7 +31,9 @@ export function CommunityGallery({ photos, className }: { photos: CommunityPhoto
           Quienes ya nos eligieron
         </h2>
         <p className="mt-4 max-w-xl text-lg leading-relaxed">
-          Carga tu foto o menciona a @{site.instagramHandle} en Instagram para tener la oportunidad de aparecer en nuestras redes.
+          {site.instagramHandle
+            ? `Carga tu foto o menciona a @${site.instagramHandle} en Instagram para tener la oportunidad de aparecer en nuestras redes.`
+            : "Carga tu foto con tu perfume para tener la oportunidad de aparecer en nuestra página."}
         </p>
         <button
           type="button"
@@ -344,14 +346,16 @@ function UploadForm({ open, onClose }: { open: boolean; onClose: () => void }) {
                 >
                   {state.kind === "sending" ? "Enviando…" : "Enviar foto"}
                 </button>
-                <a
-                  href={`https://instagram.com/${handle}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-4 block text-center text-sm text-stone underline underline-offset-4 hover:text-bone"
-                >
-                  O etiquétanos en Instagram @{handle}
-                </a>
+                {handle && (
+                  <a
+                    href={`https://instagram.com/${handle}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-4 block text-center text-sm text-stone underline underline-offset-4 hover:text-bone"
+                  >
+                    O etiquétanos en Instagram @{handle}
+                  </a>
+                )}
               </form>
             )}
           </m.div>
