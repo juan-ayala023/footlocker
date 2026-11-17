@@ -4,7 +4,7 @@ import { getCatalog } from "@/lib/catalog";
 
 export const metadata: Metadata = {
   title: "Catálogo",
-  description: "Tenis de Nike, Jordan, Adidas, Vans y Puma. Filtra por talla, marca, género, precio y colección.",
+  description: "Perfumes 100% originales para hombre y mujer. Filtra por marca, presentación, género, precio y colección.",
   alternates: { canonical: "/catalogo" },
 };
 

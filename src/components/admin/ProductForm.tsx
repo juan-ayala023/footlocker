@@ -30,9 +30,10 @@ export type ProductFormValue = {
 };
 
 const PRESETS = [
-  { label: "Hombre 40–44", sizes: [40, 41, 42, 43, 44] },
-  { label: "Mujer 36–39", sizes: [36, 37, 38, 39] },
-  { label: "Unisex 36–44", sizes: [36, 37, 38, 39, 40, 41, 42, 43, 44] },
+  { label: "30 ml", sizes: [30] },
+  { label: "50 ml", sizes: [50] },
+  { label: "100 ml", sizes: [100] },
+  { label: "200 ml", sizes: [200] },
 ];
 
 let keySeq = 0;
@@ -123,7 +124,7 @@ export function ProductForm({
             <Text label="Nombre" value={v.name} onChange={(x) => set("name", x)} required placeholder="Air Force 1 '07" />
             <div>
               <Label htmlFor="brand">Marca</Label>
-              <input id="brand" list="brands" required value={v.brand} onChange={(e) => set("brand", e.target.value)} placeholder="Nike" className={inputClass()} />
+              <input id="brand" list="brands" required value={v.brand} onChange={(e) => set("brand", e.target.value)} placeholder="Dior" className={inputClass()} />
               <datalist id="brands">
                 {brands.map((b) => (
                   <option key={b} value={b} />
@@ -164,7 +165,7 @@ export function ProductForm({
           </div>
         </Panel>
 
-        <Panel title={`Tallas y stock · ${totalStock} pares`}>
+        <Panel title={`Presentaciones y stock · ${totalStock} unidades`}>
           <div className="p-5">
             <div className="mb-4 flex flex-wrap gap-2">
               {PRESETS.map((p) => (
@@ -177,7 +178,7 @@ export function ProductForm({
             {rows.length > 0 ? (
               <div className="divide-y divide-line border-y border-line">
                 <div className="grid grid-cols-[4.5rem_5rem_1fr_2rem] gap-3 py-2 text-xs text-stone">
-                  <span>Talla</span>
+                  <span>ml</span>
                   <span>Stock</span>
                   <span>SKU (opcional)</span>
                   <span />
@@ -185,14 +186,14 @@ export function ProductForm({
                 {rows.map((r) => (
                   <div key={r.key} className="grid grid-cols-[4.5rem_5rem_1fr_2rem] items-center gap-3 py-1.5">
                     <input
-                      aria-label="Talla"
+                      aria-label="Presentación en ml"
                       inputMode="decimal"
                       value={r.size}
                       onChange={(e) => setRows((all) => all.map((x) => (x.key === r.key ? { ...x, size: e.target.value } : x)))}
                       className="h-10 border-b border-transparent bg-transparent text-sm tabular-nums focus:border-bone focus:outline-none"
                     />
                     <input
-                      aria-label={`Stock talla ${r.size}`}
+                      aria-label={`Stock de ${r.size} ml`}
                       type="number"
                       min={0}
                       inputMode="numeric"
@@ -201,7 +202,7 @@ export function ProductForm({
                       className={cn("h-10 border-b border-transparent bg-transparent text-sm tabular-nums focus:border-bone focus:outline-none", Number(r.stock) === 0 && "text-stone")}
                     />
                     <input
-                      aria-label={`SKU talla ${r.size}`}
+                      aria-label={`SKU de ${r.size} ml`}
                       value={r.sku}
                       placeholder="Automático"
                       onChange={(e) => setRows((all) => all.map((x) => (x.key === r.key ? { ...x, sku: e.target.value } : x)))}
@@ -209,7 +210,7 @@ export function ProductForm({
                     />
                     <button
                       type="button"
-                      aria-label={`Quitar talla ${r.size}`}
+                      aria-label={`Quitar ${r.size} ml`}
                       onClick={() => setRows((all) => all.filter((x) => x.key !== r.key))}
                       className="text-stone hover:text-sand"
                     >
@@ -219,7 +220,7 @@ export function ProductForm({
                 ))}
               </div>
             ) : (
-              <p className="text-sm text-stone">Sin tallas. Usa un rango rápido o agrega una manualmente.</p>
+              <p className="text-sm text-stone">Sin presentaciones. Usa un tamaño rápido o agrega uno manualmente (en ml).</p>
             )}
 
             <button
@@ -227,10 +228,10 @@ export function ProductForm({
               onClick={() => setRows((r) => [...r, { key: rowKey(), size: "", stock: "0", sku: "" }])}
               className="eyebrow mt-4 text-stone hover:text-bone"
             >
-              + Agregar talla
+              + Agregar presentación
             </button>
             {rows.some((r) => r.id) && (
-              <p className="mt-3 text-xs text-stone">Si quitas una talla que ya tiene pedidos, se conserva con stock 0 para no perder el historial.</p>
+              <p className="mt-3 text-xs text-stone">Si quitas una presentación que ya tiene pedidos, se conserva con stock 0 para no perder el historial.</p>
             )}
           </div>
         </Panel>

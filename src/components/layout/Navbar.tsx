@@ -18,7 +18,7 @@ const MobileMenu = dynamic(() => import("@/components/layout/MobileMenu").then((
 /** Rutas con fondo claro: la barra pasa a blanca con iconos y logo negros. */
 const LIGHT_ROUTES = ["/catalogo", "/producto", "/ayuda", "/proposito"];
 
-const SUGGESTIONS = ["Jordan", "Air Force", "Running", "Retro"];
+const SUGGESTIONS = ["Dior", "Carolina Herrera", "Versace", "Lattafa"];
 
 export function Navbar() {
   const pathname = usePathname();
@@ -55,7 +55,7 @@ export function Navbar() {
         <AnnouncementBar />
         <nav aria-label="Principal" className="container-page grid h-(--nav-row-h) grid-cols-[auto_1fr_auto] items-center gap-6">
           <Link href="/" aria-label={`${site.name}, inicio`} className="-ml-1 block p-1">
-            <Logo priority tone={light || overHero ? "dark" : "light"} title="" className="w-16 md:w-20" />
+            <Logo priority tone={light || overHero ? "dark" : "light"} title="" className="w-11 md:w-12" />
           </Link>
 
           <ul className="hidden items-center justify-center gap-7 md:flex">
@@ -185,7 +185,7 @@ function SearchPanel({ onClose }: { onClose: () => void }) {
         >
           <SearchIcon className="size-5 shrink-0 text-stone" />
           <label htmlFor="site-search" className="sr-only">
-            Buscar tenis
+            Buscar perfumes
           </label>
           <input
             ref={input}
@@ -193,7 +193,7 @@ function SearchPanel({ onClose }: { onClose: () => void }) {
             type="search"
             value={q}
             onChange={(e) => setQ(e.target.value)}
-            placeholder="Buscar tenis, marcas…"
+            placeholder="Buscar perfumes, marcas…"
             autoComplete="off"
             enterKeyHint="search"
             className="h-12 min-w-0 flex-1 bg-transparent text-base placeholder:text-stone focus:outline-none"
@@ -246,7 +246,7 @@ function IconButton({
 
 function NavLink({ href, highlight, children }: { href: string; highlight?: boolean; children: React.ReactNode }) {
   return (
-    <Link href={href} className={cn("group relative inline-block py-2 text-[0.9375rem] font-medium", highlight && "text-[#e4002b]")}>
+    <Link href={href} className={cn("group relative inline-block py-2 text-[0.9375rem] font-medium", highlight && "text-sand")}>
       {children}
       <span className="absolute inset-x-0 bottom-1 h-px origin-right scale-x-0 bg-current transition-transform duration-500 ease-premium group-hover:origin-left group-hover:scale-x-100" />
     </Link>

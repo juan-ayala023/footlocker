@@ -114,7 +114,7 @@ export function ConfirmationView({ order }: { order: ConfirmationOrder }) {
                   {item.brand} {item.name}
                 </p>
                 <p className="text-xs text-stone">
-                  Talla {item.size} · {item.quantity} {item.quantity === 1 ? "par" : "pares"}
+                  {item.size} ml · {item.quantity} {item.quantity === 1 ? "unidad" : "unidades"}
                 </p>
               </div>
               <p className="text-sm tabular-nums">{formatCOP(item.price * item.quantity)}</p>

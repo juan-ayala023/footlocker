@@ -7,34 +7,33 @@ import { site } from "@/config/site";
 export const metadata: Metadata = {
   title: "Propósito y quiénes somos",
   description:
-    "Toda gran historia comienza con un primer paso. Y queremos acompañarte en cada uno de ellos. No se trata de dónde estás hoy, sino hasta dónde quieres llegar. Believe in yourself.",
+    "Un perfume es la firma que dejas sin decir una palabra. En Perfumería By Maria te ayudamos a encontrar la tuya, con perfumes 100% originales.",
   alternates: { canonical: "/proposito" },
 };
 
-// Texto "Quiénes somos" entregado por la tienda.
+// Texto "Quiénes somos" provisional: reemplazar por el que entregue la tienda.
 const ABOUT = [
-  "Sabemos que cada par tiene una historia por contar y que cada persona tiene un camino por recorrer.",
-  "Nuestra pasión por los sneakers va más allá del producto. Creemos en lo que representan: identidad, confianza, autenticidad y la libertad de expresar quién eres.",
-  "Sabemos que detrás de cada paso hay una decisión, un sueño y una historia que merece ser vivida. Por eso, queremos acompañarte en tu camino, desde la forma en que expresas tu personalidad hasta los desafíos que te impulsan a ser mejor cada día.",
-  "No buscamos simplemente ser parte de lo que llevas puesto, sino de lo que te mueve, de lo que te inspira y de aquello en lo que quieres convertirte.",
-  "Porque cada par tiene una historia, y queremos ser parte de la tuya.",
+  "Creemos que un perfume dice mucho de quien lo lleva: cómo te sientes, cómo quieres que te recuerden y los momentos que vives.",
+  "Por eso en Perfumería By Maria seleccionamos fragancias 100% originales de las casas que más quieres, nuevas y selladas de fábrica.",
+  "Te acompañamos a elegir: si no sabes cuál comprar, escríbenos y te asesoramos según tus gustos, la ocasión o la persona a la que quieres regalar.",
+  "Porque cada aroma cuenta una historia, y queremos ser parte de la tuya.",
 ];
 
 export default function PurposePage() {
   return (
     <div className="theme-light bg-ink text-bone">
       <div className="container-page max-w-4xl pt-[calc(var(--nav-h)+3rem)] pb-28 md:pt-[calc(var(--nav-h)+6rem)]">
-        <Logo tone="dark" title={site.name} className="w-28 md:w-36" />
+        <Logo tone="dark" title={site.name} className="w-24 md:w-28" />
 
         <p className="eyebrow mt-14 text-stone">Propósito</p>
         <TextReveal
           as="h1"
-          text={["Toda gran historia comienza con un primer paso.", "Y queremos acompañarte en cada uno de ellos."]}
+          text={["Un perfume es la firma que dejas", "sin decir una palabra."]}
           play
           className="mt-5 font-display text-h2 leading-[1.15] font-bold"
         />
-        <p className="mt-8 max-w-2xl text-xl leading-relaxed text-mist">No se trata de dónde estás hoy, sino hasta dónde quieres llegar.</p>
-        <p className="mt-8 font-display text-2xl font-bold tracking-wide md:text-3xl">Believe in yourself.</p>
+        <p className="mt-8 max-w-2xl text-xl leading-relaxed text-mist">Te ayudamos a encontrar la tuya, con perfumes 100% originales.</p>
+        <p className="mt-8 font-display text-2xl font-bold tracking-wide md:text-3xl">{site.tagline}.</p>
 
         <div className="mt-20 border-t border-line pt-10">
           <h2 className="eyebrow text-stone">Quiénes somos</h2>
@@ -43,7 +42,7 @@ export default function PurposePage() {
               <p key={p}>{p}</p>
             ))}
           </div>
-          <p className="mt-8 font-display text-2xl font-bold">{site.name}. Believe in yourself.</p>
+          <p className="mt-8 font-display text-2xl font-bold">{site.name}.</p>
         </div>
 
         <Button href="/catalogo" size="lg" className="mt-12">

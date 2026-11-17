@@ -2,15 +2,16 @@
 
 /* ───────────── Tokens de marca ───────────── */
 :root {
-  /* Paleta de marca: negro #000000, blanco #FFFFFF, gris principal #E0E0DC */
-  --ink: #000000;
-  --ink-raised: #0d0d0d;
-  --bone: #ffffff;
-  --mist: #d4d4d0;
-  --stone: #8a8a87;
-  --sand: #e0e0dc; /* gris principal: acento de CTAs, hovers y detalles */
-  --line: rgb(255 255 255 / 0.12);
-  --hot: #ff6a2b; /* naranja "Más vendido" (contraste AA sobre negro) */
+  /* Paleta del logo de Perfumería By Maria: vino #6B0213 y crema #F3EEE8.
+     Zona oscura: fondo vino profundo con texto crema. */
+  --ink: #1c0408;
+  --ink-raised: #2a0a10;
+  --bone: #f6efe7;
+  --mist: #dccfc4;
+  --stone: #ab978e;
+  --sand: #e9d6bd; /* champaña: acento de CTAs, hovers y detalles */
+  --line: rgb(246 239 231 / 0.14);
+  --hot: #e2b066; /* dorado "Más vendido" (contraste AA sobre vino) */
 
   --ease-premium: cubic-bezier(0.76, 0, 0.24, 1);
   --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
@@ -34,7 +35,7 @@
   --color-line: var(--line);
   --color-hot: var(--hot);
 
-  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-cormorant), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 
   --ease-premium: var(--ease-premium);
@@ -57,16 +58,16 @@
   --text-lead--line-height: 1.55;
 }
 
-/* Zona clara (catálogo estilo editorial): invierte los tokens para que los componentes se adapten solos. */
+/* Zona clara crema (catálogo estilo editorial): invierte los tokens para que los componentes se adapten solos. */
 .theme-light {
-  --ink: #ffffff;
-  --ink-raised: #f3f3f1;
-  --bone: #000000;
-  --mist: #3d3d3b;
-  --stone: #6f6f6c;
-  --sand: #000000;
-  --line: rgb(0 0 0 / 0.1);
-  --hot: #d33918; /* naranja con contraste AA sobre blanco */
+  --ink: #faf6f0;
+  --ink-raised: #f1e9df;
+  --bone: #2b0509;
+  --mist: #553439;
+  --stone: #7a6064;
+  --sand: #6b0213; /* vino del logo: CTAs y detalles */
+  --line: rgb(43 5 9 / 0.12);
+  --hot: #8a5310; /* dorado oscuro con contraste AA sobre crema */
   color-scheme: light;
 }
 

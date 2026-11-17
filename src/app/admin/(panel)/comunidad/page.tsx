@@ -41,7 +41,7 @@ export default async function CommunityAdminPage() {
     <>
       <PageHeader eyebrow="Tienda" title="Comunidad" />
       <p className="-mt-4 mb-8 max-w-2xl text-sm text-stone">
-        Fotos de clientes para la sección “El estilo de otras personas” (Home y páginas de producto). Las que suben los clientes
+        Fotos de clientes para la sección “Quienes ya nos eligieron” (Home y páginas de producto). Las que suben los clientes
         desde la web llegan a “Por revisar” y solo se publican cuando las aceptas.
       </p>
       <CommunityManager

@@ -23,7 +23,7 @@ export function AdminNav({ email }: { email: string }) {
       <div className="flex h-full flex-col">
         <div className="flex items-center justify-between px-4 py-4 sm:px-8 lg:px-6 lg:py-8">
           <Link href="/admin" className="flex items-center gap-3">
-            <Logo className="w-14" title="" />
+            <Logo className="w-10" title="" />
             <span className="eyebrow">Admin</span>
           </Link>
           <Link href="/" target="_blank" className="eyebrow text-stone hover:text-bone lg:hidden">

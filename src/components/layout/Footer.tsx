@@ -1,6 +1,5 @@
 import { TransitionLink as Link } from "@/components/motion/TransitionLink";
-import { Logo, Wordmark } from "@/components/brand/Logo";
-import { MountainRange } from "@/components/brand/MountainRange";
+import { Logo } from "@/components/brand/Logo";
 import { FooterGroup } from "@/components/layout/FooterGroup";
 import { NewsletterForm } from "@/components/layout/NewsletterForm";
 import { footerNav, site } from "@/config/site";
@@ -13,7 +12,7 @@ export function Footer() {
       <div className="container-page grid gap-16 pt-20 pb-12 md:grid-cols-12 md:gap-8">
         <div className="md:col-span-5">
           <p className="eyebrow mb-6 text-stone">Newsletter</p>
-          <h2 className="text-h3 max-w-sm">Sé el primero en enterarte del próximo drop.</h2>
+          <h2 className="text-h3 max-w-sm">Entérate primero de nuevas fragancias y ofertas.</h2>
           <NewsletterForm />
         </div>
 
@@ -36,18 +35,12 @@ export function Footer() {
         </Link>
       </div>
 
-      {/* Cierre editorial: logo enorme sobre la cordillera */}
-      <div className="relative">
-        <MountainRange className="h-40 md:h-64" />
-        <div className="absolute inset-0 flex items-end justify-center pb-6 md:pb-10">
-          <div className="flex flex-col items-center gap-3">
-            <Logo className="w-40 md:w-56" />
-            <Wordmark className="text-sm md:text-base" />
-          </div>
-        </div>
+      {/* Cierre editorial: logo completo */}
+      <div className="flex justify-center border-t border-line py-16 md:py-20">
+        <Logo variant="full" className="w-56 md:w-72" />
       </div>
 
-      <div className="bg-[#0e0e0e]">
+      <div className="bg-[#140205]">
         <div className="container-page flex flex-col gap-3 py-6 text-xs text-stone sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {year} {site.legalName}. Todos los derechos reservados.

@@ -10,7 +10,7 @@ const COPIES = 4;
  */
 export function AnnouncementBar() {
   return (
-    <div role="region" aria-label="Promociones" className="announce group relative flex h-(--bar-h) items-center overflow-hidden bg-black text-white">
+    <div role="region" aria-label="Promociones" className="announce group relative flex h-(--bar-h) items-center overflow-hidden bg-[#6b0213] text-[#f6efe7]">
       <div className="announce-track flex w-max shrink-0 items-center">
         {Array.from({ length: COPIES * 2 }, (_, copy) => (
           <ul key={copy} aria-hidden={copy > 0} className="flex shrink-0 items-center">
@@ -21,7 +21,7 @@ export function AnnouncementBar() {
                 <TransitionLink
                   href={item.href}
                   tabIndex={copy > 0 ? -1 : undefined}
-                  className="ml-3 text-[0.75rem] font-semibold tracking-[0.14em] text-[#ff6a2b] uppercase underline-offset-4 hover:underline"
+                  className="ml-3 text-[0.75rem] font-semibold tracking-[0.14em] text-[#e9d6bd] uppercase underline-offset-4 hover:underline"
                 >
                   {item.cta} →
                 </TransitionLink>
@@ -39,7 +39,7 @@ export function AnnouncementBar() {
 
 function Spark() {
   return (
-    <svg viewBox="0 0 16 16" aria-hidden className="mx-6 size-3 shrink-0 fill-[#ff6a2b] md:mx-8">
+    <svg viewBox="0 0 16 16" aria-hidden className="mx-6 size-3 shrink-0 fill-[#e9d6bd] md:mx-8">
       <path d="M8 0c.4 3.9 2.1 6.6 8 8-5.9 1.4-7.6 4.1-8 8-.4-3.9-2.1-6.6-8-8 5.9-1.4 7.6-4.1 8-8Z" />
     </svg>
   );

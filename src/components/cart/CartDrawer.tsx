@@ -164,7 +164,7 @@ function Line({ item }: { item: CartItem }) {
           <div className="min-w-0">
             <p className="eyebrow text-stone">{item.brand}</p>
             <p className="mt-1 truncate text-sm">{item.name}</p>
-            <p className="mt-1 text-xs text-stone">Talla {item.size}</p>
+            <p className="mt-1 text-xs text-stone">{item.size} ml</p>
           </div>
           <p className="shrink-0 text-sm tabular-nums">{formatCOP(item.price * item.quantity)}</p>
         </div>
@@ -196,7 +196,7 @@ function Line({ item }: { item: CartItem }) {
             Quitar
           </button>
         </div>
-        {item.quantity >= item.maxStock && <p className="mt-2 text-[0.6875rem] text-sand">Máximo disponible en esta talla.</p>}
+        {item.quantity >= item.maxStock && <p className="mt-2 text-[0.6875rem] text-sand">Máximo disponible en esta presentación.</p>}
       </div>
     </div>
   );
@@ -205,7 +205,7 @@ function Line({ item }: { item: CartItem }) {
 function EmptyCart({ onClose }: { onClose: () => void }) {
   return (
     <div className="flex flex-1 flex-col items-center justify-center px-8 text-center">
-      <Logo className="w-28 opacity-40" title="" />
+      <Logo className="w-20 opacity-40" title="" />
       <p className="font-display text-h3 mt-8 font-bold">Tu carrito está vacío</p>
       <p className="mt-3 text-sm text-stone">Cada ascenso empieza con un primer paso.</p>
       <Button href="/catalogo" size="lg" className="mt-10" onClick={onClose}>

@@ -11,7 +11,7 @@ import { selectCartCount, useCart } from "@/store/cart";
 
 /**
  * Menú móvil a pantalla completa (estilo editorial claro): entra desde la derecha,
- * opciones grandes con flecha y submenús que se deslizan (Deporte → Fútbol, Basket).
+ * opciones grandes con flecha y submenús que se deslizan.
  */
 export function MobileMenu({ open, onClose, onSearch }: { open: boolean; onClose: () => void; onSearch: () => void }) {
   const lenis = useLenis();
@@ -182,7 +182,7 @@ export function MobileMenu({ open, onClose, onSearch }: { open: boolean; onClose
 }
 
 const rowClass = (item: MenuItem) =>
-  cn("flex w-full items-center justify-between py-3.5 text-left font-sans text-[1.75rem] font-medium", item.highlight && "text-[#e4002b]");
+  cn("flex w-full items-center justify-between py-3.5 text-left font-sans text-[1.75rem] font-medium", item.highlight && "text-sand");
 
 function RowLabel({ item }: { item: MenuItem }) {
   return (

@@ -15,7 +15,7 @@ export function formatCOP(value: number) {
   return copFormatter.format(value);
 }
 
-/** "Jordan" + "Air Jordan 1" → "Air Jordan 1"; "Nike" + "Air Max 90" → "Nike Air Max 90". */
+/** "Dior" + "Dior Sauvage" → "Dior Sauvage"; "Versace" + "Eros" → "Versace Eros". */
 export function productTitle(brand: string, name: string) {
   return name.toLowerCase().includes(brand.toLowerCase()) ? name : `${brand} ${name}`;
 }

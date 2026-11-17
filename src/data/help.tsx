@@ -1,7 +1,5 @@
 // Contenido del centro de ayuda ("Servicio de asistencia rápida").
 // Texto entregado por la tienda; editar aquí para actualizar políticas.
-import Link from "next/link";
-import { SIZE_CHART } from "@/data/sizes";
 import { site } from "@/config/site";
 
 export type HelpQuestion = { q: string; a: React.ReactNode };
@@ -33,7 +31,7 @@ export const helpSections: HelpSection[] = [
         q: `¿Cómo puedo obtener envío gratis en los pedidos de ${site.name}?`,
         a: (
           <>
-            <p>El envío es gratis a toda Colombia en todos los pedidos: el precio de cada par ya lo incluye.</p>
+            <p>El envío es gratis a toda Colombia en todos los pedidos: el precio de cada perfume ya lo incluye.</p>
             <p>No necesitas un monto mínimo ni un código; el beneficio se aplica automáticamente en el carrito de compras.</p>
             <p className="text-sm text-stone">Esta condición está sujeta a cambios. En cualquier caso, te avisaremos si cambia.</p>
           </>
@@ -115,74 +113,63 @@ export const helpSections: HelpSection[] = [
     ],
   },
   {
-    slug: "producto",
-    title: "Información del producto",
+    slug: "originalidad",
+    title: "Originalidad y producto",
     questions: [
       {
-        q: "¿Cómo encuentro la talla y el ajuste adecuados?",
+        q: "¿Los perfumes son originales?",
         a: (
           <>
-            <p>Te ayudaremos a encontrar el calzado y el equipo adecuados en la talla adecuada para que puedas darlo todo.</p>
             <p>
-              ¿No estás seguro de qué talla de sneakers usas? Nuestras tablas de tallas pueden ayudarte a determinar el mejor ajuste para todo
-              nuestro calzado. En la tienda manejamos tallas europeas (EU): mujer de la 36 a la 39 y hombre de la 40 a la 44.
+              Sí. Todos los perfumes de {site.name} son 100% originales, nuevos y sellados de fábrica. No vendemos réplicas, imitaciones,
+              decants ni perfumes “inspirados en”.
             </p>
-            <p className="font-medium">Consejos: cómo tomar las medidas del largo del pie</p>
-            <ol className="list-decimal space-y-1.5 pl-5">
-              <li>Pega con cinta adhesiva un trozo de papel a la superficie plana y dura, asegurándote de que el papel no se resbale.</li>
-              <li>
-                Párate sobre el papel con los pies separados a la altura de los hombros y el peso equilibrado de manera uniforme (solo un pie
-                debe estar sobre el papel).
-              </li>
-              <li>
-                Con un bolígrafo o lápiz apuntando hacia abajo, pide a un amigo o compañero que te ayude a marcar la punta del dedo gordo y la
-                parte más externa del talón.
-              </li>
-              <li>
-                Una vez hechas las marcas, retírate del papel y usa una regla o cinta métrica para medir la distancia entre los dos puntos. Esta
-                medida representa la longitud del pie.
-              </li>
-              <li>
-                Repite el proceso con el otro pie. Ten en cuenta que es común que el largo de un pie sea ligeramente diferente al del otro.
-              </li>
-              <li>
-                Aplica la medida más larga de las dos a nuestra tabla de tallas para encontrar la talla adecuada para el largo de pie
-                registrado. Si la medida está entre tallas, recomendamos elegir la talla más grande.
-              </li>
-            </ol>
-            <div className="overflow-x-auto">
-              <table className="w-full min-w-[20rem] text-left text-sm tabular-nums">
-                <caption className="sr-only">Equivalencias de tallas (la tienda usa tallas EU)</caption>
-                <thead>
-                  <tr className="border-b border-line text-stone">
-                    <th scope="col" className="py-2 font-normal">EU</th>
-                    <th scope="col" className="py-2 font-normal">US</th>
-                    <th scope="col" className="py-2 font-normal">Colombia</th>
-                    <th scope="col" className="py-2 font-normal">Pie (cm)</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-line">
-                  {SIZE_CHART.map((s) => (
-                    <tr key={s.eu}>
-                      <th scope="row" className="py-2 font-medium">{s.eu}</th>
-                      <td className="py-2">{s.us}</td>
-                      <td className="py-2">{s.co}</td>
-                      <td className="py-2">{s.cm}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <p>Y recuerda, si el ajuste no es correcto, las devoluciones son fáciles.</p>
+            <p>Cada frasco llega en su caja original con el sello (celofán) intacto.</p>
           </>
         ),
       },
       {
-        q: "¿Tienen garantía los sneakers?",
+        q: "¿Cómo puedo verificar que mi perfume es original?",
+        a: (
+          <>
+            <p>Al recibir tu pedido revisa que:</p>
+            <ul className="list-disc space-y-1 pl-5">
+              <li>La caja llegue sellada y sin señales de haber sido abierta.</li>
+              <li>El código de lote impreso en la base de la caja coincida con el del frasco.</li>
+              <li>El atomizador funcione bien y el líquido no tenga sedimentos.</li>
+            </ul>
+            <p>
+              Si tienes cualquier duda, escríbenos a <WhatsAppLink /> antes de abrir el producto y te ayudamos.
+            </p>
+          </>
+        ),
+      },
+      {
+        q: "¿Qué diferencia hay entre Parfum, Eau de Parfum y Eau de Toilette?",
+        a: (
+          <>
+            <p>La diferencia está en la concentración de esencia, que influye en la intensidad y la duración:</p>
+            <ul className="list-disc space-y-1 pl-5">
+              <li>
+                <span className="font-medium">Parfum / Extrait:</span> la más concentrada; muy intensa y duradera.
+              </li>
+              <li>
+                <span className="font-medium">Eau de Parfum (EDP):</span> intensa y de larga duración; la más usada a diario.
+              </li>
+              <li>
+                <span className="font-medium">Eau de Toilette (EDT):</span> más ligera y fresca; ideal para el día y climas cálidos.
+              </li>
+            </ul>
+            <p className="text-sm text-stone">La duración también depende del tipo de piel, el clima y dónde se aplique.</p>
+          </>
+        ),
+      },
+      {
+        q: "¿Cómo debo conservar mi perfume?",
         a: (
           <p>
-            Sí. Nos hacemos responsables de la garantía legal de todos nuestros productos por defectos de fábrica o de materiales, hasta
-            quince (15) días calendario desde la entrega. Consulta el proceso en <Link href="/ayuda?seccion=devoluciones">Garantías y devoluciones</Link>.
+            Guárdalo en su caja, en un lugar fresco y seco, lejos de la luz directa del sol y de cambios bruscos de temperatura (evita el baño
+            y el carro). Así conservará su aroma por mucho más tiempo.
           </p>
         ),
       },
@@ -197,9 +184,8 @@ export const helpSections: HelpSection[] = [
         a: (
           <>
             <p>
-              Si tus sneakers tienen un defecto de fábrica o de materiales relacionado con la calidad, idoneidad o seguridad del producto,
-              queremos corregirlo y que vuelvas a usarlos cuanto antes. Nos hacemos responsables de la garantía legal de todos nuestros
-              productos.
+              Si tu perfume llega con un defecto de fábrica (por ejemplo, el atomizador no funciona, el frasco gotea o llegó roto),
+              queremos solucionarlo cuanto antes. Nos hacemos responsables de la garantía legal de todos nuestros productos.
             </p>
             <p>
               Si tu producto presenta defectos o fallas y han pasado menos de quince (15) días calendario desde que recibiste tu compra en
@@ -209,7 +195,7 @@ export const helpSections: HelpSection[] = [
             <p>Solo tienes que seguir los pasos indicados a continuación para devolver tu pedido:</p>
             <ol className="list-decimal space-y-1.5 pl-5">
               <li>
-                Envíanos una foto de tus sneakers a <WhatsAppLink /> para verificar el artículo. Si no cumple los requisitos de devolución,
+                Envíanos fotos o un video del perfume y su caja a <WhatsAppLink /> para verificar el artículo. Si no cumple los requisitos de devolución,
                 te los enviamos de nuevo a la dirección que proporcionaste.
               </li>
               <li>Si la devolución es aprobada, te solicitaremos tu información y datos para realizarla.</li>
@@ -223,21 +209,26 @@ export const helpSections: HelpSection[] = [
               <li>Fuerza mayor o caso fortuito.</li>
               <li>El hecho de un tercero.</li>
               <li>El uso indebido del producto por parte del consumidor.</li>
-              <li>Que el consumidor no haya atendido las instrucciones de cuidado, lavado y mantenimiento.</li>
-              <li>Arrugas en el calzado causadas por el uso normal o por la flexión del empeine.</li>
-              <li>Manchas o decoloración causadas por un mal procedimiento de lavado.</li>
-              <li>Daños causados por remover las etiquetas internas del producto.</li>
+              <li>Que el consumidor no haya atendido las instrucciones de uso y conservación.</li>
+              <li>Cambios de aroma causados por exposición al sol, al calor o a temperaturas extremas después de la entrega.</li>
+              <li>Preferencias personales sobre el aroma una vez abierto el producto.</li>
             </ul>
           </>
         ),
       },
       {
-        q: "Política de pedidos",
+        q: "¿Puedo devolver un perfume que ya abrí?",
         a: (
-          <p>
-            Si tus sneakers presentan un defecto de fábrica o de materiales, tienes hasta quince (15) días calendario a partir de la fecha de
-            entrega para hacer efectiva la garantía legal.
-          </p>
+          <>
+            <p>
+              Por higiene y para garantizar que todos nuestros perfumes lleguen sellados, solo aceptamos devoluciones de productos que no
+              hayan sido abiertos ni usados, con el sello de la caja intacto.
+            </p>
+            <p>
+              Si el perfume tiene un defecto de fábrica, tienes hasta quince (15) días calendario a partir de la fecha de entrega para hacer
+              efectiva la garantía legal, aunque lo hayas abierto.
+            </p>
+          </>
         ),
       },
     ],

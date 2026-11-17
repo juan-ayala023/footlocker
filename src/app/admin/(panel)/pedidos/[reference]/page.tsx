@@ -44,7 +44,7 @@ export default async function OrderDetail({ params }: { params: Promise<{ refere
 
       {order.stock_conflict && (
         <div role="alert" className="mb-8 border border-sand/50 bg-sand/10 px-5 py-4 text-sm text-sand">
-          Al confirmarse el pago, alguna talla ya no tenía stock suficiente. Verifica el inventario físico antes de despachar o contacta al cliente.
+          Al confirmarse el pago, alguna presentación ya no tenía stock suficiente. Verifica el inventario físico antes de despachar o contacta al cliente.
         </div>
       )}
 
@@ -61,7 +61,7 @@ export default async function OrderDetail({ params }: { params: Promise<{ refere
                     {item.variant.product.brand} {item.variant.product.name}
                   </p>
                   <p className="text-xs text-stone">
-                    Talla {Number(item.variant.size)} · SKU {item.variant.sku}
+                    {Number(item.variant.size)} ml · SKU {item.variant.sku}
                   </p>
                 </div>
                 <p className="text-right text-sm tabular-nums">

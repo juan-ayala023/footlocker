@@ -149,7 +149,7 @@ export function CheckoutView() {
       <div className="container-page flex min-h-svh flex-col items-center justify-center text-center">
         <p className="eyebrow mb-6 text-stone">Checkout</p>
         <h1 className="text-h2 uppercase">Tu carrito está vacío</h1>
-        <p className="mt-4 text-stone">Agrega un par para continuar con tu compra.</p>
+        <p className="mt-4 text-stone">Agrega un perfume para continuar con tu compra.</p>
         <Button href="/catalogo" size="lg" className="mt-10">
           Ver catálogo
         </Button>
@@ -200,7 +200,7 @@ export function CheckoutView() {
                     <div className="min-w-0 flex-1">
                       <p className="eyebrow text-stone">{item.brand}</p>
                       <p className="mt-1 truncate text-sm">{item.name}</p>
-                      <p className="mt-0.5 text-xs text-stone">Talla {item.size}</p>
+                      <p className="mt-0.5 text-xs text-stone">{item.size} ml</p>
                     </div>
                     <p className="text-sm tabular-nums">{formatCOP(item.price * item.quantity)}</p>
                   </li>

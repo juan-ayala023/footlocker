@@ -1,12 +1,13 @@
 import { redirect } from "next/navigation";
 
-// Direcciones antiguas (/ayuda/envios, /ayuda/tallas…) → centro de ayuda con la sección abierta.
+// Direcciones antiguas (/ayuda/envios, /ayuda/originalidad…) → centro de ayuda con la sección abierta.
 const MAP: Record<string, string> = {
   envios: "/ayuda?seccion=envios",
   pedidos: "/ayuda?seccion=pedidos",
   cambios: "/ayuda?seccion=devoluciones",
   devoluciones: "/ayuda?seccion=devoluciones",
-  tallas: "/ayuda?seccion=producto",
+  originalidad: "/ayuda?seccion=originalidad",
+  producto: "/ayuda?seccion=originalidad",
   pagos: "/ayuda?seccion=pagos",
   contacto: "/ayuda#contacto",
 };

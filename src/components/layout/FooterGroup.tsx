@@ -4,7 +4,7 @@ import { useId, useState } from "react";
 import { TransitionLink as Link } from "@/components/motion/TransitionLink";
 import { cn } from "@/lib/utils";
 
-/** Grupo de enlaces del footer: desplegable en móvil (estilo Nike), siempre abierto en escritorio. */
+/** Grupo de enlaces del footer: desplegable en móvil (estilo editorial), siempre abierto en escritorio. */
 export function FooterGroup({ title, links }: { title: string; links: readonly { label: string; href: string }[] }) {
   const [open, setOpen] = useState(false);
   const id = useId();

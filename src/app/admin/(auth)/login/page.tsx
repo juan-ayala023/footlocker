@@ -25,7 +25,7 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
   return (
     <main className="flex min-h-svh items-center justify-center px-6">
       <div className="w-full max-w-sm">
-        <Logo className="mx-auto mb-10 w-32" />
+        <Logo className="mx-auto mb-10 w-24" />
         <h1 className="text-h3 text-center uppercase">Panel de administración</h1>
 
         {!isAuthConfigured ? (

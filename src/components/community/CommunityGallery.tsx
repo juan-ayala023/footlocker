@@ -14,7 +14,7 @@ import { ease } from "@/lib/motion";
 import { cn, formatCOP, productTitle } from "@/lib/utils";
 
 /**
- * "El estilo de otras personas": fotos de clientes (curadas desde el admin).
+ * "Nuestras clientas y clientes": fotos de clientes (curadas desde el admin).
  * La lupa abre la foto con el producto que aparece; "Sube tu foto" abre un formulario
  * y la foto queda pendiente hasta que el admin la acepte en /admin/comunidad.
  */
@@ -27,8 +27,8 @@ export function CommunityGallery({ photos, className }: { photos: CommunityPhoto
   return (
     <section aria-labelledby="comunidad-title" className={cn("py-16 md:py-24", className)}>
       <div className="container-page">
-        <h2 id="comunidad-title" className="font-sans text-[1.75rem] leading-tight font-medium md:text-4xl">
-          El estilo de otras personas
+        <h2 id="comunidad-title" className="font-display text-[2rem] leading-tight font-semibold md:text-5xl">
+          Quienes ya nos eligieron
         </h2>
         <p className="mt-4 max-w-xl text-lg leading-relaxed">
           Carga tu foto o menciona a @{site.instagramHandle} en Instagram para tener la oportunidad de aparecer en nuestras redes.
@@ -265,7 +265,7 @@ function UploadForm({ open, onClose }: { open: boolean; onClose: () => void }) {
           >
             <div className="flex items-start justify-between gap-4">
               <h3 id="upload-title" className="font-sans text-xl font-medium">
-                {state.kind === "done" ? "¡Gracias por compartir tu estilo!" : "Comparte tu estilo"}
+                {state.kind === "done" ? "¡Gracias por compartir tu foto!" : "Comparte tu foto"}
               </h3>
               <CloseButton onClick={onClose} label="Cerrar" buttonRef={closeBtn} />
             </div>
@@ -285,7 +285,7 @@ function UploadForm({ open, onClose }: { open: boolean; onClose: () => void }) {
               </>
             ) : (
               <form onSubmit={submit} onChange={() => state.kind === "error" && setState({ kind: "idle" })} noValidate className="mt-2">
-                <p className="text-[0.9375rem] text-mist">Sube una foto con tus tenis. La revisamos antes de publicarla.</p>
+                <p className="text-[0.9375rem] text-mist">Sube una foto con tu perfume. La revisamos antes de publicarla.</p>
 
                 <label
                   className={cn(

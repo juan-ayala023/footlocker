@@ -51,11 +51,11 @@ export function CatalogView({ products, collections }: { products: Product[]; co
 
   // Título contextual: búsqueda > colección > ofertas > sección (Hombre/Mujer) > todo.
   const single = filters.coleccion.length === 1 ? collections.find((c) => c.slug === filters.coleccion[0]) : undefined;
-  const SECTION_TITLE = { hombre: "Tenis para hombre", mujer: "Tenis para mujer", unisex: "Tenis unisex" } as const;
+  const SECTION_TITLE = { hombre: "Perfumes para hombre", mujer: "Perfumes para mujer", unisex: "Perfumes unisex" } as const;
   const section = filters.genero.length === 1 ? SECTION_TITLE[filters.genero[0]] : undefined;
   const title = filters.q
     ? `“${filters.q}”`
-    : (single?.name ?? (filters.oferta ? "Ofertas" : (section ?? "Todos los tenis")));
+    : (single?.name ?? (filters.oferta ? "Ofertas" : (section ?? "Todos los perfumes")));
 
   // Una tarjeta por marca disponible en la vista actual (ignorando el filtro de marca),
   // con la foto de su producto mejor ubicado.
@@ -134,7 +134,7 @@ export function CatalogView({ products, collections }: { products: Product[]; co
                 )}
               </button>
               <p className="text-sm whitespace-nowrap text-stone tabular-nums" aria-live="polite">
-                {results.length} {results.length === 1 ? "par" : "pares"}
+                {results.length} {results.length === 1 ? "perfume" : "perfumes"}
               </p>
             </div>
 
@@ -198,7 +198,7 @@ export function CatalogView({ products, collections }: { products: Product[]; co
                   animate={{ opacity: 1 }}
                   className="flex flex-col items-center border border-line px-6 py-24 text-center"
                 >
-                  <p className="font-display text-h3 font-bold">No encontramos pares con esos filtros</p>
+                  <p className="font-display text-h3 font-bold">No encontramos perfumes con esos filtros</p>
                   <p className="mt-3 text-sm text-stone">Prueba quitando alguno o explora todo el catálogo.</p>
                   <button type="button" onClick={clear} className="eyebrow mt-8 h-12 rounded-full bg-sand px-8 text-ink">
                     Limpiar filtros
@@ -248,10 +248,10 @@ function ActiveChips({
       label: facets.brands.find((b) => b.key === m)?.label ?? m,
       remove: () => onChange({ marca: filters.marca.filter((s) => s !== m) }),
     })),
-    ...filters.talla.map((t) => ({
+    ...filters.ml.map((t) => ({
       key: `t-${t}`,
-      label: `Talla ${t}`,
-      remove: () => onChange({ talla: filters.talla.filter((s) => s !== t) }),
+      label: `${t} ml`,
+      remove: () => onChange({ ml: filters.ml.filter((s) => s !== t) }),
     })),
     ...(filters.min !== null || filters.max !== null
       ? [

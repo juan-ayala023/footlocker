@@ -50,7 +50,7 @@ export function BrandRail({ brands, active, onSelect }: { brands: BrandTile[]; a
                   type="button"
                   onClick={() => onSelect(b.key)}
                   aria-pressed={isActive}
-                  aria-label={`${b.label}, ${b.count} ${b.count === 1 ? "par" : "pares"}${isActive ? ", filtro activo" : ""}`}
+                  aria-label={`${b.label}, ${b.count} ${b.count === 1 ? "perfume" : "perfumes"}${isActive ? ", filtro activo" : ""}`}
                   className="group block w-full text-left"
                 >
                   <span

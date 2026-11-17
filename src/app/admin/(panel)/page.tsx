@@ -32,7 +32,7 @@ export default async function AdminHome() {
     { label: "Ventas · 30 días", value: formatCOP(revenue), hint: `${sales.data?.length ?? 0} pedidos pagados` },
     { label: "Por enviar", value: String(toShip.count ?? 0), hint: "Pagados sin despachar", href: "/admin/pedidos?estado=pagado" },
     { label: "Pagos pendientes", value: String(pending.count ?? 0), hint: "Esperando confirmación", href: "/admin/pedidos?estado=pendiente" },
-    { label: "Tallas por agotarse", value: String(lowStock.data?.length ?? 0), hint: "2 pares o menos", href: "/admin/productos" },
+    { label: "Presentaciones por agotarse", value: String(lowStock.data?.length ?? 0), hint: "2 unidades o menos", href: "/admin/productos" },
   ];
 
   type LowStockRow = { id: string; size: number; stock: number; product: { id: string; name: string; brand: string } };
@@ -112,7 +112,7 @@ export default async function AdminHome() {
                     <span className="min-w-0 truncate">
                       {v.product.brand} {v.product.name} <span className="text-stone">· T{Number(v.size)}</span>
                     </span>
-                    <span className={v.stock === 0 ? "text-stone line-through" : "text-sand"}>{v.stock === 0 ? "Agotada" : `${v.stock} ${v.stock === 1 ? "par" : "pares"}`}</span>
+                    <span className={v.stock === 0 ? "text-stone line-through" : "text-sand"}>{v.stock === 0 ? "Agotada" : `${v.stock} ${v.stock === 1 ? "unidad" : "unidades"}`}</span>
                   </Link>
                 </li>
               ))}

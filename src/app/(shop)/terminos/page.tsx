@@ -3,12 +3,12 @@ import { site } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "Términos y condiciones",
-  description: `Términos y condiciones de compra de ${site.legalName}: productos, precios, envíos, cambios, garantía, retracto y datos personales.`,
+  description: `Términos y condiciones de compra de ${site.legalName}: perfumes originales, precios, envíos, cambios, garantía, retracto y datos personales.`,
   alternates: { canonical: "/terminos" },
 };
 
-// Texto entregado por la tienda. Cada sección es una lista de párrafos; `list` va como viñetas.
-const UPDATED = "23 de octubre de 2026";
+// Texto entregado por la tienda (adaptado a perfumes originales). Cada sección es una lista de párrafos; `list` va como viñetas.
+const UPDATED = "17 de noviembre de 2026";
 
 type Section = { title: string; paragraphs?: string[]; list?: string[]; after?: string[] };
 
@@ -27,10 +27,9 @@ const SECTIONS: Section[] = [
   {
     title: "Descripción de los productos",
     paragraphs: [
-      "Nuestra tienda ofrece sneakers y calzado urbano de diferentes estilos, diseños y características.",
-      "Los productos ofrecidos por la tienda son réplicas y no corresponden necesariamente a productos originales, oficiales o autorizados por las marcas cuyos diseños, referencias o elementos visuales puedan representar. Esta información se comunica de manera clara para evitar confusiones sobre su autenticidad, fabricante, procedencia o autorización comercial.",
-      "Cada producto deberá describirse de manera clara, veraz y suficiente, incluyendo materiales, colores, tallas, características relevantes y condición comercial.",
-      "No se afirmará que un producto es original, autorizado o fabricado por una marca determinada si esto no puede acreditarse. La comercialización de productos que utilicen marcas, logotipos o signos distintivos de terceros puede estar sujeta a restricciones legales aplicables en Colombia. La identificación de un producto como réplica no elimina las posibles responsabilidades derivadas del uso no autorizado de marcas o signos distintivos.",
+      "Nuestra tienda ofrece perfumes y fragancias de diferentes marcas, concentraciones y presentaciones.",
+      "Todos los productos ofrecidos por la tienda son originales, nuevos y se entregan sellados de fábrica en su empaque original. La tienda no comercializa réplicas, imitaciones ni productos reenvasados.",
+      "Cada producto deberá describirse de manera clara, veraz y suficiente, incluyendo marca, nombre de la fragancia, concentración, presentación (ml), características relevantes y condición comercial.",
     ],
   },
   {
@@ -44,7 +43,7 @@ const SECTIONS: Section[] = [
   {
     title: "Disponibilidad y pedidos",
     paragraphs: [
-      "Los pedidos estarán sujetos a la disponibilidad de tallas, colores y referencias. El cliente recibirá información sobre el estado de su pedido y los plazos de entrega previstos.",
+      "Los pedidos estarán sujetos a la disponibilidad de presentaciones y referencias. El cliente recibirá información sobre el estado de su pedido y los plazos de entrega previstos.",
       "Si un producto no está disponible después de confirmada la compra, se informará al cliente y se procederá conforme a sus derechos legales, incluyendo, cuando corresponda, la devolución de las sumas pagadas.",
       "La tienda podrá cancelar un pedido cuando exista un error manifiesto en el precio, una imposibilidad de entrega o una circunstancia que impida legalmente su comercialización. En estos casos, se informará al cliente y se devolverán los pagos recibidos cuando corresponda.",
     ],
@@ -58,10 +57,10 @@ const SECTIONS: Section[] = [
     ],
   },
   {
-    title: "Cambios de talla y referencia",
+    title: "Cambios de referencia",
     paragraphs: [
       "Las solicitudes de cambios voluntarios se tramitarán a través de los canales oficiales y estarán sujetas a la disponibilidad del producto y a las condiciones informadas antes de la compra.",
-      "Salvo que se indique lo contrario, el producto deberá devolverse sin uso, limpio, completo, con su empaque y en condiciones que permitan su comercialización. Estas condiciones no se aplicarán de manera que restrinjan la garantía legal o el derecho de retracto cuando resulten aplicables.",
+      "Salvo que se indique lo contrario, el producto deberá devolverse sin abrir ni usar, con el sello de la caja intacto, completo y en condiciones que permitan su comercialización. Por razones de higiene, no se aceptan cambios voluntarios de perfumes abiertos. Estas condiciones no se aplicarán de manera que restrinjan la garantía legal o el derecho de retracto cuando resulten aplicables.",
       "Los costos de transporte asociados a un cambio voluntario se informarán previamente. Si el cambio se debe a un defecto, error de despacho o incumplimiento de la tienda, se aplicarán las reglas de garantía o solución legal correspondientes.",
     ],
   },
@@ -70,7 +69,7 @@ const SECTIONS: Section[] = [
     paragraphs: [
       "Los productos contarán con la garantía legal aplicable en Colombia.",
       "Cuando exista un posible defecto de calidad o idoneidad, el cliente podrá presentar una reclamación mediante los canales de atención, indicando el número de pedido, una descripción del problema y, cuando sea posible, fotografías o videos del producto.",
-      "La solicitud se evaluará de acuerdo con la legislación vigente y la solución que legalmente corresponda. La garantía no cubrirá daños derivados del uso inadecuado, desgaste normal, modificaciones, reparaciones no autorizadas o incumplimiento de las instrucciones de cuidado, sin perjuicio de los derechos que correspondan al consumidor.",
+      "La solicitud se evaluará de acuerdo con la legislación vigente y la solución que legalmente corresponda. La garantía no cubrirá daños derivados del uso inadecuado, desgaste normal, modificaciones, reparaciones no autorizadas o incumplimiento de las instrucciones de uso y conservación, sin perjuicio de los derechos que correspondan al consumidor.",
     ],
   },
   {
@@ -84,9 +83,9 @@ const SECTIONS: Section[] = [
   {
     title: "Información veraz sobre marcas y procedencia",
     paragraphs: [
-      "La tienda identificará los productos de forma que no induzcan a error sobre su fabricante, marca, autenticidad, procedencia o autorización comercial.",
-      "Los productos se presentarán expresamente como réplicas y no como productos originales. No se presentarán productos genéricos o réplicas como originales ni se afirmará que cuentan con autorización de una marca determinada si esto no puede acreditarse.",
-      "La utilización de marcas, logotipos o signos distintivos de terceros puede infringir derechos de propiedad industrial y estar sujeta a las consecuencias legales correspondientes. Esta cláusula no constituye una autorización para utilizar marcas ajenas ni elimina las obligaciones legales de la tienda.",
+      "La tienda identificará los productos de forma que no induzcan a error sobre su fabricante, marca, autenticidad o procedencia.",
+      "La tienda solo comercializa perfumes originales y responde ante el consumidor por la autenticidad de los productos vendidos, conforme a la legislación colombiana.",
+      "Las marcas y nombres de fragancias mencionados pertenecen a sus respectivos titulares. Se mencionan únicamente para identificar los productos originales que se comercializan, sin que ello implique una relación comercial o de representación con dichas marcas.",
     ],
   },
   {
@@ -171,7 +170,7 @@ export default function TermsPage() {
           ))}
         </ol>
 
-        <p className="mt-16 font-display text-2xl font-bold">{site.name} — Believe in yourself.</p>
+        <p className="mt-16 font-display text-2xl font-bold">{site.name} — {site.tagline}.</p>
       </div>
     </div>
   );

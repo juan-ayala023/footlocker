@@ -15,14 +15,14 @@ import type { Gender, Product } from "@/types/catalog";
 const tiltSpring = { stiffness: 150, damping: 18, mass: 0.5 };
 
 const GENDER_LABEL: Record<Gender, string> = {
-  hombre: "Calzado para hombre",
-  mujer: "Calzado para mujer",
-  unisex: "Calzado unisex",
+  hombre: "Perfume para hombre",
+  mujer: "Perfume para mujer",
+  unisex: "Perfume unisex",
 };
 
 /**
  * Card estilo editorial: imagen cuadrada sobre fondo neutro y debajo
- * etiqueta (Más vendido / Agotado), nombre, tipo, tallas y precio con "Nuevo".
+ * etiqueta (Más vendido / Agotado), nombre, tipo, presentaciones y precio con "Nuevo".
  * Usa tokens de color, así que funciona en zona oscura y en .theme-light.
  */
 export function ProductCard({ product, priority = false }: { product: Product; priority?: boolean }) {
@@ -50,7 +50,7 @@ export function ProductCard({ product, priority = false }: { product: Product; p
     : product.best_seller
       ? { text: "Más vendido", className: "text-hot" }
       : lowStock
-        ? { text: "Últimas tallas", className: "text-stone" }
+        ? { text: "Últimas unidades", className: "text-stone" }
         : null;
 
   // Click normal: la imagen viaja hasta la galería en lugar de usar la cortina.
@@ -127,7 +127,7 @@ export function ProductCard({ product, priority = false }: { product: Product; p
           <h3 className="font-sans text-[0.9375rem] font-medium text-bone">{title}</h3>
           <p className="text-stone">{GENDER_LABEL[product.gender]}</p>
           <p className="text-stone">
-            {available ? `${sizesLeft} ${sizesLeft === 1 ? "talla" : "tallas"}` : "Sin tallas disponibles"}
+            {available ? `${sizesLeft} ${sizesLeft === 1 ? "presentación" : "presentaciones"}` : "Agotado"}
           </p>
 
           <div className="mt-2.5 flex flex-wrap items-center gap-x-2 gap-y-1">

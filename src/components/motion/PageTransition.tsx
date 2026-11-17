@@ -21,7 +21,7 @@ const RIDGE =
   "M0 120 L0 92 L90 58 L170 84 L260 28 L350 76 L430 46 L520 88 L610 18 L700 70 L790 40 L880 86 L970 34 L1060 78 L1150 50 L1240 90 L1330 30 L1440 72 L1440 120 Z";
 
 /**
- * Overlay que barre de abajo hacia arriba con la silueta de la montaña como borde,
+ * Overlay que barre de abajo hacia arriba con un borde curvo,
  * cubre la pantalla, navega y sigue subiendo para revelar la nueva página.
  */
 export function PageTransitionProvider({ children }: { children: React.ReactNode }) {
@@ -86,14 +86,14 @@ export function PageTransitionProvider({ children }: { children: React.ReactNode
         className="pointer-events-none fixed inset-0 z-80 overflow-hidden"
         style={{ pointerEvents: phase === "idle" ? "none" : "auto" }}
       >
-        {/* Capa gris que lidera */}
-        <Sheet y={y} phase={phase} delay={phase === "reveal" ? 0.12 : 0} tone="#141414" />
-        {/* Capa negra principal */}
+        {/* Capa vino que lidera */}
+        <Sheet y={y} phase={phase} delay={phase === "reveal" ? 0.12 : 0} tone="#6b0213" />
+        {/* Capa vino profundo principal */}
         <Sheet
           y={y}
           phase={phase}
           delay={phase === "cover" ? 0.1 : 0}
-          tone="#000000"
+          tone="#1c0408"
           onDone={() => {
             if (phase === "cover" && pending.current) router.push(pending.current);
             if (phase === "reveal") setPhase("idle");
@@ -104,7 +104,7 @@ export function PageTransitionProvider({ children }: { children: React.ReactNode
             animate={{ opacity: phase === "cover" ? 1 : 0 }}
             transition={{ duration: 0.4, delay: phase === "cover" ? 0.5 : 0 }}
           >
-            <Logo title="" className="w-32" />
+            <Logo title="" className="w-24" />
           </m.div>
         </Sheet>
       </div>

@@ -10,7 +10,7 @@ import { useGsap } from "@/lib/gsap";
 import { formatCOP } from "@/lib/utils";
 import type { Product } from "@/types/catalog";
 
-/** Sección "Edición limitada" de la home: destaca un producto real del catálogo (ver `drop` en data/home). */
+/** Sección "Fragancia destacada" de la home: destaca un producto real del catálogo (ver `drop` en data/home). */
 export function Drop({ product }: { product?: Product }) {
   const section = useRef<HTMLElement>(null);
 
@@ -37,8 +37,8 @@ export function Drop({ product }: { product?: Product }) {
       className="relative overflow-hidden border-y border-line bg-ink-raised py-28 md:py-40"
     >
       <div className="container-page relative grid gap-14 md:grid-cols-12 md:items-center md:gap-8">
-        {/* Fondo #efefef = el de las fotos del catálogo, para que el tenis no quede en un recuadro. */}
-        <ImageReveal className="aspect-square bg-[#efefef] md:col-span-6">
+        {/* Fondo blanco = el de las fotos de producto, para que el frasco no quede en un recuadro. */}
+        <ImageReveal className="aspect-square bg-white md:col-span-6">
           <div data-drop-img className="absolute inset-y-[-6%] inset-x-0">
             <Image
               src={product.images[0]}
@@ -51,7 +51,7 @@ export function Drop({ product }: { product?: Product }) {
         </ImageReveal>
 
         <div className="md:col-span-5 md:col-start-8">
-          <p className="eyebrow mb-6 text-sand">Edición limitada</p>
+          <p className="eyebrow mb-6 text-sand">Fragancia destacada</p>
           <p className="eyebrow mb-3 text-stone">{product.brand}</p>
           <h2 id="drop-title" className="text-h1 uppercase">
             <TextReveal text={product.name} />
@@ -69,7 +69,7 @@ export function Drop({ product }: { product?: Product }) {
           {product.description && <p className="text-lead mt-8 max-w-md text-mist">{product.description}</p>}
           {sizes.length > 0 && (
             <p className="mt-6 text-sm text-stone">
-              Tallas disponibles (EU): {sizes.join(" · ")}
+              Presentaciones: {sizes.map((s) => `${s} ml`).join(" · ")}
             </p>
           )}
 

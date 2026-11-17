@@ -1,49 +1,23 @@
 // Contenido editorial de la home.
 
-// Banner de entrada entregado por la tienda (public/brand/banner-make-it-work.webp, 1280×640).
+// Portada: logo completo sobre crema, con el lema y accesos al catálogo.
 export const hero = {
-  title: "Make it work",
-  image: "/brand/banner-make-it-work.webp",
-  imageAlt: "Logo de Make it work, una montaña geométrica, y el lema Make it work",
+  title: "Perfumería By Maria · Perfumes 100% originales",
+  eyebrow: "Perfumes 100% originales",
+  lead: "Fragancias de las mejores casas, selladas y garantizadas. Envío gratis a toda Colombia.",
+  ctas: [
+    { label: "Para ella", href: "/catalogo?genero=mujer" },
+    { label: "Para él", href: "/catalogo?genero=hombre" },
+  ],
 };
 
-// Producto de la sección "Edición limitada" de la home (slug del catálogo).
-export const drop = { slug: "nike-air-max-portal" };
+// Producto de la sección "Fragancia destacada" (slug del catálogo).
+// Vacío = se usa el primer producto marcado como destacado en el admin.
+export const drop = { slug: "" };
 
-// Fotos de deporte después del banner (public/home). `position` = encuadre en pantallas anchas y `mobilePosition` en celular (pantalla vertical).
-// `whole`: en pantallas anchas se muestra la foto completa (útil en fotos verticales) sobre un fondo difuminado.
-export const sportPanels = [
-  {
-    eyebrow: "Entrena hoy",
-    title: "Equípate para darlo todo.",
-    cta: "Comprar ahora",
-    href: "/catalogo",
-    image: "/home/entrena.webp",
-    imageAlt: "Personas entrenando con mancuernas en el gimnasio con tenis On y Nike",
-    position: "50% 75%",
-    mobilePosition: "44% 50%",
-    whole: false,
-  },
-  {
-    eyebrow: "Fútbol",
-    title: "Domina la cancha.",
-    cta: "Comprar Adidas",
-    href: "/catalogo?marca=adidas",
-    image: "/home/futbol.webp",
-    imageAlt: "Tacos Adidas rojos sobre un balón en una cancha sintética",
-    position: "50% 55%",
-    mobilePosition: "50% 50%",
-    whole: true,
-  },
-  {
-    eyebrow: "Running",
-    title: "Cada kilómetro cuenta.",
-    cta: "Comprar running",
-    href: "/catalogo?coleccion=running",
-    image: "/home/running.webp",
-    imageAlt: "Corredores en una pista atlética al atardecer",
-    position: "50% 50%",
-    mobilePosition: "35% 50%",
-    whole: true,
-  },
+// Accesos por categoría debajo de la portada (filtran el catálogo).
+export const categoryTiles = [
+  { eyebrow: "Para ella", title: "Florales, dulces y elegantes.", href: "/catalogo?genero=mujer", cta: "Ver perfumes de mujer" },
+  { eyebrow: "Para él", title: "Amaderados, frescos e intensos.", href: "/catalogo?genero=hombre", cta: "Ver perfumes de hombre" },
+  { eyebrow: "Unisex", title: "Aromas para compartir.", href: "/catalogo?genero=unisex", cta: "Ver perfumes unisex" },
 ];

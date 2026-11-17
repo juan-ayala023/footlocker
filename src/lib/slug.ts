@@ -1,4 +1,4 @@
-/** "Air Jordan 1 'Bred Toe'" → "air-jordan-1-bred-toe" */
+/** "Sauvage Eau de Parfum" → "sauvage-eau-de-parfum" */
 export function slugify(input: string) {
   return input
     .normalize("NFD")

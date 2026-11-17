@@ -68,7 +68,7 @@ const productSchema = z
     path: ["compare_at_price"],
   })
   .refine((p) => new Set(p.variants.map((v) => v.size)).size === p.variants.length, {
-    message: "Hay tallas repetidas",
+    message: "Hay presentaciones repetidas",
     path: ["variants"],
   });
 

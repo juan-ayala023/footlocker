@@ -101,9 +101,9 @@ export default async function ProductsPage({ searchParams }: { searchParams: Pro
                   </Link>
                   <InlinePrice key={p.price} id={p.id} price={p.price} />
                   <div className="hidden w-28 text-right text-sm sm:block">
-                    <p className={cn("tabular-nums", stock === 0 && "text-sand")}>{stock === 0 ? "Sin stock" : `${stock} pares`}</p>
+                    <p className={cn("tabular-nums", stock === 0 && "text-sand")}>{stock === 0 ? "Sin stock" : `${stock} unidades`}</p>
                     <p className="text-xs text-stone">
-                      {p.variants.length} tallas{sizesOut ? ` · ${sizesOut} agotadas` : ""}
+                      {p.variants.length} {p.variants.length === 1 ? "presentación" : "presentaciones"}{sizesOut ? ` · ${sizesOut} agotadas` : ""}
                     </p>
                   </div>
                   <ProductToggles id={p.id} active={p.active} featured={p.featured} />

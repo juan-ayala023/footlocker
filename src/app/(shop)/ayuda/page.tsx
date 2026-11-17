@@ -5,7 +5,7 @@ import { helpSections } from "@/data/help";
 
 export const metadata: Metadata = {
   title: "Ayuda",
-  description: "Preguntas frecuentes sobre envíos, pedidos, tallas, garantías y pagos. Contáctanos por WhatsApp.",
+  description: "Preguntas frecuentes sobre originalidad, envíos, pedidos, garantías y pagos. Contáctanos por WhatsApp.",
   alternates: { canonical: "/ayuda" },
 };
 

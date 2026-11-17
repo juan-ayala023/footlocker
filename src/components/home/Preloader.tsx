@@ -10,7 +10,7 @@ import { useUi } from "@/store/ui";
 
 /**
  * Intro al abrir la tienda (primera página de la sesión):
- * 1. La montaña del logo emerge de abajo hacia arriba.
+ * 1. El logo (frasco con la M) emerge de abajo hacia arriba.
  * 2. El nombre aparece letra por letra.
  * 3. Una cortina sube y revela la página.
  * Total ≈ 2 s. Visible desde el primer paint gracias a preloaderScript (sin parpadeo).
@@ -30,7 +30,7 @@ export function Preloader() {
 
     let cancelled = false;
     (async () => {
-      // Montaña que sube + nombre letra por letra (se solapan).
+      // Logo que sube + nombre letra por letra (se solapan).
       animate("[data-intro-logo]", { clipPath: ["inset(100% 0% 0% 0%)", "inset(0% 0% 0% 0%)"], y: [24, 0] }, { duration: 0.9, ease: ease.premium });
       animate("[data-intro-line]", { scaleX: [0, 1] }, { duration: 0.9, ease: ease.premium, delay: 0.25 });
       await animate("[data-intro-letter]", { y: ["110%", "0%"] }, { duration: 0.6, ease: ease.premium, delay: stagger(0.04, { startDelay: 0.45 }) });
@@ -55,15 +55,15 @@ export function Preloader() {
   return (
     <div ref={scope} aria-hidden className="preloader fixed inset-0 z-90 flex-col items-center justify-center gap-8 bg-ink text-bone">
       <div data-intro-logo style={{ clipPath: "inset(100% 0% 0% 0%)" }}>
-        <Logo title="" priority className="w-56 md:w-80" />
+        <Logo title="" priority className="w-32 md:w-40" />
       </div>
       <div className="flex flex-col items-center gap-4">
         <span data-intro-line className="block h-px w-24 origin-center bg-sand/60" style={{ transform: "scaleX(0)" }} />
-        <p className="font-display text-xl font-bold tracking-[0.42em] uppercase md:text-2xl">
+        <p className="px-4 text-center font-display text-xl font-semibold tracking-[0.32em] uppercase md:text-2xl">
           {site.name.split("").map((ch, i) => (
             <span key={i} className="mask inline-block align-top">
               <span data-intro-letter className="inline-block" style={{ transform: "translateY(110%)" }}>
-                {ch}
+                {ch === " " ? "\u00a0" : ch}
               </span>
             </span>
           ))}

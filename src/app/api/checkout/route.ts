@@ -51,7 +51,7 @@ export async function POST(request: Request) {
           code: code === "STOCK_INSUFICIENTE" ? "STOCK" : "UNAVAILABLE",
           message:
             code === "STOCK_INSUFICIENTE"
-              ? "Una de las tallas de tu carrito ya no tiene suficiente stock."
+              ? "Uno de los perfumes de tu carrito ya no tiene suficiente stock."
               : "Uno de los productos de tu carrito ya no está disponible.",
           items: [{ variantId, available: Number(available ?? 0) }],
         },

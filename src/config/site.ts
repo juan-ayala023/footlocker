@@ -1,10 +1,10 @@
 // Fuente única de verdad para datos de marca. Cambia aquí el nombre definitivo.
 export const site = {
-  name: "Make it work",
-  legalName: "Make it work Tienda",
-  tagline: "Sneakers y calzado urbano",
+  name: "Perfumería By Maria",
+  legalName: "Perfumería By Maria",
+  tagline: "Perfumes 100% originales",
   description:
-    "Make it work: sneakers y calzado urbano. Envío gratis a toda Colombia.",
+    "Perfumería By Maria: perfumes 100% originales para hombre y mujer. Envío gratis a toda Colombia.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   locale: "es-CO",
   currency: "COP",
@@ -20,7 +20,7 @@ export const site = {
   whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "573113337845",
   /** Horario de atención */
   hours: ["Lunes a viernes: 9:00 - 20:00", "Sábado: 9:00 - 18:00"],
-  /** Usuario de Instagram de la tienda (sin @). Se usa en "El estilo de otras personas". */
+  /** Usuario de Instagram de la tienda (sin @). Se usa en la barra, el footer, los términos y la galería de clientes. */
   instagramHandle: "footlockercol_",
   social: {
     instagram: "https://www.instagram.com/footlockercol_",
@@ -33,23 +33,17 @@ export const site = {
  * Edita aquí los mensajes; usa solo promociones reales.
  */
 export const announcements = [
+  { text: "Perfumes 100% originales", href: "/ayuda?seccion=originalidad", cta: "Conoce más" },
   { text: "Envío gratis a toda Colombia", href: "/ayuda?seccion=envios", cta: "Ver detalles" },
-  { text: "13% de descuento en referencias seleccionadas", href: "/catalogo?oferta=1", cta: "Comprar ofertas" },
+  { text: "Ofertas en fragancias seleccionadas", href: "/catalogo?oferta=1", cta: "Ver ofertas" },
 ] as const;
 
 /**
  * Foto de campaña por marca para la fila de marcas del catálogo (clave = marca en minúsculas).
  * Si una marca no tiene, se usa la foto de su producto más destacado.
- * Ej.: nike: "https://<proyecto>.supabase.co/storage/v1/object/public/products/marcas/nike.jpg"
+ * Ej.: dior: "https://<proyecto>.supabase.co/storage/v1/object/public/products/marcas/dior.jpg"
  */
-export const brandImages: Record<string, string> = {
-  nike: "/brands/nike.webp",
-  jordan: "/brands/jordan.webp",
-  adidas: "/brands/adidas.webp",
-  "new-balance": "/brands/new-balance.webp",
-  on: "/brands/on.webp",
-  puma: "/brands/puma.webp",
-};
+export const brandImages: Record<string, string> = {};
 
 /**
  * Tarjeta "Multimarca" de la fila de marcas: agrupa estas marcas (sin tarjeta propia)
@@ -58,16 +52,16 @@ export const brandImages: Record<string, string> = {
 export const multiBrand = {
   key: "multimarca",
   label: "Multimarca",
-  image: "/brands/multimarca.webp",
-  brands: ["calvin-klein", "boss", "timberland"],
+  image: "/brand/logo-original.jpeg",
+  brands: [] as string[],
 };
 
 export type MenuItem = {
   label: string;
   href: string;
-  /** Submenú (p. ej. Deporte → Fútbol, Basket). */
+  /** Submenú (p. ej. Colecciones → Árabes, Diseñador). */
   children?: { label: string; href: string }[];
-  /** Resaltado en rojo (Descuentos). */
+  /** Resaltado en color de acento (Ofertas). */
   highlight?: boolean;
   emoji?: string;
 };
@@ -77,18 +71,11 @@ export const menu: MenuItem[] = [
   { label: "Novedades", href: "/catalogo?orden=nuevos" },
   { label: "Hombre", href: "/catalogo?genero=hombre" },
   { label: "Mujer", href: "/catalogo?genero=mujer" },
-  {
-    label: "Deporte",
-    href: "/catalogo?coleccion=futbol,basket",
-    children: [
-      { label: "Fútbol", href: "/catalogo?coleccion=futbol" },
-      { label: "Basket", href: "/catalogo?coleccion=basket" },
-    ],
-  },
-  { label: "Descuentos", href: "/catalogo?oferta=1", highlight: true, emoji: "🔥" },
+  { label: "Unisex", href: "/catalogo?genero=unisex" },
+  { label: "Ofertas", href: "/catalogo?oferta=1", highlight: true },
 ];
 
-/** Footer (estilo Nike): secciones desplegables en móvil, columnas en escritorio. */
+/** Footer: secciones desplegables en móvil, columnas en escritorio. */
 export const footerNav = [
   {
     title: "Ayuda",
@@ -115,7 +102,8 @@ export const footerNav = [
       { label: "Novedades", href: "/catalogo?orden=nuevos" },
       { label: "Hombre", href: "/catalogo?genero=hombre" },
       { label: "Mujer", href: "/catalogo?genero=mujer" },
-      { label: "Descuentos", href: "/catalogo?oferta=1" },
+      { label: "Unisex", href: "/catalogo?genero=unisex" },
+      { label: "Ofertas", href: "/catalogo?oferta=1" },
     ],
   },
 ];

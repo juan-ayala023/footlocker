@@ -15,8 +15,8 @@ export function WhatsAppButton() {
 
   const onProduct = pathname.startsWith("/producto/") && viewing;
   const message = onProduct
-    ? `Hola, me interesan los ${viewing.name}${viewing.size ? ` en talla ${viewing.size}` : ""}. ¿Me ayudas? ${viewing.url}`
-    : "Hola, quiero más información sobre sus tenis.";
+    ? `Hola, me interesa el perfume ${viewing.name}${viewing.size ? ` de ${viewing.size} ml` : ""}. ¿Me ayudas? ${viewing.url}`
+    : "Hola, quiero más información sobre sus perfumes.";
   const href = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(message)}`;
 
   return (
@@ -37,7 +37,7 @@ export function WhatsAppButton() {
         )}
       >
         <span className="eyebrow hidden max-w-0 overflow-hidden whitespace-nowrap pl-0 transition-[max-width,padding] duration-500 ease-premium group-hover:max-w-56 group-hover:pl-3 md:block">
-          {onProduct ? "¿Dudas con tu talla?" : "Escríbenos"}
+          {onProduct ? "¿Dudas con este perfume?" : "Escríbenos"}
         </span>
         <span className="flex size-11 items-center justify-center rounded-full bg-sand text-ink">
           <svg viewBox="0 0 24 24" aria-hidden className="size-5" fill="currentColor">

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Cormorant_Garamond, Inter } from "next/font/google";
 import { preloaderScript } from "@/lib/preloader";
 import { Preloader } from "@/components/home/Preloader";
 import { Providers } from "@/components/Providers";
@@ -7,10 +7,11 @@ import { site } from "@/config/site";
 import { baseOpenGraph } from "@/lib/seo";
 import "./globals.css";
 
-const display = Space_Grotesk({
-  variable: "--font-space-grotesk",
+// Serif clásica, en línea con el logotipo "PERFUMERÍA".
+const display = Cormorant_Garamond({
+  variable: "--font-cormorant",
   subsets: ["latin"],
-  weight: ["500", "700"],
+  weight: ["500", "600", "700"],
   display: "swap",
 });
 
@@ -49,7 +50,7 @@ const orgJsonLd = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#000000",
+  themeColor: "#1c0408",
   colorScheme: "dark",
 };
 

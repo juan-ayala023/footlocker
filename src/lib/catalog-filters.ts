@@ -1,5 +1,5 @@
 // Filtros del catálogo: funciones puras compartidas por servidor y cliente.
-// La URL es la fuente de verdad: ?marca=nike,adidas&talla=40,41&genero=mujer&coleccion=retro&precio_min=300000&precio_max=700000&orden=precio-asc
+// La URL es la fuente de verdad: ?marca=dior,chanel&ml=50,100&genero=mujer&coleccion=arabes&precio_min=300000&precio_max=700000&orden=precio-asc
 import type { Gender, Product } from "@/types/catalog";
 
 export const SORTS = [
@@ -13,7 +13,7 @@ export type Sort = (typeof SORTS)[number]["value"];
 
 export type Filters = {
   marca: string[];
-  talla: number[];
+  ml: number[];
   genero: Gender[];
   coleccion: string[];
   /** Solo productos con precio rebajado (compare_at_price). */
@@ -33,7 +33,7 @@ export const GENDERS: { value: Gender; label: string }[] = [
 
 export const emptyFilters: Filters = {
   marca: [],
-  talla: [],
+  ml: [],
   genero: [],
   coleccion: [],
   q: "",
@@ -60,7 +60,7 @@ export function parseFilters(sp: ParamSource): Filters {
   const orden = read(sp, "orden");
   return {
     marca: list(read(sp, "marca")),
-    talla: list(read(sp, "talla")).map(Number).filter((n) => !Number.isNaN(n)),
+    ml: list(read(sp, "ml")).map(Number).filter((n) => !Number.isNaN(n)),
     genero: list(read(sp, "genero")).filter((g): g is Gender => GENDERS.some((x) => x.value === g)),
     coleccion: list(read(sp, "coleccion")),
     q: (read(sp, "q") ?? "").trim().slice(0, 60),
@@ -78,7 +78,7 @@ export function serializeFilters(f: Filters): string {
   if (f.coleccion.length) sp.set("coleccion", f.coleccion.join(","));
   if (f.genero.length) sp.set("genero", f.genero.join(","));
   if (f.marca.length) sp.set("marca", f.marca.join(","));
-  if (f.talla.length) sp.set("talla", [...f.talla].sort((a, b) => a - b).join(","));
+  if (f.ml.length) sp.set("ml", [...f.ml].sort((a, b) => a - b).join(","));
   if (f.min !== null) sp.set("precio_min", String(f.min));
   if (f.max !== null) sp.set("precio_max", String(f.max));
   if (f.orden !== "relevancia") sp.set("orden", f.orden);
@@ -93,7 +93,7 @@ export const isNew = (p: Product, now = Date.now()) => now - new Date(p.created_
 export const inStock = (p: Product) => p.variants.some((v) => v.stock > 0);
 export const totalStock = (p: Product) => p.variants.reduce((n, v) => n + v.stock, 0);
 
-type Key = "marca" | "talla" | "genero" | "coleccion" | "precio";
+type Key = "marca" | "ml" | "genero" | "coleccion" | "precio";
 
 // Sin tildes ni mayúsculas: "clasicos" encuentra "Clásicos".
 const normalize = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
@@ -109,7 +109,7 @@ export function matches(p: Product, f: Filters, except?: Key) {
   if (except !== "coleccion" && f.coleccion.length && !(p.collection && f.coleccion.includes(p.collection.slug))) return false;
   // "Hombre" y "Mujer" incluyen los unisex.
   if (except !== "genero" && f.genero.length && !f.genero.some((g) => g === p.gender || (p.gender === "unisex" && g !== "unisex"))) return false;
-  if (except !== "talla" && f.talla.length && !p.variants.some((v) => v.stock > 0 && f.talla.includes(v.size))) return false;
+  if (except !== "ml" && f.ml.length && !p.variants.some((v) => v.stock > 0 && f.ml.includes(v.size))) return false;
   if (except !== "precio" && f.min !== null && p.price < f.min) return false;
   if (except !== "precio" && f.max !== null && p.price > f.max) return false;
   return true;
@@ -159,7 +159,7 @@ export function getFacets(products: Product[], f: Filters): Facets {
   }
 
   const allSizes = [...new Set(products.flatMap((p) => p.variants.map((v) => v.size)))].sort((a, b) => a - b);
-  const sizePool = products.filter((p) => matches(p, f, "talla"));
+  const sizePool = products.filter((p) => matches(p, f, "ml"));
 
   const collections: Record<string, number> = {};
   for (const p of products) {
@@ -201,5 +201,5 @@ export function getRelated(products: Product[], product: Product, limit = 4): Pr
 }
 
 export function activeFilterCount(f: Filters) {
-  return (f.q ? 1 : 0) + (f.oferta ? 1 : 0) + f.marca.length + f.talla.length + f.genero.length + f.coleccion.length + (f.min !== null || f.max !== null ? 1 : 0);
+  return (f.q ? 1 : 0) + (f.oferta ? 1 : 0) + f.marca.length + f.ml.length + f.genero.length + f.coleccion.length + (f.min !== null || f.max !== null ? 1 : 0);
 }

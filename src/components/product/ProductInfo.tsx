@@ -1,12 +1,11 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, m, useAnimate } from "framer-motion";
 import { Magnetic } from "@/components/motion/Magnetic";
 import { TextReveal } from "@/components/motion/TextReveal";
 import { TransitionLink } from "@/components/motion/TransitionLink";
 import { Accordion } from "@/components/product/Accordion";
-import dynamic from "next/dynamic";
 import { site } from "@/config/site";
 import { helpSections, type HelpQuestion } from "@/data/help";
 import { inStock, isNew } from "@/lib/catalog-filters";
@@ -17,17 +16,14 @@ import { useCart } from "@/store/cart";
 import { useUi } from "@/store/ui";
 import type { Product, Variant } from "@/types/catalog";
 
-// La guía solo se descarga cuando se abre.
-const SizeGuide = dynamic(() => import("@/components/product/SizeGuide").then((mod) => mod.SizeGuide), { ssr: false });
-
 const LOW_STOCK = 3;
 
 export function ProductInfo({ product }: { product: Product }) {
-  const [selected, setSelected] = useState<Variant | null>(null);
+  // Con una sola presentación disponible, queda elegida de una vez.
+  const [selected, setSelected] = useState<Variant | null>(() =>
+    product.variants.length === 1 && product.variants[0].stock > 0 ? product.variants[0] : null,
+  );
   const [error, setError] = useState(false);
-  const [guideOpen, setGuideOpen] = useState(false);
-  const [guideUsed, setGuideUsed] = useState(false);
-  const closeGuide = useCallback(() => setGuideOpen(false), []);
   const [sizesScope, animateSizes] = useAnimate<HTMLDivElement>();
   const addRef = useRef<HTMLDivElement>(null);
   const [addVisible, setAddVisible] = useState(true);
@@ -44,7 +40,7 @@ export function ProductInfo({ product }: { product: Product }) {
     trackViewContent({ id: product.id, name: productTitle(product.brand, product.name), brand: product.brand, price: product.price });
   }, [product.id, product.brand, product.name, product.price]);
 
-  // Contexto para el botón de WhatsApp (incluye la talla elegida).
+  // Contexto para el botón de WhatsApp (incluye la presentación elegida).
   useEffect(() => {
     setViewing({ name: productTitle(product.brand, product.name), url: window.location.href, size: selected?.size });
     return () => setViewing(null);
@@ -114,28 +110,17 @@ export function ProductInfo({ product }: { product: Product }) {
           </>
         )}
       </div>
-      <p className="mt-2 text-xs text-stone">Impuestos incluidos. Envío calculado al pagar.</p>
+      <p className="mt-2 text-xs text-stone">Impuestos incluidos. Envío gratis a toda Colombia.</p>
 
-      {/* Tallas */}
+      {/* Presentaciones (ml) */}
       <div className="mt-10">
         <div className="mb-4 flex items-baseline justify-between">
-          <p id="tallas-label" className="font-sans text-base font-medium">
-            Selecciona la talla <span className="text-sm font-normal text-stone">(EU)</span>
+          <p id="presentacion-label" className="font-sans text-base font-medium">
+            Presentación
           </p>
-          <button
-            type="button"
-            onClick={() => {
-              setGuideUsed(true);
-              setGuideOpen(true);
-            }}
-            aria-haspopup="dialog"
-            className="text-base text-stone transition-colors hover:text-bone"
-          >
-            Guía de tallas
-          </button>
         </div>
 
-        <div ref={sizesScope} role="radiogroup" aria-labelledby="tallas-label" className="grid grid-cols-5 gap-2 sm:gap-2.5">
+        <div ref={sizesScope} role="radiogroup" aria-labelledby="presentacion-label" className="grid grid-cols-3 gap-2 sm:grid-cols-4 sm:gap-2.5">
           {product.variants.map((v) => {
             const soldOut = v.stock <= 0;
             const active = selected?.id === v.id;
@@ -145,7 +130,7 @@ export function ProductInfo({ product }: { product: Product }) {
                 type="button"
                 role="radio"
                 aria-checked={active}
-                aria-label={`Talla ${v.size}${soldOut ? ", agotada" : ""}`}
+                aria-label={`${v.size} ml${soldOut ? ", agotada" : ""}`}
                 disabled={soldOut}
                 onClick={() => {
                   setSelected(v);
@@ -158,7 +143,7 @@ export function ProductInfo({ product }: { product: Product }) {
                   error && !active && !soldOut && "border-hot",
                 )}
               >
-                {v.size}
+                {v.size} ml
                 {!soldOut && v.stock <= LOW_STOCK && (
                   <span aria-hidden className="absolute top-1.5 right-1.5 size-1 rounded-full bg-sand" />
                 )}
@@ -171,11 +156,11 @@ export function ProductInfo({ product }: { product: Product }) {
           <AnimatePresence mode="wait">
             {error ? (
               <m.p key="err" role="alert" className="text-hot" initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
-                Elige tu talla para continuar.
+                Elige la presentación para continuar.
               </m.p>
             ) : selected && selected.stock <= LOW_STOCK ? (
               <m.p key="low" className="text-sand" initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
-                {selected.stock === 1 ? "Queda solo 1 par" : `Quedan solo ${selected.stock} pares`} en talla {selected.size}.
+                {selected.stock === 1 ? "Queda solo 1 unidad" : `Quedan solo ${selected.stock} unidades`} de {selected.size} ml.
               </m.p>
             ) : hasLowStock ? (
               <m.p key="hint" className="text-stone" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
@@ -207,6 +192,9 @@ export function ProductInfo({ product }: { product: Product }) {
 
       <ul className="mt-8 grid gap-3 text-sm text-mist">
         <li className="flex gap-3">
+          <Dot /> Perfume 100% original, sellado de fábrica.
+        </li>
+        <li className="flex gap-3">
           <Dot /> Envío gratis a toda Colombia. Entrega en {site.shipping.eta}.
         </li>
         <li className="flex gap-3">
@@ -220,8 +208,8 @@ export function ProductInfo({ product }: { product: Product }) {
       <div className="mt-10">
         <Accordion
           items={[
-            { title: "Descripción", content: product.description ?? "Pronto agregaremos más detalles de este par." },
-            { title: "Talla y ajuste", content: <HelpAnswers questions={help("producto", 0, 1)} single /> },
+            { title: "Descripción", content: product.description ?? "Pronto agregaremos más detalles de esta fragancia." },
+            { title: "Originalidad garantizada", content: <HelpAnswers questions={help("originalidad", 0, 2)} /> },
             { title: "Envíos y entregas", content: <HelpAnswers questions={[...help("envios"), ...help("pedidos")]} /> },
             { title: "Garantía y devoluciones", content: <HelpAnswers questions={help("devoluciones")} /> },
           ]}
@@ -242,24 +230,16 @@ export function ProductInfo({ product }: { product: Product }) {
               <p className="truncate text-sm">{product.name}</p>
               <p className="text-xs text-stone tabular-nums">
                 {formatCOP(product.price)}
-                {selected && ` · Talla ${selected.size}`}
+                {selected && ` · ${selected.size} ml`}
               </p>
             </div>
             <button type="button" onClick={addToCart} className="eyebrow h-12 shrink-0 rounded-full bg-sand px-6 text-ink active:bg-bone">
-              {selected ? "Agregar" : "Elegir talla"}
+              {selected ? "Agregar" : "Elegir presentación"}
             </button>
           </m.div>
         )}
       </AnimatePresence>
 
-      {guideUsed && (
-        <SizeGuide
-          open={guideOpen}
-          onClose={closeGuide}
-          available={product.variants.filter((v) => v.stock > 0).map((v) => v.size)}
-          selected={selected?.size}
-        />
-      )}
     </div>
   );
 }

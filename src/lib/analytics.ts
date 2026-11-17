@@ -27,7 +27,7 @@ const ga4Items = (items: AnalyticsItem[]) =>
     item_id: i.id,
     item_name: i.name,
     item_brand: i.brand,
-    item_variant: i.size ? `Talla ${i.size}` : undefined,
+    item_variant: i.size ? `${i.size} ml` : undefined,
     price: i.price,
     quantity: i.quantity ?? 1,
   }));

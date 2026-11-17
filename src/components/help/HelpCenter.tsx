@@ -7,7 +7,7 @@ import { ease } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 /**
- * Preguntas frecuentes en dos niveles (estilo Nike): categoría desplegable y,
+ * Preguntas frecuentes en dos niveles (estilo editorial): categoría desplegable y,
  * dentro, cada pregunta se abre con su respuesta.
  */
 export function HelpCenter({ sections, initialOpen }: { sections: HelpSection[]; initialOpen?: string }) {

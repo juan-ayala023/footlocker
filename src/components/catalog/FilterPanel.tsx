@@ -97,17 +97,17 @@ export function FilterPanel({ filters, facets, collections, onChange }: Props) {
         </ul>
       </Group>
 
-      <Group title="Talla (EU)">
-        <div className="grid grid-cols-5 gap-1.5">
+      <Group title="Presentación (ml)">
+        <div className="grid grid-cols-3 gap-1.5">
           {facets.sizes.map(({ size, available }) => {
-            const active = filters.talla.includes(size);
+            const active = filters.ml.includes(size);
             return (
               <button
                 key={size}
                 type="button"
                 aria-pressed={active}
                 disabled={!available && !active}
-                onClick={() => onChange({ talla: toggle(filters.talla, size) })}
+                onClick={() => onChange({ ml: toggle(filters.ml, size) })}
                 className={cn(
                   "h-10 border text-sm tabular-nums transition-colors duration-300",
                   active ? "border-sand bg-sand text-ink" : "border-line text-mist hover:border-bone hover:text-bone",

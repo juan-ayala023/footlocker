@@ -71,7 +71,7 @@ export function FilterSheet({
                 onClick={onClose}
                 className="eyebrow h-14 w-full rounded-full bg-sand text-ink transition-colors duration-300 active:bg-bone"
               >
-                Ver {resultCount} {resultCount === 1 ? "par" : "pares"}
+                Ver {resultCount} {resultCount === 1 ? "perfume" : "perfumes"}
               </button>
             </div>
           </m.div>
