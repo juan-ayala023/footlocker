@@ -1,16 +1,18 @@
 "use client";
 
+import Image from "next/image";
 import { useRef } from "react";
 import { m, useReducedMotion } from "framer-motion";
-import { Logo } from "@/components/brand/Logo";
 import { Button } from "@/components/ui/Button";
 import { hero } from "@/data/home";
 import { useGsap } from "@/lib/gsap";
 import { ease } from "@/lib/motion";
 import { useUi } from "@/store/ui";
+import logoColor from "../../../public/brand/logo-full-color.webp";
 
 /**
- * Portada: logo completo en vino sobre crema, el lema y accesos al catálogo.
+ * Portada como la foto del logo: papel crema con hojas en relieve (public/brand/hero-relieve.webp,
+ * sacado de la foto original sin el logo) y encima el logo a color con su tapón plateado.
  * Entra con un leve zoom tras el preloader y se aleja suavemente al hacer scroll.
  */
 export function Hero() {
@@ -47,20 +49,22 @@ export function Hero() {
   return (
     <section
       ref={section}
-      className="theme-light relative flex flex-col overflow-hidden bg-[radial-gradient(ellipse_at_center,#fffdf9_0%,#f3eee8_70%)] pt-(--nav-h) text-bone md:min-h-svh"
+      className="theme-light relative flex flex-col overflow-hidden bg-[#f1ebe5] pt-(--nav-h) text-bone md:min-h-svh"
     >
+      <Image src="/brand/hero-relieve.webp" alt="" fill priority sizes="100vw" className="object-cover" />
+
       <h1 className="sr-only">{hero.title}</h1>
 
       {/* GSAP (scroll) va en el contenedor y Framer (entrada) en los hijos: si comparten elemento,
           GSAP toma la opacidad 0 previa a la entrada y la restaura al volver arriba. */}
-      <div data-hero-banner className="flex flex-1 flex-col items-center justify-center px-4 py-14 text-center md:py-10">
+      <div data-hero-banner className="relative flex flex-1 flex-col items-center justify-center px-4 py-14 text-center md:py-10">
         <m.div
           initial={{ opacity: 0, scale: 1.06 }}
           animate={introDone ? { opacity: 1, scale: 1 } : undefined}
           transition={{ duration: 1.4, ease: ease.outSoft, delay: 0.15 }}
           className="w-[min(78vw,30rem)]"
         >
-          <Logo variant="full" tone="dark" priority title="Perfumería By Maria" className="w-full" />
+          <Image src={logoColor} alt="Perfumería By Maria" priority sizes="(min-width: 768px) 480px, 78vw" className="h-auto w-full" />
         </m.div>
 
         <m.p {...show(0.5)} className="eyebrow mt-10 text-sand">

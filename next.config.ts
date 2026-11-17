@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Carpeta de compilación alternativa (p. ej. NEXT_DIST_DIR=.next-preview) para probar un build
+  // de producción sin pisar el servidor de desarrollo, que usa .next.
+  distDir: process.env.NEXT_DIST_DIR || ".next",
   // Metadata siempre en <head> (no por streaming): la leen todos los crawlers y previews sociales.
   htmlLimitedBots: /.*/,
   experimental: {
