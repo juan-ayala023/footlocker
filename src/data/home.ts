@@ -4,7 +4,7 @@
 export const hero = {
   title: "Perfumería By Maria · Perfumes 100% originales",
   eyebrow: "Perfumes 100% originales",
-  lead: "Fragancias de las mejores casas, selladas y garantizadas. Envío gratis a toda Colombia.",
+  lead: "Fragancias de las mejores casas, selladas de fábrica.",
   ctas: [
     { label: "Para ella", href: "/catalogo?genero=mujer" },
     { label: "Para él", href: "/catalogo?genero=hombre" },
