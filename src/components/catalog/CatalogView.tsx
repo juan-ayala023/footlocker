@@ -3,17 +3,15 @@
 import { useCallback, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { AnimatePresence, LayoutGroup, m } from "framer-motion";
-import { BrandRail, type BrandTile } from "@/components/catalog/BrandRail";
+import { CollectionsIntro } from "@/components/catalog/CollectionsIntro";
 import { FilterPanel } from "@/components/catalog/FilterPanel";
 import dynamic from "next/dynamic";
 import { ProductCard } from "@/components/catalog/ProductCard";
 import { TextReveal } from "@/components/motion/TextReveal";
 import { TransitionLink } from "@/components/motion/TransitionLink";
-import { brandImages, multiBrand } from "@/config/site";
 import {
   activeFilterCount,
   applyFilters,
-  brandKey,
   emptyFilters,
   getFacets,
   GENDERS,
@@ -57,49 +55,6 @@ export function CatalogView({ products, collections }: { products: Product[]; co
     ? `“${filters.q}”`
     : (single?.name ?? (filters.oferta ? "Ofertas" : (section ?? "Todos los perfumes")));
 
-  // Una tarjeta por marca disponible en la vista actual (ignorando el filtro de marca),
-  // con la foto de su producto mejor ubicado.
-  const brandTiles = useMemo<BrandTile[]>(() => {
-    const ranked = applyFilters(products, { ...filters, marca: [] });
-    const available = facets.brands.filter((b) => b.count > 0);
-    const tiles: BrandTile[] = available
-      .filter((b) => !multiBrand.brands.includes(b.key))
-      .map((b) => ({
-        ...b,
-        image: brandImages[b.key] ?? ranked.find((p) => brandKey(p.brand) === b.key)?.images[0] ?? null,
-      }))
-      .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
-    // Las marcas agrupadas van juntas en una sola tarjeta, al final.
-    const grouped = available.filter((b) => multiBrand.brands.includes(b.key));
-    if (grouped.length) {
-      tiles.push({
-        key: multiBrand.key,
-        label: multiBrand.label,
-        count: grouped.reduce((n, b) => n + b.count, 0),
-        image: multiBrand.image,
-      });
-    }
-    return tiles;
-  }, [products, filters, facets.brands]);
-
-  // Marcas reales que cubre la tarjeta Multimarca en la vista actual.
-  const groupedKeys = useMemo(
-    () => facets.brands.filter((b) => b.count > 0 && multiBrand.brands.includes(b.key)).map((b) => b.key),
-    [facets.brands],
-  );
-  const multiActive =
-    groupedKeys.length > 0 &&
-    filters.marca.length === groupedKeys.length &&
-    groupedKeys.every((k) => filters.marca.includes(k));
-
-  const toggleBrand = useCallback(
-    (key: string) => {
-      if (key === multiBrand.key) return setFilters({ marca: multiActive ? [] : groupedKeys });
-      setFilters({ marca: filters.marca.length === 1 && filters.marca[0] === key ? [] : [key] });
-    },
-    [filters.marca, setFilters, multiActive, groupedKeys],
-  );
-
   const panel = <FilterPanel filters={filters} facets={facets} onChange={setFilters} />;
 
   return (
@@ -117,7 +72,7 @@ export function CatalogView({ products, collections }: { products: Product[]; co
 
       <div className="pb-24">
         <div className="container-page">
-          <BrandRail brands={brandTiles} active={multiActive ? [multiBrand.key] : filters.marca} onSelect={toggleBrand} />
+          <CollectionsIntro />
           {/* Barra de herramientas */}
           <div className="sticky top-0 z-30 -mx-(--gutter) mb-6 flex items-center justify-between gap-4 border-b border-line bg-ink/90 px-(--gutter) py-3 backdrop-blur-xl md:mb-10">
             <div className="flex items-center gap-3 sm:gap-4">

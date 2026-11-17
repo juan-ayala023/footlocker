@@ -42,24 +42,6 @@ export const announcements = [
   { text: "Ofertas en fragancias seleccionadas", href: "/catalogo?oferta=1", cta: "Ver ofertas" },
 ] as const;
 
-/**
- * Foto de campaña por marca para la fila de marcas del catálogo (clave = marca en minúsculas).
- * Si una marca no tiene, se usa la foto de su producto más destacado.
- * Ej.: dior: "https://<proyecto>.supabase.co/storage/v1/object/public/products/marcas/dior.jpg"
- */
-export const brandImages: Record<string, string> = {};
-
-/**
- * Tarjeta "Multimarca" de la fila de marcas: agrupa estas marcas (sin tarjeta propia)
- * y al tocarla filtra todas a la vez. Sus productos siguen en el catálogo y en el filtro.
- */
-export const multiBrand = {
-  key: "multimarca",
-  label: "Multimarca",
-  image: "/brand/logo-original.jpeg",
-  brands: [] as string[],
-};
-
 export type MenuItem = {
   label: string;
   href: string;
