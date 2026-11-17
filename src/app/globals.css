@@ -58,16 +58,16 @@
   --text-lead--line-height: 1.55;
 }
 
-/* Zona clara crema (catálogo estilo editorial): invierte los tokens para que los componentes se adapten solos. */
+/* Zona clara blanca (catálogo estilo editorial): invierte los tokens para que los componentes se adapten solos. */
 .theme-light {
-  --ink: #faf6f0;
-  --ink-raised: #f1e9df;
+  --ink: #ffffff;
+  --ink-raised: #f6f4f2;
   --bone: #2b0509;
   --mist: #553439;
   --stone: #7a6064;
   --sand: #6b0213; /* vino del logo: CTAs y detalles */
   --line: rgb(43 5 9 / 0.12);
-  --hot: #8a5310; /* dorado oscuro con contraste AA sobre crema */
+  --hot: #8a5310; /* dorado oscuro con contraste AA sobre blanco */
   color-scheme: light;
 }
 
