@@ -1,5 +1,6 @@
 // Filtros del catálogo: funciones puras compartidas por servidor y cliente.
-// La URL es la fuente de verdad: ?marca=dior,chanel&ml=50,100&genero=mujer&coleccion=arabes&precio_min=300000&precio_max=700000&orden=precio-asc
+// La URL es la fuente de verdad: ?marca=dior,chanel&notas=floral,dulce&ocasion=noche&disponibilidad=disponible&orden=precio-asc
+import { AVAILABILITY, NOTES, OCCASIONS, type Availability } from "@/data/perfume";
 import type { Gender, Product } from "@/types/catalog";
 
 export const SORTS = [
@@ -16,6 +17,12 @@ export type Filters = {
   ml: number[];
   genero: Gender[];
   coleccion: string[];
+  /** Notas olfativas (cualquiera de las elegidas). */
+  notas: string[];
+  /** Ocasiones de uso (cualquiera de las elegidas). */
+  ocasion: string[];
+  /** Disponible (con stock) y/o agotado. */
+  disponibilidad: Availability[];
   /** Solo productos con precio rebajado (compare_at_price). */
   oferta: boolean;
   /** Búsqueda de texto (nombre, marca, colección). */
@@ -36,6 +43,9 @@ export const emptyFilters: Filters = {
   ml: [],
   genero: [],
   coleccion: [],
+  notas: [],
+  ocasion: [],
+  disponibilidad: [],
   q: "",
   oferta: false,
   min: null,
@@ -63,6 +73,9 @@ export function parseFilters(sp: ParamSource): Filters {
     ml: list(read(sp, "ml")).map(Number).filter((n) => !Number.isNaN(n)),
     genero: list(read(sp, "genero")).filter((g): g is Gender => GENDERS.some((x) => x.value === g)),
     coleccion: list(read(sp, "coleccion")),
+    notas: list(read(sp, "notas")).filter((n) => NOTES.some((x) => x.value === n)),
+    ocasion: list(read(sp, "ocasion")).filter((o) => OCCASIONS.some((x) => x.value === o)),
+    disponibilidad: list(read(sp, "disponibilidad")).filter((d): d is Availability => AVAILABILITY.some((x) => x.value === d)),
     q: (read(sp, "q") ?? "").trim().slice(0, 60),
     oferta: read(sp, "oferta") === "1",
     min: int(read(sp, "precio_min")),
@@ -78,6 +91,9 @@ export function serializeFilters(f: Filters): string {
   if (f.coleccion.length) sp.set("coleccion", f.coleccion.join(","));
   if (f.genero.length) sp.set("genero", f.genero.join(","));
   if (f.marca.length) sp.set("marca", f.marca.join(","));
+  if (f.notas.length) sp.set("notas", f.notas.join(","));
+  if (f.ocasion.length) sp.set("ocasion", f.ocasion.join(","));
+  if (f.disponibilidad.length) sp.set("disponibilidad", f.disponibilidad.join(","));
   if (f.ml.length) sp.set("ml", [...f.ml].sort((a, b) => a - b).join(","));
   if (f.min !== null) sp.set("precio_min", String(f.min));
   if (f.max !== null) sp.set("precio_max", String(f.max));
@@ -93,7 +109,7 @@ export const isNew = (p: Product, now = Date.now()) => now - new Date(p.created_
 export const inStock = (p: Product) => p.variants.some((v) => v.stock > 0);
 export const totalStock = (p: Product) => p.variants.reduce((n, v) => n + v.stock, 0);
 
-type Key = "marca" | "ml" | "genero" | "coleccion" | "precio";
+type Key = "marca" | "ml" | "genero" | "coleccion" | "precio" | "notas" | "ocasion" | "disponibilidad";
 
 // Sin tildes ni mayúsculas: "clasicos" encuentra "Clásicos".
 const normalize = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
@@ -109,6 +125,9 @@ export function matches(p: Product, f: Filters, except?: Key) {
   if (except !== "coleccion" && f.coleccion.length && !(p.collection && f.coleccion.includes(p.collection.slug))) return false;
   // "Hombre" y "Mujer" incluyen los unisex.
   if (except !== "genero" && f.genero.length && !f.genero.some((g) => g === p.gender || (p.gender === "unisex" && g !== "unisex"))) return false;
+  if (except !== "notas" && f.notas.length && !f.notas.some((n) => (p.notes ?? []).includes(n))) return false;
+  if (except !== "ocasion" && f.ocasion.length && !f.ocasion.some((o) => (p.occasions ?? []).includes(o))) return false;
+  if (except !== "disponibilidad" && f.disponibilidad.length && !f.disponibilidad.includes(inStock(p) ? "disponible" : "agotado")) return false;
   if (except !== "ml" && f.ml.length && !p.variants.some((v) => v.stock > 0 && f.ml.includes(v.size))) return false;
   if (except !== "precio" && f.min !== null && p.price < f.min) return false;
   if (except !== "precio" && f.max !== null && p.price > f.max) return false;
@@ -143,6 +162,9 @@ export type Facets = {
   sizes: { size: number; available: boolean }[];
   genders: { value: Gender; label: string; count: number }[];
   collections: Record<string, number>;
+  notes: { value: string; label: string; count: number }[];
+  occasions: { value: string; label: string; count: number }[];
+  availability: { value: Availability; label: string; count: number }[];
   /** Cuántos resultados daría "Solo en oferta" con el resto de filtros. */
   onSale: number;
   price: { min: number; max: number };
@@ -179,6 +201,12 @@ export function getFacets(products: Product[], f: Filters): Facets {
       count: products.filter((p) => matches(p, { ...f, genero: [g.value] })).length,
     })),
     collections,
+    notes: NOTES.map((n) => ({ ...n, count: products.filter((p) => (p.notes ?? []).includes(n.value) && matches(p, f, "notas")).length })),
+    occasions: OCCASIONS.map((o) => ({ ...o, count: products.filter((p) => (p.occasions ?? []).includes(o.value) && matches(p, f, "ocasion")).length })),
+    availability: AVAILABILITY.map((a) => ({
+      ...a,
+      count: products.filter((p) => (inStock(p) ? "disponible" : "agotado") === a.value && matches(p, f, "disponibilidad")).length,
+    })),
     onSale: products.filter((p) => matches(p, { ...f, oferta: true })).length,
     price: {
       // Redondeado a decenas de mil para que el slider tenga pasos limpios.
@@ -201,5 +229,16 @@ export function getRelated(products: Product[], product: Product, limit = 4): Pr
 }
 
 export function activeFilterCount(f: Filters) {
-  return (f.q ? 1 : 0) + (f.oferta ? 1 : 0) + f.marca.length + f.ml.length + f.genero.length + f.coleccion.length + (f.min !== null || f.max !== null ? 1 : 0);
+  return (
+    (f.q ? 1 : 0) +
+    (f.oferta ? 1 : 0) +
+    f.marca.length +
+    f.notas.length +
+    f.ocasion.length +
+    f.disponibilidad.length +
+    f.ml.length +
+    f.genero.length +
+    f.coleccion.length +
+    (f.min !== null || f.max !== null ? 1 : 0)
+  );
 }

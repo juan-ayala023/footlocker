@@ -7,8 +7,10 @@ import type { Collection, Product } from "@/types/catalog";
 
 export type Catalog = { products: Product[]; collections: Collection[] };
 
+// "*" en vez de columnas sueltas: si la migración de notas/ocasiones (0007) aún no corre,
+// el catálogo sigue funcionando con esas listas vacías.
 const PRODUCT_SELECT = `
-  id, slug, name, brand, description, price, compare_at_price, gender, images, featured, best_seller, created_at,
+  *,
   collection:collections ( slug, name ),
   variants:product_variants ( id, size, stock, sku )
 `;
@@ -25,6 +27,8 @@ async function fetchFromSupabase(): Promise<Catalog> {
   return {
     products: (products.data as unknown as Product[]).map((p) => ({
       ...p,
+      notes: p.notes ?? [],
+      occasions: p.occasions ?? [],
       // numeric llega como número o string según la versión de PostgREST
       variants: p.variants.map((v) => ({ ...v, size: Number(v.size) })).sort((a, b) => a.size - b.size),
     })),
@@ -50,6 +54,8 @@ function fromSeed(): Catalog {
     return {
       ...p,
       id: p.slug,
+      notes: [],
+      occasions: [],
       collection: col && { slug: col.slug, name: col.name },
       created_at: new Date(now - i * SEED_DAYS_APART * 86_400_000).toISOString(),
       variants: sizes.map(([size, stock]) => ({

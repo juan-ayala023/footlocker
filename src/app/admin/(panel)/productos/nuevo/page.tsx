@@ -31,6 +31,8 @@ export default async function NewProductPage() {
           gender: "unisex",
           collection_id: null,
           images: [],
+          notes: [],
+          occasions: [],
           featured: false,
           best_seller: false,
           active: true,

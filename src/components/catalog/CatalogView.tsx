@@ -21,8 +21,8 @@ import {
   serializeFilters,
   SORTS,
   type Filters,
-  type Sort,
 } from "@/lib/catalog-filters";
+import { AVAILABILITY, NOTES, OCCASIONS } from "@/data/perfume";
 import { ease } from "@/lib/motion";
 import { cn, formatCOP } from "@/lib/utils";
 import type { Collection, Product } from "@/types/catalog";
@@ -100,7 +100,7 @@ export function CatalogView({ products, collections }: { products: Product[]; co
     [filters.marca, setFilters, multiActive, groupedKeys],
   );
 
-  const panel = <FilterPanel filters={filters} facets={facets} collections={collections} onChange={setFilters} />;
+  const panel = <FilterPanel filters={filters} facets={facets} onChange={setFilters} />;
 
   return (
     // Catálogo completo en zona clara (estilo editorial): .theme-light invierte los tokens.
@@ -138,21 +138,10 @@ export function CatalogView({ products, collections }: { products: Product[]; co
               </p>
             </div>
 
-            <label className="flex items-center gap-3">
-              <span className="eyebrow hidden text-stone sm:inline">Ordenar</span>
-              <select
-                value={filters.orden}
-                aria-label="Ordenar productos"
-                onChange={(e) => setFilters({ orden: e.target.value as Sort })}
-                className="h-10 w-36 cursor-pointer truncate rounded-full border border-line bg-ink px-4 text-sm text-bone focus:border-sand focus:outline-none sm:w-auto"
-              >
-                {SORTS.map((s) => (
-                  <option key={s.value} value={s.value}>
-                    {s.label}
-                  </option>
-                ))}
-              </select>
-            </label>
+            {/* El orden se elige en el panel de filtros ("Ordenar por"). */}
+            {filters.orden !== "relevancia" && (
+              <p className="text-sm text-stone">{SORTS.find((s) => s.value === filters.orden)?.label}</p>
+            )}
           </div>
 
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
@@ -247,6 +236,21 @@ function ActiveChips({
       key: `m-${m}`,
       label: facets.brands.find((b) => b.key === m)?.label ?? m,
       remove: () => onChange({ marca: filters.marca.filter((s) => s !== m) }),
+    })),
+    ...filters.notas.map((n) => ({
+      key: `n-${n}`,
+      label: NOTES.find((x) => x.value === n)?.label ?? n,
+      remove: () => onChange({ notas: filters.notas.filter((s) => s !== n) }),
+    })),
+    ...filters.ocasion.map((o) => ({
+      key: `o-${o}`,
+      label: OCCASIONS.find((x) => x.value === o)?.label ?? o,
+      remove: () => onChange({ ocasion: filters.ocasion.filter((s) => s !== o) }),
+    })),
+    ...filters.disponibilidad.map((d) => ({
+      key: `d-${d}`,
+      label: AVAILABILITY.find((x) => x.value === d)?.label ?? d,
+      remove: () => onChange({ disponibilidad: filters.disponibilidad.filter((s) => s !== d) }),
     })),
     ...filters.ml.map((t) => ({
       key: `t-${t}`,

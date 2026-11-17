@@ -3,6 +3,7 @@
 import { revalidatePath, revalidateTag } from "next/cache";
 import { redirect } from "next/navigation";
 import { z } from "zod";
+import { NOTE_VALUES, OCCASION_VALUES } from "@/data/perfume";
 import { requireAdmin } from "@/lib/admin/auth";
 import { COMMUNITY_PENDING_BUCKET } from "@/lib/community-upload";
 import type { OrderStatus } from "@/lib/orders-types";
@@ -49,6 +50,8 @@ const productSchema = z
     gender: z.enum(["hombre", "mujer", "unisex"]),
     collection_id: z.uuid().nullable(),
     images: z.array(z.url()).max(12),
+    notes: z.array(z.enum(NOTE_VALUES)).max(NOTE_VALUES.length),
+    occasions: z.array(z.enum(OCCASION_VALUES)).max(OCCASION_VALUES.length),
     featured: z.boolean(),
     best_seller: z.boolean(),
     active: z.boolean(),
@@ -56,7 +59,8 @@ const productSchema = z
       .array(
         z.object({
           id: z.uuid().optional(),
-          size: z.number().min(15).max(55),
+          // Presentación en ml (la columna admite hasta 99999,9 desde la migración 0007).
+          size: z.number().positive("Presentación inválida").max(1000, "La presentación va en ml (máximo 1000)"),
           stock: z.number().int().min(0).max(9999),
           sku: z.string().trim().max(60).optional(),
         }),

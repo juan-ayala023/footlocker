@@ -14,7 +14,8 @@ export default async function EditProductPage({ params }: { params: Promise<{ id
   const [{ data: product }, { data: collections }, { data: brandRows }] = await Promise.all([
     supabase
       .from("products")
-      .select("id, slug, name, brand, description, price, compare_at_price, gender, collection_id, images, featured, best_seller, active, variants:product_variants ( id, size, stock, sku )")
+      // "*": si la migración 0007 (notas/ocasiones) aún no corre, el formulario abre con esas listas vacías.
+      .select("*, variants:product_variants ( id, size, stock, sku )")
       .eq("id", id)
       .maybeSingle(),
     supabase.from("collections").select("id, name").order("sort_order"),
@@ -23,9 +24,24 @@ export default async function EditProductPage({ params }: { params: Promise<{ id
   if (!product) notFound();
 
   const initial: ProductFormValue = {
-    ...product,
+    id: product.id,
+    slug: product.slug,
+    name: product.name,
+    brand: product.brand,
+    price: product.price,
+    compare_at_price: product.compare_at_price,
+    gender: product.gender,
+    collection_id: product.collection_id,
+    images: product.images ?? [],
+    notes: product.notes ?? [],
+    occasions: product.occasions ?? [],
+    featured: product.featured,
+    best_seller: product.best_seller,
+    active: product.active,
     description: product.description ?? "",
-    variants: product.variants.map((v) => ({ ...v, size: Number(v.size) })).sort((a, b) => a.size - b.size),
+    variants: (product.variants as { id: string; size: number | string; stock: number; sku: string }[])
+      .map((v) => ({ ...v, size: Number(v.size) }))
+      .sort((a, b) => a.size - b.size),
   };
 
   return (

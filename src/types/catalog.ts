@@ -11,6 +11,7 @@ export type Collection = {
 
 export type Variant = {
   id: string;
+  /** Presentación en ml. */
   size: number;
   stock: number;
   sku: string;
@@ -27,6 +28,10 @@ export type Product = {
   gender: Gender;
   collection: Pick<Collection, "slug" | "name"> | null;
   images: string[];
+  /** Notas olfativas (valores de NOTES en data/perfume). */
+  notes: string[];
+  /** Ocasiones de uso (valores de OCCASIONS en data/perfume). */
+  occasions: string[];
   featured: boolean;
   /** Etiqueta "Más vendido" (se marca desde el admin). */
   best_seller: boolean;

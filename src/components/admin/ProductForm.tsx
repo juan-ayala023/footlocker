@@ -6,6 +6,7 @@ import { ImageManager } from "@/components/admin/ImageManager";
 import { Switch } from "@/components/admin/ProductToggles";
 import { Panel } from "@/components/admin/ui";
 import { inputClass } from "@/components/checkout/Field";
+import { NOTES, OCCASIONS } from "@/data/perfume";
 import { deleteProduct, saveProduct, type ProductInput } from "@/lib/admin/actions";
 import { slugify } from "@/lib/slug";
 import { cn, formatCOP } from "@/lib/utils";
@@ -23,11 +24,15 @@ export type ProductFormValue = {
   gender: "hombre" | "mujer" | "unisex";
   collection_id: string | null;
   images: string[];
+  notes: string[];
+  occasions: string[];
   featured: boolean;
   best_seller: boolean;
   active: boolean;
   variants: { id?: string; size: number; stock: number; sku: string }[];
 };
+
+const toggleIn = (list: string[], value: string) => (list.includes(value) ? list.filter((x) => x !== value) : [...list, value]);
 
 const PRESETS = [
   { label: "30 ml", sizes: [30] },
@@ -88,6 +93,8 @@ export function ProductForm({
       gender: v.gender,
       collection_id: v.collection_id || null,
       images: v.images,
+      notes: v.notes as ProductInput["notes"],
+      occasions: v.occasions as ProductInput["occasions"],
       featured: v.featured,
       best_seller: v.best_seller,
       active: v.active,
@@ -289,6 +296,14 @@ export function ProductForm({
           </div>
         </Panel>
 
+        <Panel title="Notas olfativas y ocasión">
+          <div className="space-y-5 p-5">
+            <p className="text-xs text-stone">Son los filtros del catálogo. Marca todas las que apliquen.</p>
+            <ChipGroup label="Notas olfativas" options={NOTES} value={v.notes} onToggle={(x) => set("notes", toggleIn(v.notes, x))} />
+            <ChipGroup label="Ocasión" options={OCCASIONS} value={v.occasions} onToggle={(x) => set("occasions", toggleIn(v.occasions, x))} />
+          </div>
+        </Panel>
+
         <div className="space-y-3">
           {error && (
             <p role="alert" className="border border-sand/40 bg-sand/10 px-4 py-3 text-sm text-sand">
@@ -306,6 +321,43 @@ export function ProductForm({
         </div>
       </div>
     </form>
+  );
+}
+
+function ChipGroup({
+  label,
+  options,
+  value,
+  onToggle,
+}: {
+  label: string;
+  options: readonly { value: string; label: string }[];
+  value: string[];
+  onToggle: (value: string) => void;
+}) {
+  return (
+    <fieldset>
+      <legend className="eyebrow mb-3 text-stone">{label}</legend>
+      <div className="flex flex-wrap gap-2">
+        {options.map((o) => {
+          const active = value.includes(o.value);
+          return (
+            <button
+              key={o.value}
+              type="button"
+              aria-pressed={active}
+              onClick={() => onToggle(o.value)}
+              className={cn(
+                "rounded-full border px-3 py-1.5 text-xs transition-colors",
+                active ? "border-sand bg-sand text-ink" : "border-line text-mist hover:border-bone hover:text-bone",
+              )}
+            >
+              {o.label}
+            </button>
+          );
+        })}
+      </div>
+    </fieldset>
   );
 }
 
