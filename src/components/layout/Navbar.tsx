@@ -3,7 +3,7 @@
 import { TransitionLink as Link } from "@/components/motion/TransitionLink";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
-import { AnimatePresence, m, useMotionValueEvent, useScroll } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
 import { Logo } from "@/components/brand/Logo";
 import { usePageTransition } from "@/components/motion/PageTransition";
@@ -22,8 +22,6 @@ const SUGGESTIONS = ["Dior", "Carolina Herrera", "Versace", "Lattafa"];
 
 export function Navbar() {
   const pathname = usePathname();
-  const { scrollY } = useScroll();
-  const [pastHero, setPastHero] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const count = useCart(selectCartCount);
@@ -31,14 +29,8 @@ export function Navbar() {
   const closeMenu = useCallback(() => setMenuOpen(false), []);
 
   const light = LIGHT_ROUTES.some((r) => pathname.startsWith(r)) && !menuOpen;
-  // En la home, mientras está sobre el banner blanco, la barra va clara con logo e iconos negros.
-  // Vercel regenera la home (ISR) como "/index", y esa ruta queda en la página servida.
-  const isHome = pathname === "/" || pathname === "/index";
-  const overHero = isHome && !pastHero && !menuOpen;
 
-  // La barra siempre queda fija y sin fondo; solo cambia el color del texto según lo que haya detrás.
-  useMotionValueEvent(scrollY, "change", (y) => setPastHero(y > window.innerHeight * 0.8));
-
+  // La barra siempre queda fija y sin fondo; en las rutas claras va con texto oscuro.
   // Al cambiar de página se cierra el buscador.
   useEffect(() => setSearchOpen(false), [pathname]);
 
@@ -47,7 +39,7 @@ export function Navbar() {
       <header
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-colors duration-500 ease-premium",
-          (light || overHero) && "theme-light text-bone",
+          light && "theme-light text-bone",
           // Fondo solo con el buscador abierto, para que se lean los resultados.
           searchOpen && !menuOpen && "bg-ink",
         )}
@@ -55,7 +47,7 @@ export function Navbar() {
         <AnnouncementBar />
         <nav aria-label="Principal" className="container-page grid h-(--nav-row-h) grid-cols-[auto_1fr_auto] items-center gap-6">
           <Link href="/" aria-label={`${site.name}, inicio`} className="-ml-1 block p-1">
-            <Logo priority tone={light || overHero ? "dark" : "light"} title="" className="w-11 md:w-12" />
+            <Logo priority tone={light ? "dark" : "light"} title="" className="w-11 md:w-12" />
           </Link>
 
           <ul className="hidden items-center justify-center gap-7 md:flex">

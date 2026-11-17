@@ -8,11 +8,11 @@ import { hero } from "@/data/home";
 import { useGsap } from "@/lib/gsap";
 import { ease } from "@/lib/motion";
 import { useUi } from "@/store/ui";
-import logoColor from "../../../public/brand/logo-full-color.webp";
+import logoWhite from "../../../public/brand/logo-full-blanco.webp";
 
 /**
- * Portada como la foto del logo: papel blanco con hojas en relieve (public/brand/hero-relieve-blanco.webp,
- * sacado de la foto original sin el logo) y encima el logo a color con su tapón plateado.
+ * Portada: vinotinto con las hojas en relieve de la foto del logo (public/brand/hero-relieve-vino.webp,
+ * sacado de la foto original sin el logo) y encima el logo en blanco.
  * Entra con un leve zoom tras el preloader y se aleja suavemente al hacer scroll.
  */
 export function Hero() {
@@ -49,9 +49,9 @@ export function Hero() {
   return (
     <section
       ref={section}
-      className="theme-light relative flex flex-col overflow-hidden bg-white pt-(--nav-h) text-bone md:min-h-svh"
+      className="relative flex flex-col overflow-hidden bg-[#6b0213] pt-(--nav-h) text-bone md:min-h-svh"
     >
-      <Image src="/brand/hero-relieve-blanco.webp" alt="" fill priority sizes="100vw" className="object-cover" />
+      <Image src="/brand/hero-relieve-vino.webp" alt="" fill priority sizes="100vw" className="object-cover" />
 
       <h1 className="sr-only">{hero.title}</h1>
 
@@ -64,13 +64,13 @@ export function Hero() {
           transition={{ duration: 1.4, ease: ease.outSoft, delay: 0.15 }}
           className="w-[min(78vw,30rem)]"
         >
-          <Image src={logoColor} alt="Perfumería By Maria" priority sizes="(min-width: 768px) 480px, 78vw" className="h-auto w-full" />
+          <Image src={logoWhite} alt="Perfumería By Maria" priority sizes="(min-width: 768px) 480px, 78vw" className="h-auto w-full" />
         </m.div>
 
         <m.p {...show(0.5)} className="eyebrow mt-10 text-sand">
           {hero.eyebrow}
         </m.p>
-        <m.p {...show(0.6)} className="text-lead mt-4 max-w-md text-mist">
+        <m.p {...show(0.6)} className="text-lead mt-4 max-w-md text-bone/85">
           {hero.lead}
         </m.p>
         <m.div {...show(0.7)} className="mt-10 flex flex-wrap justify-center gap-3">
